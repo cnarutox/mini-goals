@@ -3,9 +3,9 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/mine/mine",
-    "pages/habitlist/habitlist",
+    "pages/habit/habit",
     "pages/friends/friends",
-    "pages/nullHabitList/nullHabitList"
+    "pages/habit_clock/habit_clock"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -20,7 +20,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/habitlist/habitlist",
+        "pagePath": "pages/habit/habit",
         "text": "习惯"
       },
       {

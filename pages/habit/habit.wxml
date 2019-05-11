@@ -20,4 +20,5 @@
             </navigator>
         </view>
     </view>
+    <button bindtap='gotoHabitClock'>gotoHabitClock(测试用,请不要删除)</button>
 </view>

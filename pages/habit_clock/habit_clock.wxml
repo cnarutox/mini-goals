@@ -1,0 +1,27 @@
+<!--pages/habit_clock/habit_clock.wxml-->
+<!--pages/habit/habit.wxml-->
+<!-- <text>pages/habit/habit.wxml</text> -->
+<view class="page">
+    <view style="display: flex;justify-content: center;margin-top:10rpx;margin-bottom:30rpx">
+      <text>{{curDate}}</text>
+    </view>
+    <view style="display: flex;justify-content: center">
+      <image style='width:300rpx;height:300rpx' src="{{clockRightIcon}}" mode="aspectFit"></image>
+    </view>
+    <view style="display: flex;margin-top:30rpx;margin-bottom:30rpx">
+      <image style='width:60rpx;height:60rpx;margin-left:60rpx;margin-right:30rpx' src="{{statisticsIcon}}" mode="aspectFit"></image>
+      <text>{{statisticsTag}}</text>
+    </view>
+    <view style="display: flex;justify-content:space-around;margin-top:30rpx;margin-bottom:30rpx"> 
+      <view wx:for="{{weekClock}}" style='display: flex;flex-direction:column'>
+        <text>{{item.tag}}</text>
+        <image wx:if="{{item.isClock}}" style='width:60rpx;height:60rpx' src="{{clockRightIcon}}" mode="aspectFit"></image>
+        <image wx:else style='width:60rpx;height:60rpx' src="{{clockNullIcon}}" mode="aspectFit"></image>
+      </view>
+    </view>
+    <view style="display: flex;">
+      <button>{{shareButtonLabel}}</button>
+      <button>{{statisticsButtonLabel}}</button>
+    </view>
+</view>
+

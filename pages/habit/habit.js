@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    curDate:'4/24'
   },
 
   /**
@@ -65,5 +65,10 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  gotoHabitClock:function(){
+    wx.navigateTo({
+      url: '../habit_clock/habit_clock'
+    })
   }
 })
