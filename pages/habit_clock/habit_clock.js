@@ -92,5 +92,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  gotoHabitClockStatistics:function(){
+    wx.navigateTo({
+      url: '../habit_clock_statistics/habit_clock_statistics'
+    })
   }
 })

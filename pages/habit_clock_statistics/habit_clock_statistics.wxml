@@ -1,0 +1,30 @@
+<!--pages/habit_clock_statistics/habit_clock_statistics.wxml-->
+<view class="page">
+  <view style="display: flex;justify-content: center;margin-top:30rpx;margin-bottom:30rpx">
+    <text style="font-size:60rpx">{{curHabitTag}}</text>
+  </view>
+  <view style="display: flex;justify-content: center;align-items:center;margin-top:50rpx;margin-bottom:200rpx">
+    <text decode="{{true}}" style="font-size:60rpx">{{habitPercentBeginLabel}}</text>
+    <text style="font-size:100rpx;color:red">{{curHabitPercent}}</text>
+    <text decode="{{true}}" style="font-size:60rpx">{{habitPercentEndLabel}}</text>
+  </view>
+  <view style="display: flex;margin-top:30rpx;margin-bottom:30rpx">
+    <image style='width:60rpx;height:60rpx;margin-left:60rpx;margin-right:30rpx' src="{{dataIcon}}" mode="aspectFit"></image>
+    <text>{{dataTag}}</text>
+  </view>
+  <view style="display: flex;justify-content:space-between;margin-left:60rpx;margin-right:60rpx;margin-top:30rpx;margin-bottom:30rpx">
+    <text>{{clockBeginLabel}}</text>
+    <view>
+      <text>{{clocks}}</text>
+      <text decode="{{true}}">{{clockEndLabel}}</text>
+    </view>
+  </view>
+  <view style="display: flex;justify-content:space-between;margin-left:60rpx;margin-right:60rpx;margin-top:30rpx;margin-bottom:30rpx">
+    <text>{{likeBeginLabel}}</text>
+    <view bindtap="likeTap">
+      <image wx:if="{{likeThis}}" style='width:60rpx;height:60rpx' src="{{likeThisIcon}}" mode="aspectFit"></image>
+      <image wx:else style='width:60rpx;height:60rpx;' src="{{likeIcon}}" mode="aspectFit"></image>
+      <text style='width:100rpx'>{{likes}}</text>
+    </view>
+  </view>
+</view>
