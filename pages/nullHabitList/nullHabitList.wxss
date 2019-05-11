@@ -1,0 +1,19 @@
+/* pages/nullHabitList.wxss */
+.iconfornull{
+  align-items: center;
+  border: 10px solid white;
+}
+
+.addBtn{
+  background-color:cadetblue;
+  margin-right: 25px;
+  margin-left: 25px;
+  color: white;
+}
+
+.warning{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 5px 15px 5px;
+}
