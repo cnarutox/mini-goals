@@ -2,8 +2,8 @@
 <!-- <text>pages/habit/habit.wxml</text> -->
 <view class="page">
     <block wx:for="{{habitArray}}" wx:for-item="itemName">
-        <view class="weui-cells weui-cells_after-title">
-            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+        <view class="weui-cells weui-cells_after-title" bindlongpress="handleLongPress">
+            <navigator url="../habit_clock/habit_clock" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
                 <view class="weui-cell__hd">
                     <image src="{{itemName.src}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
                 </view>

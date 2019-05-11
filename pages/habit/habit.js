@@ -92,5 +92,22 @@ Page({
     wx.navigateTo({
       url: "/pages/nullHabitList/nullHabitList"
     })
+  },
+
+  handleLongPress: function() {
+    console.log("長按");
+    wx.showActionSheet({
+      itemList: ['删除习惯','归档习惯','修改习惯'],
+      success: function(res){
+        console.log(res.tapIndex)
+      },
+      fail: function(res){
+        console.log(res.errMsg)
+      }
+    })
+  },
+
+  addHabit: function(){
+    console.log("addHabit");
   }
 })
