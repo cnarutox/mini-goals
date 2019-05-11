@@ -5,7 +5,8 @@
     "pages/mine/mine",
     "pages/habit/habit",
     "pages/friends/friends",
-    "pages/habit_clock/habit_clock"
+    "pages/habit_clock/habit_clock",
+    "pages/habitlist/habitlist"
   ],
   "window": {
     "backgroundTextStyle": "light",

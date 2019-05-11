@@ -6,7 +6,24 @@ Page({
    * 页面的初始数据
    */
   data: {
-    curDate:'4/24'
+    curDate:'4/24',
+    habitArray: [
+      {
+        src: '../images/icon_footer.png',
+        txt: 'footer',
+        illustrate: 0,
+      },
+      {
+        src: '../images/icon_intro.png',
+        txt: 'intro',
+        illustrate: 2,
+      },
+      {
+        src: '../images/icon_nav_nav.png',
+        txt: 'nav_nav',
+        illustrate: 3,
+      }
+    ]
   },
 
   /**
@@ -69,6 +86,11 @@ Page({
   gotoHabitClock:function(){
     wx.navigateTo({
       url: '../habit_clock/habit_clock'
+    })
+  },
+  bindTapView: function () {
+    wx.navigateTo({
+      url: "/pages/nullHabitList/nullHabitList"
     })
   }
 })
