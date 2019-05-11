@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/mine/mine",
     "pages/habit/habit",
-    "pages/friends/friends"
+    "pages/friends/friends",
+    "pages/habit_clock/habit_clock"
   ],
   "window": {
     "backgroundTextStyle": "light",
