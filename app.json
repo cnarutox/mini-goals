@@ -7,7 +7,8 @@
     "pages/friends/friends",
     "pages/habit_clock/habit_clock",
     "pages/habitlist/habitlist",
-    "pages/habit_clock_statistics"
+    "pages/habit_clock_statistics/habit_clock_statistics",
+    "pages/habit_clock_details/habit_clock_details"
   ],
   "window": {
     "backgroundTextStyle": "light",

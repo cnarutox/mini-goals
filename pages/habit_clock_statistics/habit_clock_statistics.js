@@ -18,7 +18,9 @@ Page({
     likes: 10,
     likeThis:true,
     likeIcon: '../images/like.png',
-    likeThisIcon: '../images/like_this.png'
+    likeThisIcon: '../images/like_this.png',
+    shareButtonLabel: '炫耀一下',
+    detailButtonLabel:'打卡详情'
   },
 
   /**
@@ -94,6 +96,11 @@ Page({
     this.setData({
       likeThis:true,
       likes: this.data.likes + 1
+    })
+  },
+  gotoHabitClockDetails:function(){
+    wx.navigateTo({
+      url: '../habit_clock_details/habit_clock_details'
     })
   }
 })

@@ -1,4 +1,4 @@
-// pages/habit_clock_statistics.js
+// pages/habit_clock_details/habit_clock_details.js
 Page({
 
   /**

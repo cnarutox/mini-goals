@@ -27,4 +27,8 @@
       <text style='width:100rpx'>{{likes}}</text>
     </view>
   </view>
+  <view style="display: flex;">
+    <button>{{shareButtonLabel}}</button>
+    <button bindtap='gotoHabitClockDetails'>{{detailButtonLabel}}</button>
+  </view>
 </view>
