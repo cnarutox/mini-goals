@@ -133,5 +133,8 @@ Page({
 
   addHabit: function(){
     console.log("addHabit");
+    wx.navigateTo({
+      url: "/pages/addHabit/addHabit"
+    })
   }
 })

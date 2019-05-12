@@ -62,5 +62,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  addHabit: function(){
+    wx.navigateTo({
+      url: "/pages/addHabit/addHabit"
+    })
   }
 })
