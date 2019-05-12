@@ -1,7 +1,40 @@
 /* pages/add_habit/add_habit.wxss */
+.joinBtn{
+  width: 20%;
+  height: 1%;
+  align-items: flex-start;
+  border-radius: 98rpx;
+  align-self: center;
+  font-size: 60%;
+  margin-right: 2%;
+  background-color: orange;
+  color: white;
+}
+
+.illu{
+  font-size: 50%;
+  color: darkgray;
+}
+
+.flex_row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: stretch;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.flex_column{
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
 .btn1{
   width: 80%;
-  margin-top: 80rpx;
+  margin-top: 50rpx;
   border-radius: 98rpx;
   display: flex;
   flex-direction: row;

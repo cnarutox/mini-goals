@@ -96,6 +96,28 @@ Page({
     buttonSecondLine: [
       {
         'title': '晨间',
+        'habitArray': [
+          {
+            src: '../images/calendar1.png',
+            txt: 'calendar1',
+            illustrate: 0,
+          },
+          {
+            src: '../images/calendar2.png',
+            txt: 'calendar2',
+            illustrate: 2,
+          },
+          {
+            src: '../images/cle_btn.png',
+            txt: 'cle_btn',
+            illustrate: 3,
+          },
+          {
+            src: '../images/icon_footer.png',
+            txt: 'footer',
+            illustrate: 0,
+          }
+        ]
       },
       {
         'title': '晚间',
@@ -173,6 +195,15 @@ Page({
     console.log("clicked button index ", btnIndex);
     this.setData({
       idx: btnIndex
+    })
+  },
+
+  addsuccess: function(){
+    console.log("addsuccess")
+    wx.showToast({
+      title: "加入习惯成功",
+      icon: "success",
+      duration: 2000
     })
   }
 })
