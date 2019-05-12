@@ -5,7 +5,34 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    buttonFirstLine:[
+      {
+        'title': '热门',
+      },
+      {
+        'title': '健康',
+      },
+      {
+        'title': '学习',
+      },
+      {
+        'title': '思考',
+      }
+    ],
+    buttonSecondLine: [
+      {
+        'title': '晨间',
+      },
+      {
+        'title': '晚间',
+      },
+      {
+        'title': '有趣',
+      },
+      {
+        'title': '推荐',
+      }
+    ]
   },
 
   /**
@@ -62,5 +89,10 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  goIndex: function(e){
+    let index = e.currentTarget.dataset.index;
+    console.log("每个index", index);
   }
 })

@@ -1,1 +1,54 @@
 /* pages/add_habit/add_habit.wxss */
+.btn1{
+  width: 80%;
+  margin-top: 80rpx;
+  border-radius: 98rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn2{
+  width: 80%;
+  border-radius: 98rpx;
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnImg{
+  margin-right: 8rpx;
+  width: 46rpx;
+  height: 46rpx;
+}
+
+btn1::after{
+  border-radius: 98rpx;
+  border: 0;
+}
+
+#panel{
+  height: 65vh;
+  background: #fff;
+  margin: 0 auto;
+  padding-top: 15px;
+  width: 100%;
+  display: block;
+}
+
+.box{
+  display: block;
+  padding-top: 15px;
+  width: 100%;
+}
+
+.row{
+  display: inline-block;
+  margin-left: 22rpx;
+  margin-right: 22rpx;
+  justify-content: center;
+  align-items: center;
+}
