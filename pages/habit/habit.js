@@ -99,7 +99,36 @@ Page({
     wx.showActionSheet({
       itemList: ['删除习惯','归档习惯','修改习惯'],
       success: function(res){
-        console.log(res.tapIndex)
+        console.log(res.tapIndex);
+        switch(res.tapIndex){
+          case 0:
+            console.log("删除习惯");
+            wx.showModal({
+              title: '删除习惯',
+              content: '删除习惯后，该习惯的历史记录会被清空，你确定删除？',
+              cancleText: '取消',
+              cancelColor: '#000000',
+              confirmText: '删除',
+              confirmColor: '#576B95',
+              success: function(res){
+                if(res.cancel){
+                  console.log("cancel")
+                }
+                else if(res.confirm){
+                  console.log('confirm')
+                }
+              }
+            })
+            break;
+          case 1:
+            console.log("归档习惯");
+            break;
+          case 2:
+            console.log("修改习惯");
+            break;
+          default:
+            console.log("default");
+        }
       },
       fail: function(res){
         console.log(res.errMsg)
