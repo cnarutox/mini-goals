@@ -83,11 +83,6 @@ Page({
   onShareAppMessage: function () {
 
   },
-  gotoHabitClock:function(){
-    wx.navigateTo({
-      url: '../habit_clock/habit_clock'
-    })
-  },
   bindTapView: function () {
     wx.navigateTo({
       url: "/pages/nullHabitList/nullHabitList"

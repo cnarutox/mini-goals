@@ -14,5 +14,4 @@
     </block>
     <button bindtap="addHabit">添加习惯</button>
     <button bindtap="bindTapView">空列表页</button>
-    <button bindtap='gotoHabitClock'>gotoHabitClock(测试用,请不要删除)</button>
 </view>
