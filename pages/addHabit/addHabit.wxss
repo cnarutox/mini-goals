@@ -30,15 +30,6 @@ btn1::after{
   border: 0;
 }
 
-#panel{
-  height: 65vh;
-  background: #fff;
-  margin: 0 auto;
-  padding-top: 15px;
-  width: 100%;
-  display: block;
-}
-
 .box{
   display: block;
   padding-top: 15px;
@@ -51,4 +42,9 @@ btn1::after{
   margin-right: 22rpx;
   justify-content: center;
   align-items: center;
+}
+
+._cell{
+  background: coral;
+  color: white;
 }

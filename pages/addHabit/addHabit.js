@@ -5,6 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
+    btnNameIndex: {
+      '热门': 0,
+      '健康': 1,
+      '学习': 2,
+      '思考': 3,
+      '晨间': 4,
+      '晚间': 5,
+      '有趣': 6,
+      '推荐': 7,
+    },
     buttonFirstLine:[
       {
         'title': '热门',
@@ -32,7 +42,8 @@ Page({
       {
         'title': '推荐',
       }
-    ]
+    ],
+    idx: 0,
   },
 
   /**
@@ -92,7 +103,12 @@ Page({
   },
 
   goIndex: function(e){
-    let index = e.currentTarget.dataset.index;
-    console.log("每个index", index);
+    let btn = e.currentTarget.dataset.text;
+    let btnIndex = this.data.btnNameIndex[btn];
+    console.log("clicked button ", btn);
+    console.log("clicked button index ", btnIndex);
+    this.setData({
+      idx: btnIndex
+    })
   }
 })

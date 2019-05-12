@@ -10,26 +10,12 @@
 <view class="box">
   <view>
     <view class="row" wx:for="{{buttonFirstLine}}" wx:for-item="item">
-      <button class="cell" type="default" size="mini" bindtap="goIndex">{{item.title}}</button>
+      <button class="{{btnNameIndex[item.title]==idx?'_cell':'cell'}}" size="mini" bindtap="goIndex" data-text="{{item.title}}">{{item.title}}</button>
     </view>
   </view>
   <view>
     <view class="row" wx:for="{{buttonSecondLine}}" wx:for-item="item">
-      <button class="cell" type="default" size="mini" bindtap="goIndex">{{item.title}}</button>
+      <button class="{{btnNameIndex[item.title]==idx?'_cell':'cell'}}" size="mini" bindtap="goIndex" data-text="{{item.title}}">{{item.title}}</button>
     </view>
   </view>
 </view>
-<!-- <view id="panel" class="flex-column">
-  <view class="box">
-    <view>
-      <view class="row" wx:for="{{buttonFirstLine}}" wx:for-item="item">
-        <button class="cell" type="default" size="mini" bindtap="goIndex">{{item.title}}</button>
-      </view>
-    </view>
-    <view>
-      <view class="row" wx:for="{{buttonSecondLine}}" wx:for-item="item">
-        <button class="cell" type="default" size="mini" bindtap="goIndex">{{item.title}}</button>
-      </view>
-    </view>
-  </view>
-</view> -->
