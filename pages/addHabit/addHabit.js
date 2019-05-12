@@ -18,9 +18,73 @@ Page({
     buttonFirstLine:[
       {
         'title': '热门',
+        'habitArray': [
+          {
+            src: '../images/icon_footer.png',
+            txt: 'footer',
+            illustrate: 0,
+          },
+          {
+            src: '../images/icon_intro.png',
+            txt: 'intro',
+            illustrate: 2,
+          },
+          {
+            src: '../images/icon_nav_nav.png',
+            txt: 'nav_nav',
+            illustrate: 3,
+          }
+        ]
       },
       {
         'title': '健康',
+        'habitArray': [
+          {
+            src: '../images/calendar1.png',
+            txt: 'calendar1',
+            illustrate: 0,
+          },
+          {
+            src: '../images/calendar2.png',
+            txt: 'calendar2',
+            illustrate: 2,
+          },
+          {
+            src: '../images/cle_btn.png',
+            txt: 'cle_btn',
+            illustrate: 3,
+          },
+          {
+            src: '../images/icon_footer.png',
+            txt: 'footer',
+            illustrate: 0,
+          },
+          {
+            src: '../images/icon_intro.png',
+            txt: 'intro',
+            illustrate: 2,
+          },
+          {
+            src: '../images/icon_nav_nav.png',
+            txt: 'nav_nav',
+            illustrate: 3,
+          },
+          {
+            src: '../images/calendar1.png',
+            txt: 'calendar1',
+            illustrate: 0,
+          },
+          {
+            src: '../images/calendar2.png',
+            txt: 'calendar2',
+            illustrate: 2,
+          },
+          {
+            src: '../images/cle_btn.png',
+            txt: 'cle_btn',
+            illustrate: 3,
+          }
+        ]
       },
       {
         'title': '学习',
