@@ -121,6 +121,11 @@ Page({
     console.log('radiod发生change事件，携带value值为：', e.detail.value)
     switch(e.detail.value){
       case "byWeek":
+        if(this.data.cycleSelectType!=1){
+          this.setData({
+            weekDaySelected: [0,0,0,0,0,0,0]
+          })
+        }
         this.setData({
           hiddenWeeks: false,
           hiddenFre: true,
@@ -128,6 +133,11 @@ Page({
         });
         break;
       case "byFre":
+        if(this.data.cycleSelectType!=2){
+          this.setData({
+            index: 0
+          })
+        }
         this.setData({
           hiddenFre: false,
           hiddenWeeks: true,
@@ -188,7 +198,7 @@ Page({
   bindPickerChange(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      index: e.detail.value
+      index: e.detail.value,
     })
   },
 })

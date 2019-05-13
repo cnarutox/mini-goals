@@ -39,7 +39,7 @@
         <view class="outerChexkBoxes" hidden="{{hiddenWeeks}}">
           <checkbox-group  class="checkboxes" bindchange="checkboxChange">
             <label class="checkbox" wx:for="{{week_items}}">
-              <checkbox value="{{item.name}}" checked="{{item.checked}}"/>
+              <checkbox value="{{item.name}}" checked="{{weekDaySelected[index]===1}}"/>
               {{item.value}}
             </label>
           </checkbox-group>
