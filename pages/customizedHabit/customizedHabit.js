@@ -10,7 +10,7 @@ Page({
     hiddenName: false,
     hiddenWeeks: true,
     hiddenFre: true,  
-    hiddenIntervals: true,
+    hiddenInterval: true,
     
     cycleSelectType: 0, //1->byWeeks, 2->byFre, 3->byInterval
     weekDaySelected: [0, 0, 0, 0, 0, 0, 0],
@@ -129,7 +129,7 @@ Page({
         this.setData({
           hiddenWeeks: false,
           hiddenFre: true,
-          hiddenIntervals: true,
+          hiddenInterval: true,
         });
         break;
       case "byFre":
@@ -141,12 +141,17 @@ Page({
         this.setData({
           hiddenFre: false,
           hiddenWeeks: true,
-          hiddenIntervals: true,
+          hiddenInterval: true,
         })
         break;
       case "byInterval":
+        if(this.data.cycleSelectedType!=3){
+          this.setData({
+            index: 0
+          })
+        }
         this.setData({
-          hiddenIntervals: false,
+          hiddenInterval: false,
           hiddenFre: true,
           hiddenWeeks: true,
         })
@@ -195,10 +200,17 @@ Page({
       cycleStored: this.data.index,
     })
   },
+  confirmByInterval: function () {
+    this.setData({
+      hiddenInterval: true,
+      cycleSelectType: 3,
+      cycleStored: this.data.index,
+    })
+  },
   bindPickerChange(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       index: e.detail.value,
     })
-  },
+  } 
 })

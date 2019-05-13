@@ -14,21 +14,13 @@
   justify-content: center;
 }
 
-.confirmWeekBtn{
+.confirmBtn{
   align-self: center;
   margin-right: 2%;
   font-size: 75%;
   background-color: green;
   color: white;
   }
-
-.confirmFreBtn{
-  align-self: center;
-  margin-right: 2%;
-  font-size: 75%;
-  background-color: green;
-  color: white;
-}
 
 .outerChexkBoxes{
   display: flex;

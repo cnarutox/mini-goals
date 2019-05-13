@@ -43,7 +43,7 @@
               {{item.value}}
             </label>
           </checkbox-group>
-          <button class="confirmWeekBtn" bindtap="confirmByWeeks">确定</button>
+          <button class="confirmBtn" bindtap="confirmByWeeks">确定</button>
         </view>
         <view class="outerTimePicker" hidden="{{hiddenFre}}">
             <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
@@ -51,7 +51,15 @@
                 当前选择，每周 {{array[index]}} 次
               </view>
             </picker>
-            <button class="confirmFreBtn" bindtap="confirmByFre">确定</button>    
+            <button class="confirmBtn" bindtap="confirmByFre">确定</button>    
+        </view>
+        <view class="outerTimePicker" hidden="{{hiddenInterval}}">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="picker">
+                当前选择，每隔 {{array[index]}} 天
+              </view>
+            </picker>
+            <button class="confirmBtn" bindtap="confirmByInterval">确定</button>    
         </view>
     </view>
 </view>
