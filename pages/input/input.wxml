@@ -1,4 +1,4 @@
-<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+    <view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
     <view class="page__hd">
         <view class="page__title">Input</view>
         <view class="page__desc">表单输入</view>
@@ -11,7 +11,6 @@
             <radio-group bindchange="radioChange">
                 <label class="weui-cell weui-check__label" wx:for="{{radioItems}}" wx:key="value">
                     <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}"/>
-
                     <view class="weui-cell__bd">{{item.name}}</view>
                     <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
                         <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>

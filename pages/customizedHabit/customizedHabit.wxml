@@ -31,7 +31,7 @@
         <view class="radios">
           <radio-group class="radio-group" bindchange="radioChange">
             <label class="radio" wx:for="{{radio_items}}">
-              <radio value="{{item.name}}" checked="{{item.checked}}" />
+              <radio value="{{item.name}}" checked="{{item.checked}}"/>
               {{item.value}}
             </label>
           </radio-group>
@@ -39,11 +39,19 @@
         <view class="outerChexkBoxes" hidden="{{hiddenWeeks}}">
           <checkbox-group  class="checkboxes" bindchange="checkboxChange">
             <label class="checkbox" wx:for="{{week_items}}">
-              <checkbox value="{{item.name}}" checked="{{item.checked}}" />
+              <checkbox value="{{item.name}}" checked="{{item.checked}}"/>
               {{item.value}}
             </label>
           </checkbox-group>
-          <button class="confirmBtn">确定</button>
+          <button class="confirmWeekBtn" bindtap="confirmByWeeks">确定</button>
+        </view>
+        <view class="outerTimePicker" hidden="{{hiddenFre}}">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="picker">
+                当前选择，每周 {{array[index]}} 次
+              </view>
+            </picker>
+            <button class="confirmFreBtn" bindtap="confirmByFre">确定</button>    
         </view>
     </view>
 </view>
