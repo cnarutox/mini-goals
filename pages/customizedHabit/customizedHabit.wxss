@@ -1,1 +1,27 @@
 /* pages/customized_habit.wxss */
+.inpt{
+  align-self: center;
+  margin-left: 5%;
+}
+
+.joinBtn{
+  width: 20%;
+  height: 50%;
+  align-items: flex-start;
+  border-radius: 98rpx;
+  align-self: center;
+  font-size: 60%;
+  margin-right: 2%;
+  background-color: orange;
+  color: white;
+}
+
+.popups{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: stretch;
+  margin: 20rpx;
+  padding-top: 20rpx;
+}
+

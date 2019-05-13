@@ -205,5 +205,12 @@ Page({
       icon: "success",
       duration: 2000
     })
+  },
+
+  navigateToCustomized: function(){
+    console.log("navigateToCustomized");
+    wx.navigateTo({
+      url: '/pages/customizedHabit/customizedHabit'
+    })
   }
 })
