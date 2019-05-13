@@ -1,4 +1,37 @@
 /* pages/customized_habit.wxss */
+.confirmBtn{
+  align-self: center;
+  margin-right: 2%;
+  font-size: 75%;
+  background-color: green;
+  color: white;
+  }
+
+.checkboxes{
+  display: flex;
+  flex-direction: column;
+  /* border: 5rpx solid gray;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px; */
+}
+
+.outerChexkBoxes{
+  display: flex;
+  flex-direction: column;
+  border: 5rpx solid gray;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+}
+.radios{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
 .inpt{
   align-self: center;
   margin-left: 5%;
@@ -24,4 +57,5 @@
   margin: 20rpx;
   padding-top: 20rpx;
 }
+
 

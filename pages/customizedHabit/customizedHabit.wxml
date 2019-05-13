@@ -28,5 +28,22 @@
                 <button class="joinBtn" bindtap="establish">添加</button>
             </view>
         </view>
+        <view class="radios">
+          <radio-group class="radio-group" bindchange="radioChange">
+            <label class="radio" wx:for="{{radio_items}}">
+              <radio value="{{item.name}}" checked="{{item.checked}}" />
+              {{item.value}}
+            </label>
+          </radio-group>
+        </view>
+        <view class="outerChexkBoxes" hidden="{{hiddenWeeks}}">
+          <checkbox-group  class="checkboxes" bindchange="checkboxChange">
+            <label class="checkbox" wx:for="{{week_items}}">
+              <checkbox value="{{item.name}}" checked="{{item.checked}}" />
+              {{item.value}}
+            </label>
+          </checkbox-group>
+          <button class="confirmBtn">确定</button>
+        </view>
     </view>
 </view>

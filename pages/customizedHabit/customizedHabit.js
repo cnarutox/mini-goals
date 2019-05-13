@@ -8,6 +8,28 @@ Page({
     inputShowed: false,
     inputVal: "",
     hiddenName: false,
+    hiddenWeeks: true,
+    hiddenFre: true,  
+    hiddenIntervals: true,
+
+    selectPerson: true,
+    firstPerson: '个人',
+    selectArea: false,
+
+    radio_items:[
+      {name: 'byWeek', value: '按星期'},
+      {name: 'byFre', value: '按频率'},
+      {name: 'byInterval', value: '按间隔'},
+    ],
+    week_items:[
+      { name: 'Mon', value: '星期一' },
+      { name: 'Tue', value: '星期二' },
+      { name: 'Wed', value: '星期三' },
+      { name: 'Thus', value: '星期四' },
+      { name: 'Fri', value: '星期五' },
+      { name: 'Sat', value: '星期六' },
+      { name: 'Sun', value: '星期天' }
+    ]
   },
 
   /**
@@ -92,5 +114,54 @@ Page({
     this.setData({
       hiddenName: true
     })
-  }
+  },
+  radioChange(e){
+    console.log('radiod发生change事件，携带value值为：', e.detail.value)
+    switch(e.detail.value){
+      case "byWeek":
+        this.setData({
+          hiddenWeeks: false
+        });
+        break;
+      case "byFre":
+        this.setData({
+        })
+        break;
+      case "byInterval":
+        this.setData({
+
+        })
+        break;
+      default:
+        console.log("default")
+    }
+  },
+  checkboxChange(e) {
+    console.log('checkbox发生change事件，携带value值为：', e.detail.value)
+  },
+
+
+  //点击选择类型
+  clickPerson: function () {
+    var selectPerson = this.data.selectPerson;
+    if (selectPerson == true) {
+      this.setData({
+        selectArea: true,
+        selectPerson: false,
+      })
+    } else {
+      this.setData({
+        selectArea: false,
+        selectPerson: true,
+      })
+    }
+  },
+  //点击切换
+  mySelect: function (e) {
+    this.setData({
+      firstPerson: e.target.dataset.me,
+      selectPerson: true,
+      selectArea: false,
+    })
+  },
 })
