@@ -1,1 +1,33 @@
 /* pages/mine/mine.wxss */
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.userinfo{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  background: yellowgreen;
+  width: 100%;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+
+.userinfo-nickname{
+  color: #fff;
+}
+
+.separate {
+  width: 100%;
+  height: 5rpx;
+  background-color: lightgray;
+}
