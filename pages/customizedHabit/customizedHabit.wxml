@@ -61,5 +61,22 @@
             </picker>
             <button class="confirmBtn" bindtap="confirmByInterval">确定</button>    
         </view>
+        <view class="outerIconSelect">
+          <text class="iconSelectedText">已经选择icon:</text>
+          <button class="iconSelectedBtn" bindtap="selectIcon">
+            <icon class="iconSelected" type="{{iconSelected.type}}" color="{{iconSelected.color}}" size="{{iconSelected.size}}" />
+          </button>
+        </view>
+        <view class="outerIconRadios" hidden="{{hiddenIcon}}">
+          <view class="iconRadios">
+            <radio-group class="radio-group" bindchange="iconRadioChange">
+              <label class="iconRadio" wx:for="{{icon_items}}">
+                <radio value="{{item.name}}" checked="{{item.checked}}"/>
+                <icon type="{{item.value.type}}" color="{{item.value.color}}" size="{{item.value.size}}" />
+              </label>
+            </radio-group>
+          </view>
+          <button class="confirmBtn" bindtap="confirmByIcon">确定</button>
+        </view>
     </view>
 </view>

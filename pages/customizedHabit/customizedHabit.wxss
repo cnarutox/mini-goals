@@ -1,12 +1,60 @@
 /* pages/customized_habit.wxss */
+.outerIconSelect{
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx;
+}
+
+.iconSelectedText{
+  padding: 0% 5% 0% 5%;
+}
+
+.iconSelectedBtn{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 20%;
+  height: 5%;
+}
+
+.iconSelected{
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 5% 5% 5% 5%;
+}
+
+.outerIconRadios{
+  display: flex;
+  flex-direction: column;
+  border: 5rpx solid gray;
+  border-radius: 5px;
+  margin: 20rpx;
+  padding: 20rpx;
+}
+
+.iconRadios{
+  display: flex;
+  flex-direction: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 15rpx;
+}
+
+.iconRadio{
+  display: flex;
+  flex-direction: row;
+  margin: 20rpx;
+}
+
 .outerTimePicker{
   display: flex;
   align-items: center;
   justify-content: center;
   border: 5rpx solid gray;
   border-radius: 5px;
-  margin: 5px;
-  padding: 5px;
+  margin: 20rpx;
+  padding: 20rpx;
 }
 
 .picker{
@@ -16,9 +64,9 @@
 
 .confirmBtn{
   align-self: center;
-  margin-right: 2%;
+  margin-right: 20rpx;
   font-size: 75%;
-  background-color: green;
+  background-color: rgb(83, 218, 83);
   color: white;
   }
 
@@ -27,20 +75,24 @@
   flex-direction: column;
   border: 5rpx solid gray;
   border-radius: 5px;
-  margin: 5px;
-  padding: 5px;
+  margin: 20rpx;
+  padding: 20rpx;
 }
+
 
 .checkboxes{
   display: flex;
   flex-direction: column;
 }
 
+
+
 .radios{
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  padding: 5% 5% 0% 5%;
 }
 
 
