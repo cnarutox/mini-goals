@@ -1,5 +1,4 @@
 <!--pages/customized_habit.wxml-->
-<text>pages/customized_habit.wxml</text>
 <view class="page">
     <view class="page__bd">
         <view class="weui-search-bar">
@@ -77,6 +76,15 @@
             </radio-group>
           </view>
           <button class="confirmBtn" bindtap="confirmByIcon">确定</button>
+        </view>
+        <view class="outerDescription">
+            <view class="descriptionHead">习惯详细描述:</view>
+            <view class="textAreaContainer" hidden="{{hiddenTextArea}}">
+              <textarea class="descriptionArea" placeholder="请输入文本"  bindinput="watchinput" bindblur="textAreaOnBlur"/>
+            </view>
+            <view class="showDescriptionArea" hidden="{{hiddenShowArea}}">
+              <text bindtap="tapText">{{descriptionForHabit}}</text>
+            </view>
         </view>
     </view>
 </view>

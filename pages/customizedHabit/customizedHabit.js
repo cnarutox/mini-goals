@@ -19,6 +19,10 @@ Page({
     intervalSelected: 0,
     cycleStored: 0,
 
+    descriptionForHabit: '',
+    hiddenShowArea: true,
+    hiddenTextArea: false,
+
     iconSelectedAttr: {
       type: 'cancel',
       color: '',
@@ -343,6 +347,41 @@ Page({
   selectIcon: function(){
     this.setData({
       hiddenIcon: !this.data.hiddenIcon,
+    })
+  },
+
+  /**
+   * Input点击确认
+   */
+  confirmByText: function(e){
+    console.log('confirmByText')
+    console.log(e.detail.value)
+  },
+
+  /**
+   * 监听输入
+   */
+  watchinput: function(e){
+    console.log(e.detail.value)
+  },
+
+  textAreaOnBlur: function(e){
+    console.log("textAreaOnBlur, ", e.detail.value)
+    console.log("textAreaOnBlur.length", e.detail.value.length)
+    if(e.detail.value.length>0){
+      this.setData({
+        descriptionForHabit: e.detail.value,
+        hiddenShowArea: false,
+        hiddenTextArea: true,
+      })
+    }
+  },
+
+  tapText: function(){
+    console.log('tapText')
+    this.setData({
+      hiddenShowArea: true,
+      hiddenTextArea: false,
     })
   }
 })
