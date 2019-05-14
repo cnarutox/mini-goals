@@ -86,5 +86,13 @@
               <text bindtap="tapText">{{descriptionForHabit}}</text>
             </view>
         </view>
+        <view class="outerPermissionSelect">
+          <text class="iconSelectedText">是否展示该习惯</text>
+          <switch style='zoom:.6;' class="sharablePermission" checked="{{shareable}}" bindchange="switchChange"></switch>
+        </view>
+        <view class="outerPersistencePermissionSelected" hidden="{{hiddenPersist}}">
+          <text class="iconSelectedText">是否分享坚持情况</text>
+          <switch style='zoom:.6;' class="sharablePermission" checked="{{persistenceSharaeble}}" bindchange="switchPersistChange"></switch>
+        </view>
     </view>
 </view>

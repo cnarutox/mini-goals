@@ -19,9 +19,13 @@ Page({
     intervalSelected: 0,
     cycleStored: 0,
 
-    descriptionForHabit: '',
-    hiddenShowArea: true,
-    hiddenTextArea: false,
+    descriptionForHabit: '点此输入你的描述~',
+    hiddenShowArea: false,
+    hiddenTextArea: true,
+
+    shareable: false,
+    persistenceSharaeble: false,
+    hiddenPersist: true,
 
     iconSelectedAttr: {
       type: 'cancel',
@@ -359,7 +363,7 @@ Page({
   },
 
   /**
-   * 监听输入
+   * 监听textarea输入
    */
   watchinput: function(e){
     console.log(e.detail.value)
@@ -368,13 +372,18 @@ Page({
   textAreaOnBlur: function(e){
     console.log("textAreaOnBlur, ", e.detail.value)
     console.log("textAreaOnBlur.length", e.detail.value.length)
+    var toShow = ""
     if(e.detail.value.length>0){
-      this.setData({
-        descriptionForHabit: e.detail.value,
-        hiddenShowArea: false,
-        hiddenTextArea: true,
-      })
+      toShow = e.detail.value
     }
+    else{
+      toShow = "点这里输入你的描述~"
+    }
+    this.setData({
+      descriptionForHabit: toShow,
+      hiddenShowArea: false,
+      hiddenTextArea: true,
+    })
   },
 
   tapText: function(){
@@ -382,6 +391,25 @@ Page({
     this.setData({
       hiddenShowArea: true,
       hiddenTextArea: false,
+    })
+  },
+
+  /**
+   * 监听textarea输入
+   */
+  switchChange: function(){
+    console.log('switchChange')
+    console.log(this.data.hiddenPersist)
+    this.setData({
+      shareable: !this.data.shareable,
+      hiddenPersist: !this.data.hiddenPersist,
+    })
+  },
+
+  switchPersistChange: function(){
+    console.log('switchPersistChange')
+    this.setData({
+      persistenceShareable: !this.data.persistenceSharaeble
     })
   }
 })
