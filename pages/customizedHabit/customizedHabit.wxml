@@ -64,7 +64,7 @@
         <view class="outerIconSelect">
           <text class="iconSelectedText">已经选择icon:</text>
           <button class="iconSelectedBtn" bindtap="selectIcon">
-            <icon class="iconSelected" type="{{iconSelected.type}}" color="{{iconSelected.color}}" size="{{iconSelected.size}}" />
+            <icon class="iconSelected" type="{{iconSelectedAttr.type}}" color="{{iconSelectedAttr.color}}" size="{{iconSelectedAttr.size}}" />
           </button>
         </view>
         <view class="outerIconRadios" hidden="{{hiddenIcon}}">

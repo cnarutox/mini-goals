@@ -17,13 +17,14 @@ Page({
     weekDaySelected: [0, 0, 0, 0, 0, 0, 0],
     freSelected: 0,
     intervalSelected: 0,
-    cycleStored: 0, //1->binary, 2->real, 3->real
+    cycleStored: 0,
 
-    iconSelected:{
+    iconSelectedAttr: {
       type: 'cancel',
       color: '',
       size: 25,
     },
+    iconIndexSelected: 0,
 
     array: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
     index: 0,
@@ -169,12 +170,6 @@ Page({
     })
   },
 
-  /**
-   * icon选择单选框
-   */
-  iconRadioChange(e){
-    console.log('icon radiod发生change事件，携带value值为：', e.detail.value)
-  },
 
   /**
    * 周期选择单选框
@@ -264,13 +259,6 @@ Page({
   },
 
   /**
-   * 图标选择勾选图标
-   */
-  checkboxChangeIcon(e){
-    console.log('checkbox发生change事件，携带value值为：', e.detail.value)
-  },
-
-  /**
    * 周期选择勾选星期后点击确认
    */
   confirmByWeeks: function(){
@@ -322,8 +310,29 @@ Page({
    * 周期选择勾选星期后点击确认
    */
   confirmByIcon: function () {
-    
+    var iconIndex = this.data.iconIndexSelected
+    var iconSelectedAttrType = 'iconSelectedAttr.type'
+    var iconSelectedAttrColor = 'iconSelectedAttr..color'
+    var iconSelectedAttrSize = 'iconSelectedAttr.size'
+    this.setData({
+      hiddenIcon: true,
+      [iconSelectedAttrType]: this.data.icon_items[iconIndex].value.type,
+      [iconSelectedAttrColor]: this.data.icon_items[iconIndex].value.color,
+      [iconSelectedAttrSize]: this.data.icon_items[iconIndex].value.size,
+    })
   },
+
+  /**
+   * icon选择单选框
+   */
+  iconRadioChange(e) {
+    console.log('icon radiod发生change事件，携带value值为：', e.detail.value)
+    this.setData({
+      iconIndexSelected: parseInt(e.detail.value) - 1
+    })
+    console.log('this.data.iconIndexSelected, ', this.data.iconIndexSelected)
+  },
+
 
   bindPickerChange(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
