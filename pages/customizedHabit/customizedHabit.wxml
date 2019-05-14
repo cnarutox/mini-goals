@@ -94,5 +94,8 @@
           <text class="iconSelectedText">是否分享坚持情况</text>
           <switch style='zoom:.6;' class="sharablePermission" checked="{{persistenceSharaeble}}" bindchange="switchPersistChange"></switch>
         </view>
+        <view class="outerConfirm">
+          <button class="createBtn" bindtap="createSuc">创建习惯</button>
+        </view>
     </view>
 </view>

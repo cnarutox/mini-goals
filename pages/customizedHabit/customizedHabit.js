@@ -411,5 +411,14 @@ Page({
     this.setData({
       persistenceShareable: !this.data.persistenceSharaeble
     })
+  },
+
+  createSuc: function(){
+    wx.showToast({
+      title: '成功',
+      icon: 'succes',
+      duration: 1000,
+      mask: true
+    })
   }
 })

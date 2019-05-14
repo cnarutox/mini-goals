@@ -1,4 +1,13 @@
 /* pages/customized_habit.wxss */
+.outerConfirm{
+  margin: 20rpx;
+}
+
+.createBtn{
+  color: white;
+  background-color: green;
+}
+
 .outerPersistencePermissionSelected{
   display: flex;
   flex-direction: row;
@@ -45,14 +54,11 @@
   padding: 20rpx;
 }
 
-.descriptionArea{
-
-}
-
 .outerIconSelect{
   display: flex;
   flex-direction: row;
   margin: 20rpx;
+  justify-content: space-between;
 }
 
 .iconSelectedText{
