@@ -14,6 +14,8 @@ Page({
     
     cycleSelectType: 0, //1->byWeeks, 2->byFre, 3->byInterval
     weekDaySelected: [0, 0, 0, 0, 0, 0, 0],
+    freSelected: 0,
+    intervalSelected: 0,
     cycleStored: 0, //1->binary, 2->real, 3->real
 
     array: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
@@ -119,11 +121,18 @@ Page({
   },
   radioChange(e){
     console.log('radiod发生change事件，携带value值为：', e.detail.value)
+    console.log('cycleSelectType: ', this.data.cycleSelectType)
     switch(e.detail.value){
       case "byWeek":
-        if(this.data.cycleSelectType!=1){
+        console.log('weekDaySelected, ', this.data.weekDaySelected)
+        if(this.data.cycleSelectType===1){
           this.setData({
-            weekDaySelected: [0,0,0,0,0,0,0]
+            index: 0
+          })
+        }
+        else{
+          this.setData({
+            weekDaySelected: [0, 0, 0, 0, 0, 0, 0]
           })
         }
         this.setData({
@@ -133,7 +142,12 @@ Page({
         });
         break;
       case "byFre":
-        if(this.data.cycleSelectType!=2){
+        if(this.data.cycleSelectType===2){
+          this.setData({
+            index: this.data.freSelected
+          })
+        }
+        else{
           this.setData({
             index: 0
           })
@@ -145,7 +159,12 @@ Page({
         })
         break;
       case "byInterval":
-        if(this.data.cycleSelectedType!=3){
+        if(this.data.cycleSelectType===3){
+          this.setData({
+            index: this.data.intervalSelected
+          })
+        }
+        else{
           this.setData({
             index: 0
           })
@@ -191,6 +210,9 @@ Page({
       hiddenWeeks: true,
       cycleSelectType: 1,
       cycleStored: intResult,
+      freSelected: 0,
+      intervalSeleceted: 0,
+      index: 0,
     })
   },
   confirmByFre: function(){
@@ -198,6 +220,10 @@ Page({
       hiddenFre: true,
       cycleSelectType: 2,
       cycleStored: this.data.index,
+      weekDaySelected: [0, 0, 0, 0, 0, 0, 0],
+      freSelected: this.data.index,
+      intervalSelected: 0,
+      index: 0,
     })
   },
   confirmByInterval: function () {
@@ -205,6 +231,10 @@ Page({
       hiddenInterval: true,
       cycleSelectType: 3,
       cycleStored: this.data.index,
+      weekDaySelected: [0,0,0,0,0,0,0],
+      freSelected: 0,
+      intervalSelected: this.data.index,
+      index: 0,
     })
   },
   bindPickerChange(e) {
