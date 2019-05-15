@@ -1,8 +1,22 @@
 <!--pages/mine/mine.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  <view class="userinfoview">
+    <view class="userinfo">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" ></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+    <view class="separate"></view>
   </view>
-  <view class="separate"></view>
+  <view class="mainpage">
+    <view class="icontext">
+      <icon class="iconmine" type="success" color="green" size="25"></icon>
+      <text class="textmine">我的主页</text>
+    </view>
+    <view class="separate"></view>
+    <view class="icontext">
+      <icon class="iconmine" type="info" color="green" size="25"></icon>
+      <text class="textmine">坚持情况</text>
+    </view>
+    <view class="separate"></view>
+  </view>
 </view>

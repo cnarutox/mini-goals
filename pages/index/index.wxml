@@ -7,7 +7,20 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
+  <!-- <view class="flex-container">
+      <view class="flex-item flex-item1">1</view>
+      <view class="flex-item flex-item2">2</view>
+      <view class="flex-item flex-item3">3</view>
+      <view class="flex-item flex-item4">3</view>
+      <view class="flex-item flex-item5">5</view>
+      <view class="flex-item flex-item6">6</view>
+      <view class="flex-item flex-item7">7</view>
+      <view class="flex-item flex-item8">8</view>
+      <view class="flex-item flex-item9">9</view>
+      <view class="flex-item flex-item0">0</view>
+  </view> -->
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
+  
 </view>
