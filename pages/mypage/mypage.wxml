@@ -20,16 +20,4 @@
     </scroll-view>
     <view class="separate"></view>
   </view>
-  <view>
-    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">  
-      <block wx:for="{{archives}}" wx:for-index="index">  
-        <swiper-item>  
-          <view class="swiperitem">
-            <text class="archivehabitname">{{item.name}}</text>
-            <text class="archivehabitdays">已坚持 {{item.day}} 天</text>
-          </view>
-        </swiper-item>  
-      </block>  
-    </swiper>
-  </view>
 </view>

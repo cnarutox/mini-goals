@@ -1,7 +1,8 @@
 /* pages/mypage/mypage.wxss */
 .outercontainer{
-
+  border: 5rpx dotted black;
 }
+
 
 .innercontainer{
   display: flex;
@@ -48,14 +49,14 @@
   flex-direction: column;
 }
 
+.scrollview{
+  display: flex;
+  flex-direction: column;
+}
+
 .scroll-x {
   display: flex;
   flex-direction: row; 
-  height: 200rpx;
-}
-
-.scrollview{
-
 }
 
 .scroll-inner{
@@ -66,23 +67,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 250rpx;
-  height: 100%;
-  background: blue;
-  margin: 10rpx;
-}
-
-
-//swiper
-.swiper{
-  height: 300rpx;
-}
-
-.swiperitem{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: 500rpx;
+  height: 250rpx;
   background: yellow;
-  height: 100%;
+  margin: 10rpx;
 }
