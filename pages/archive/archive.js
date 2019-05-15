@@ -5,7 +5,29 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    archivenum: 5,
+    archives:[
+      {
+        name: '早起',
+        day: 1,
+      },
+      {
+        name: '读书',
+        day: 2,
+      },
+      {
+        name: '背单词',
+        day: 76,
+      },
+      {
+        name: '手机电脑',
+        day: 1,
+      },
+      {
+        name: '早起',
+        day: 1,
+      },
+    ]
   },
 
   /**

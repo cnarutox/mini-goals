@@ -1,6 +1,5 @@
 /* pages/mypage/mypage.wxss */
 .outercontainer{
-  border: 5rpx dotted black;
 }
 
 
@@ -9,7 +8,6 @@
   flex-direction: column;
   align-self: flex-start;
   width: 100%;
-  border: 5rpx dotted green;
 }
 
 .userinfoview{

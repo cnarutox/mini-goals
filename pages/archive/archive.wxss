@@ -1,1 +1,49 @@
 /* pages/archive/archive.wxss */
+.flex-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.textarchive{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.archivehead{
+  padding: 20rpx;
+}
+
+.outerarchives{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-around;
+}
+
+.archives{
+  
+}
+
+.archive-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 330rpx;
+  height: 250rpx;
+  background: skyblue;
+  margin: 20rpx;
+}
+
+.archivename{
+  margin: 20rpx;
+}
+
+.archivetext{
+
+}

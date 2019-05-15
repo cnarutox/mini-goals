@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/archive/archive",
     "pages/mine/mine",
     "pages/mypage/mypage",
     "pages/index/index",
@@ -9,8 +10,7 @@
     "pages/habit_clock/habit_clock",
     "pages/customizedHabit/customizedHabit",
     "pages/addHabit/addHabit",
-    "pages/totalpersist/totalpersist",
-    "pages/archive/archive"
+    "pages/totalpersist/totalpersist"
   ],
   "window": {
     "backgroundTextStyle": "light",
