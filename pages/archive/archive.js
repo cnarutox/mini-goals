@@ -84,5 +84,27 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  bindlongpress: function () {
+    console.log('bindlongpress')
+    wx.showModal({
+      title: '恢复坚持习惯',
+      content: '恢复坚持习惯后，习惯会重新进入坚持列表继续坚持，确定恢复吗？',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else {
+          console.log('用户点击取消')
+        }
+      }
+    })
+  },
+
+  navigatedetail: function(){
+    console.log('navigatedetail')
+    wx.navigateTo({
+      url: '../habit_clock_details/habit_clock_details'
+    })
   }
 })
