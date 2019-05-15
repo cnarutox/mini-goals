@@ -17,21 +17,25 @@ Page({
         name: '读书',
         description: '已坚持 2 天',
         tag: 'scroll-inner-inner',
+        bindevent: 'navigatetohabitdetail'
       },
       {
         name: '背单词',
         description: '已坚持 4 天',
         tag: 'scroll-inner-inner',
+        bindevent: 'navigatetohabitdetail',
       },
       {
         name: '爱万戌哥',
         description: '已坚持 30 天',
         tag: 'scroll-inner-inner',
+        bindevent: 'navigatetohabitdetail',
       },
       {
         name: '归档的习惯',
         description: '已归档5个',
         tag: 'archive-item',
+        bindevent: 'navigatetoarchive',
       },
     ],
     toView: 'yellow',
@@ -111,6 +115,11 @@ Page({
   navigatetoarchive: function(){
     wx.navigateTo({
       url: '../archive/archive',
+    })
+  },
+  navigatetohabitdetail: function(){
+    wx.navigateTo({
+      url: '../habit_clock_details/habit_clock_details'
     })
   }
 })

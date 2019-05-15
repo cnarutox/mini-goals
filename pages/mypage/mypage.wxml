@@ -14,7 +14,7 @@
     <scroll-view scroll-x="true" bindscrolltoupper="upper" bindscrolltolower="lower"  bindscroll="scroll" scroll-into-view="{{toView}}" scroll-left="{{scrollTop}}">
       <view class="scroll-x">
         <view class="scroll-inner" wx:for-items="{{archives}}">
-          <view class="{{item.tag}}" bindtap="navigatetoarchive">
+          <view class="{{item.tag}}" bindtap="{{item.bindevent}}">
             <text>{{item.name}}</text>
             <text>{{item.description}}</text>
           </view>
