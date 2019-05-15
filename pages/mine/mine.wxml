@@ -2,18 +2,26 @@
 <view class="outercontainer">
   <view class="userinfoview">
     <view class="userinfo">
-      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" ></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <view class="avatarnamelike">
+        <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" ></image>
+        <view class="namelike">
+          <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+          <view class="like">
+            <icon class="likeicon" type="success" color="yellow" size="15"></icon>
+            <text class="liketext">{{likenum}}</text>
+          </view>
+        </view>
+      </view>
     </view>
     <view class="separate"></view>
   </view>
   <view class="mainpage">
-      <view class="icontext">
+      <view class="icontext" bindtap="navigatetomypage">
         <icon class="iconmine" type="success" color="green" size="25"></icon>
         <text class="textmine">我的主页</text>
       </view>
       <view class="separate"></view>
-      <view class="icontext">
+      <view class="icontext" bindtap="navigatetototalpersist">
         <icon class="iconmine" type="info" color="green" size="25"></icon>
         <text class="textmine">坚持情况</text>
       </view>

@@ -9,6 +9,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    likenum: 25,
   },
 
   /**
@@ -72,6 +73,18 @@ Page({
   onShareAppMessage: function () {
 
   },
+ 
+  navigatetomypage: function () {
+    console.log('navigatetomypage')
+    wx.navigateTo({
+      url: '../mypage/mypage'
+    })
+  },
 
-  
+  navigatetototalpersist: function () {
+    console.log('avigatetototalpersist')
+    wx.navigateTo({
+      url: '../totalpersist/totalpersist'
+    })
+  }
 })
