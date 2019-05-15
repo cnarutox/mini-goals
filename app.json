@@ -9,7 +9,8 @@
     "pages/habit_clock/habit_clock",
     "pages/customizedHabit/customizedHabit",
     "pages/addHabit/addHabit",
-    "pages/totalpersist/totalpersist"
+    "pages/totalpersist/totalpersist",
+    "pages/archive/archive"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -10,48 +10,32 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     likenum: 25,
+    totalhabit: 3,
+    archivehabit: 1,
     archives: [
       {
         name: '读书',
-        day: 2,
+        description: '已坚持 2 天',
+        tag: 'scroll-inner-inner',
       },
       {
         name: '背单词',
-        day: 5,
+        description: '已坚持 4 天',
+        tag: 'scroll-inner-inner',
       },
       {
         name: '爱万戌哥',
-        day: 30,
+        description: '已坚持 30 天',
+        tag: 'scroll-inner-inner',
+      },
+      {
+        name: '归档的习惯',
+        description: '已归档5个',
+        tag: 'archive-item',
       },
     ],
     toView: 'yellow',
     scrollTop: 0,
-    scrolls: [
-      {
-        name: '黄色',
-        tag: 'yellow',
-      },
-      {
-        name: '绿色',
-        tag: 'green',
-      },
-      {
-        name: '红色',
-        tag: 'red',
-      },
-      {
-        name: '黄色',
-        tag: 'yellow',
-      },
-      {
-        name: '绿色',
-        tag: 'green',
-      },
-      {
-        name: '红色',
-        tag: 'red',
-      },
-    ],
   },
 
   /**
@@ -124,4 +108,9 @@ Page({
   lower: function (e) {
     console.log('滚动到底部')
   },
+  navigatetoarchive: function(){
+    wx.navigateTo({
+      url: '../archive/archive',
+    })
+  }
 })

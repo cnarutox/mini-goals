@@ -52,8 +52,16 @@
 .scrollview{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+.archivetext{
+}
+
+.archivestatistic{
+  font-size: 35rpx;
+}
 .scroll-x {
   display: flex;
   flex-direction: row; 
@@ -72,3 +80,16 @@
   background: yellow;
   margin: 10rpx;
 }
+
+.archive-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500rpx;
+  height: 250rpx;
+  background: blue;
+  margin: 10rpx;
+}
+
+
