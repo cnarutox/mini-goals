@@ -11,26 +11,10 @@
   color: white;
 }
 
-.illu{
-  font-size: 50%;
-  color: darkgray;
-}
 
-.flex_row{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: stretch;
-  margin-left: 5%;
-  margin-right: 5%;
-}
 
-.flex_column{
-  display: flex;
-  flex-direction: column;
-  margin-left: 5%;
-  margin-right: 5%;
-}
+
+
 
 .btn1{
   width: 80%;
@@ -80,4 +64,25 @@ btn1::after{
 ._cell{
   background: coral;
   color: white;
+}
+
+.flex_row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: stretch;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.flex_column{
+  display: flex;
+  flex-direction: column;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.illu{
+  font-size: 50%;
+  color: darkgray;
 }
