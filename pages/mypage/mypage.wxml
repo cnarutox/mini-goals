@@ -1,2 +1,35 @@
 <!--pages/mypage/mypage.wxml-->
-<text>pages/mypage/mypage.wxml</text>
+<view class="outercontainer">
+  <view class="userinfoview">
+    <view class="avatarname">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" ></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+    <view class="separate"></view>
+  </view>
+  <view class="scrollview">
+    <scroll-view scroll-x="true" bindscrolltoupper="upper" bindscrolltolower="lower"  bindscroll="scroll" scroll-into-view="{{toView}}" scroll-left="{{scrollTop}}">
+      <view class="scroll-x">
+        <view class="scroll-inner" wx:for-items="{{archives}}">
+          <view class="scroll-inner-inner" id="{{item.tag}}">
+            <text>{{item.name}}</text>
+            <text>已经坚持 {{item.day}} 天</text>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="separate"></view>
+  </view>
+  <view>
+    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">  
+      <block wx:for="{{archives}}" wx:for-index="index">  
+        <swiper-item>  
+          <view class="swiperitem">
+            <text class="archivehabitname">{{item.name}}</text>
+            <text class="archivehabitdays">已坚持 {{item.day}} 天</text>
+          </view>
+        </swiper-item>  
+      </block>  
+    </swiper>
+  </view>
+</view>

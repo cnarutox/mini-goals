@@ -1,18 +1,70 @@
 // pages/mypage/mypage.js
+var app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    userInfo: {},
+    hasUserInfo: false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    likenum: 25,
+    archives: [
+      {
+        name: '读书',
+        day: 2,
+      },
+      {
+        name: '背单词',
+        day: 5,
+      },
+      {
+        name: '爱万戌哥',
+        day: 30,
+      },
+    ],
+    toView: 'yellow',
+    scrollTop: 0,
+    scrolls: [
+      {
+        name: '黄色',
+        tag: 'yellow',
+      },
+      {
+        name: '绿色',
+        tag: 'green',
+      },
+      {
+        name: '红色',
+        tag: 'red',
+      },
+      {
+        name: '黄色',
+        tag: 'yellow',
+      },
+      {
+        name: '绿色',
+        tag: 'green',
+      },
+      {
+        name: '红色',
+        tag: 'red',
+      },
+    ],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log('onLoad')
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: true
+      })
+    }
   },
 
   /**
@@ -62,5 +114,14 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  scroll: function (e) {
+    console.log(e)
+  },
+  upper: function (e) {
+    console.log('滚动到顶部')
+  },
+  lower: function (e) {
+    console.log('滚动到底部')
+  },
 })
