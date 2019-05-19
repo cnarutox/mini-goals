@@ -1,0 +1,46 @@
+/* pages/achiveDetail/archiveDetail.wxss */
+.nullshare{
+  font-size: 30rpx;
+  color: gray;
+  margin: 20rpx;
+}
+
+.sharedetail{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 5rpx solid gray;
+  margin: 20rpx;
+  padding: 20rpx;
+}
+
+.icon{
+  margin: 20rpx;
+}
+
+.archivepersist{
+  font-size: 30rpx;
+  color: gray;
+}
+
+.words{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.iconwordsdetail{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  border: 5rpx solid gray;
+  padding: 20rpx;
+  margin: 20rpx;
+}
+
+.outerarchive{
+  
+}

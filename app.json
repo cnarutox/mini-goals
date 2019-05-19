@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/archive/archive",
+    "pages/archiveDetail/archiveDetail",
     "pages/habit/habit",
     "pages/index/index",
-    "pages/archive/archive",
     "pages/mine/mine",
     "pages/mypage/mypage",
     "pages/logs/logs",

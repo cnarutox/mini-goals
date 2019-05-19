@@ -1,0 +1,16 @@
+<!--pages/achiveDetail/archiveDetail.wxml-->
+<view class="outerarchive">
+  <view class="archivedetail">
+    <view class="iconwordsdetail">
+      <icon class="icon" type="success" color="green" size="25"></icon>
+      <view class="words">
+        <text class="archivename">早起</text>
+        <text class="archivepersist">已经坚持 1 天</text>
+      </view>
+    </view>
+  </view>
+  <view class="sharedetail">
+    <text class="nullshare">加入并发布记录吧
+    </text>
+  </view>
+</view>

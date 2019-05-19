@@ -3,7 +3,7 @@
 <view class="page">
   <block wx:for="{{habitArray}}" wx:for-item="itemName">
         <view class="lst">
-            <navigator url="" class="nav">
+            <navigator url="../habit_clock/habit_clock" class="nav" bindlongtap="handleLongPress">
                 <view class="flex_row">
                     <view class="img">
                         <image src="{{itemName.src}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>

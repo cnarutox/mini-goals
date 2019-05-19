@@ -104,7 +104,7 @@ Page({
   navigatedetail: function(){
     console.log('navigatedetail')
     wx.navigateTo({
-      url: '../habit_clock_details/habit_clock_details'
+      url: '../archiveDetail/archiveDetail'
     })
   }
 })
