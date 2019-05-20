@@ -10,7 +10,7 @@
   <view class="movie-content-wrapper">
     <swiper class="swiper" current="{{navbarActiveIndex}}" bindanimationfinish="onBindAnimationFinish">
       <swiper-item class="swiper-item" wx:for="{{navbarTitle}}" wx:key="index">
-        <scroll-view scroll-y="{{true}}" wx:if="{{index===0}}">
+        <scroll-view class="scroll-view" scroll-y="{{true}}" wx:if="{{index===0}}">
           <view class="outerdetails">
             <view class="details"> 
               <text class="title">全部习惯今天统计
@@ -18,7 +18,7 @@
               <view class="percent">
                 <view class="textlayout">
                   <text class="percentage">0%</text>
-                  <text class="illustration">已完成</text>
+                  <text class="illustration">完成率</text>
                 </view>
               </view>
               <view class="showtable">
@@ -30,8 +30,48 @@
             </view>
           </view>
         </scroll-view>
+        <scroll-view class="scroll-view" scroll-y="{{true}}" wx:if="{{index===1}}">
+          <view class="outerdetails">
+            <view class="details">
+              <view class="all">
+                <view class="bar">
+                  <view class="previous" bindtap="handleCalendar" data-handle="prev">
+                    <image src="../images/calendar1.png"></image>
+                  </view>
+                  <view class="date">{{cur_year}}年{{cur_month}}月</view>
+                  <view class="next" bindtap="handleCalendar" data-handle="next">
+                    <image src="../images/calendar2.png"></image>
+                  </view>
+                </view>
+                <view class="week">
+                  <view wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
+                </view>
+                <view class="days">
+                  <view class="columns" wx:for="{{days.length/7}}" wx:for-item="i" wx:key="i">
+                    <view wx:for="{{days}}" wx:for-index="j" wx:key="j">
+                      <view class="rows" wx:if="{{j/7 == i}}">
+                        <view class="rows" wx:for="{{7}}" wx:for-index="k" wx:key="k">
+                          <view class="cell" wx:if="{{days[j+k].date == null}}">
+                            <text decode="{{true}}">&nbsp;&nbsp;</text>
+                          </view>
+                          <view class="cell" wx:else>
+                            <view wx:if="{{day[j+k].isSign == true}}" style="background-color:#83C75D" class="cell">
+                              <text>{{days[j+k].date}}</text>
+                            </view>
+                            <view wx:else>
+                              <text>{{days[j+k].date}}</text>
+                            </view>
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
       </swiper-item>
     </swiper>
   </view>
-  
 </view>
