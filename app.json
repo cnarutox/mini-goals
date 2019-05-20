@@ -1,17 +1,17 @@
 {
   "pages": [
+    "pages/totalpersist/totalpersist",
+    "pages/mine/mine",
+    "pages/mypage/mypage",
     "pages/archive/archive",
     "pages/archiveDetail/archiveDetail",
     "pages/habit/habit",
     "pages/index/index",
-    "pages/mine/mine",
-    "pages/mypage/mypage",
     "pages/logs/logs",
     "pages/friends/friends",
     "pages/habit_clock/habit_clock",
     "pages/customizedHabit/customizedHabit",
-    "pages/addHabit/addHabit",
-    "pages/totalpersist/totalpersist"
+    "pages/addHabit/addHabit"
   ],
   "window": {
     "backgroundTextStyle": "light",

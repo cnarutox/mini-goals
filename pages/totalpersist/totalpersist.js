@@ -5,7 +5,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    navbarActiveIndex: 0,
+    navbarTitle: [
+      '全部',
+      '习惯1',
+      '习惯2',
+      '习惯3',
+    ],
+    detailDict: [
+      { 
+        "name": "已完成",
+        "count": 0,
+       },
+      {
+        "name": "未完成",
+        "count": 4,
+      },
+      {
+        "name": "坚持中",
+        "count": 4,
+      },
+    ],
   },
 
   /**
@@ -62,5 +82,14 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  onNavBarTap: function(event){
+    console.log('onNavBarTap')
+    let navbarTapIndex = event.currentTarget.dataset.navbarIndex
+    console.log('navbarTapIndex, ' , navbarTapIndex)
+    this.setData({
+      navbarActiveIndex: navbarTapIndex
+    })
   }
 })

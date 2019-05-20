@@ -1,1 +1,107 @@
 /* pages/totalpersist/totalpersist.wxss */
+.outercontainer{
+  padding: 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  color: #A8A8A8;
+  font-size: 40rpx;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 20rpx;
+  background-color: gold;
+}
+
+.navbar-item{
+  flex: 1;
+  padding: 26rpx 0px;
+}
+
+.navbar-item-active{
+  transition: all 0.3s;
+  border-bottom: 10rpx solid #494949;
+  color: #494949;
+}
+
+
+.title{
+  margin: 20rpx;
+  font-weight: bold;
+}
+
+.show{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.outershowtable{
+
+}
+
+.showtable{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 20rpx;
+}
+
+.percent{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 250rpx;
+  height: 250rpx;
+  align-self: center;
+  border: 20rpx solid whitesmoke;
+  margin: 20rpx;
+  padding: 20rpx;
+}
+
+.textlayout{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.percentage{
+
+}
+
+.illustration{
+  color: gray;
+  font-size: 25rpx;
+}
+
+.movie-content-wrapper{
+  padding-top: 50rpx;
+  height: 800rpx;
+}
+
+
+.swiper{
+  height: 800rpx;
+}
+
+.swiper-item{
+  height: 800rpx;
+}
+
+.outerdetails{
+  border: 5rpx solid green;
+}
+
+.details{
+  display: flex;
+  flex-direction: column;
+}

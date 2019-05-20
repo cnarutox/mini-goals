@@ -1,2 +1,37 @@
 <!--pages/totalpersist/totalpersist.wxml-->
-<text>pages/totalpersist/totalpersist.wxml</text>
+<view class="outercontainer">
+  <view class="navbar">
+    <block wx:for="{{navbarTitle}}" wx:key="index">
+      <view class="navbar-item {{navbarActiveIndex === index? 'navbar-item-active' : ''}}" data-navbar-index="{{index}}" catchtap="onNavBarTap">
+        <text>{{item}}</text>
+      </view>
+    </block>
+  </view>
+  <view class="movie-content-wrapper">
+    <swiper class="swiper" current="{{navbarActiveIndex}}" bindanimationfinish="onBindAnimationFinish">
+      <swiper-item class="swiper-item" wx:for="{{navbarTitle}}" wx:key="index">
+        <scroll-view scroll-y="{{true}}" wx:if="{{index===0}}">
+          <view class="outerdetails">
+            <view class="details"> 
+              <text class="title">全部习惯今天统计
+              </text>
+              <view class="percent">
+                <view class="textlayout">
+                  <text class="percentage">0%</text>
+                  <text class="illustration">已完成</text>
+                </view>
+              </view>
+              <view class="showtable">
+                <view class="show" wx:for="{{detailDict}}">
+                  <text class="num">{{item.count}}</text>
+                  <text class="text">{{item.name}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+  
+</view>
