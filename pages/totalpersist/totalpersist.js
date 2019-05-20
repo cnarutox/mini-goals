@@ -38,6 +38,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('onLoad')
     //this.setData({objectId: options.objectId});
     const date = new Date()
     const cur_year = date.getFullYear();
@@ -154,9 +155,13 @@ Page({
     const firstDayOfWeek = this.getFirstDayOfWeek(year, month);
     if (firstDayOfWeek > 0) {
       for (let i = 0; i < firstDayOfWeek; i++) {
+        var isSigned = false
+        if(i%2 === 0){
+          isSigned = true
+        }
         var obj = {
           date: null,
-          isSign: false
+          isSign: isSigned
         }
         that.data.days.push(obj);
       }
@@ -172,13 +177,24 @@ Page({
   },
 
   calculateDays: function (year, month) {
+    console.log('calculateDays')
     var that = this;
     const thisMonthDays = this.getThisMonthDays(year, month);
+    var max = thisMonthDays;
+    var min = 0;
     for (let i = 1; i <= thisMonthDays; i++) {
+      var rand = Math.round(Math.random() * (max - min));
+      console.log('rand, ', rand)
+      var isSigned = false;
+      if(i == rand){
+        isSigned = true;
+        console.log('isSigned True');
+      }
       var obj = {
         date: i,
-        isSign: false
+        isSign: isSigned,
       }
+      isSigned = false;
       that.data.days.push(obj);
     }
     this.setData({
@@ -209,7 +225,7 @@ Page({
     //     that.onJudgeSign();
     //   },
     //   error: function (object, error) {
-    //   }
+    //   }  
     // });
   },
 
