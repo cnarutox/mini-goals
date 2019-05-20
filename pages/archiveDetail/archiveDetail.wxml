@@ -2,10 +2,10 @@
 <view class="outerarchive">
   <view class="archivedetail">
     <view class="iconwordsdetail">
-      <icon class="icon" type="success" color="green" size="25"></icon>
+      <view class="icon" style="background-color:{{archiveHabit.color}}"></view>
       <view class="words">
-        <text class="archivename">早起</text>
-        <text class="archivepersist">已经坚持 1 天</text>
+        <text class="archivename">{{ archiveHabit.name}}</text>
+        <text class="archivepersist">已经坚持 {{archiveHabit.description}} 天</text>
       </view>
     </view>
   </view>

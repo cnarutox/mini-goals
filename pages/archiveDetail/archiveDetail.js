@@ -5,7 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    archiveHabit:{
+      id: 782,
+      name: '早起',
+      type: 0,
+      cycle_type: 0,
+      cycle_value: 1,
+      color: 'red',
+      description: 2,
+    }
   },
 
   /**

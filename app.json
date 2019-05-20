@@ -1,12 +1,12 @@
 {
   "pages": [
+    "pages/archiveDetail/archiveDetail",
     "pages/totalpersist/totalpersist",
     "pages/habit_clock_details/habit_clock_details",
     "pages/habit_clock/habit_clock",
     "pages/mine/mine",
     "pages/mypage/mypage",
     "pages/archive/archive",
-    "pages/archiveDetail/archiveDetail",
     "pages/habit/habit",
     "pages/index/index",
     "pages/logs/logs",
