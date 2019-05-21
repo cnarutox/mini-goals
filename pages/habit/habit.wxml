@@ -1,21 +1,22 @@
 <!--pages/habit/habit.wxml-->
 <!-- <text>pages/habit/habit.wxml</text> -->
 <view class="page">
-  <block wx:for="{{habitArray}}" wx:for-item="itemName">
+  <block wx:for="{{habitArray}}" wx:for-item="itemName" wx:if="{{habitArray.length!==0}}">
         <view class="lst">
             <navigator url="../habit_clock/habit_clock" class="nav" bindlongtap="handleLongPress">
                 <view class="flex_row">
-                    <view class="img">
-                        <image src="{{itemName.src}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
-                    </view>
+                  <view class="habiticon" style="background-color:{{itemName.color}}"></view>
                   <view class="flex_column">
-                    <view class="habitNm">{{itemName.txt}}</view>
-                    <view class="illu">{{"已坚持 " + itemName.illustrate + "天"}}</view>
+                    <view class="habitNm">{{itemName.name}}</view>
+                    <view class="illu">{{"已坚持 " + itemName.description + "天"}}</view>
                   </view>
                 </view>
             </navigator>
         </view>
     </block>
+    <view wx:if="{{habitArray.length===0}}">
+      <view class="warning">您还没有添加习惯</view>
+      <image class="iconfornull" mode="aspectFit" src="{{src}}"></image>
+    </view>
     <button class="addBtn" bindtap="addHabit">添加习惯</button>
-    <button class="addBtn" bindtap="bindTapView">空列表页</button>
 </view>

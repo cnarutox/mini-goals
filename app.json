@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/habit/habit",
     "pages/totalpersist/totalpersist",
     "pages/index/index",
     "pages/archiveDetail/archiveDetail",
@@ -8,7 +9,6 @@
     "pages/mine/mine",
     "pages/mypage/mypage",
     "pages/archive/archive",
-    "pages/habit/habit",
     "pages/logs/logs",
     "pages/friends/friends",
     "pages/customizedHabit/customizedHabit",

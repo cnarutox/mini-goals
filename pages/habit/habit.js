@@ -9,21 +9,33 @@ Page({
     curDate:'4/24',
     habitArray: [
       {
-        src: '../images/icon_footer.png',
-        txt: 'footer',
-        illustrate: 0,
+        id: 232,
+        name: '早起',
+        type: 0,
+        cycle_type: 2,
+        cycle_value: 1,
+        color: 'yellow',
+        description: 0,
       },
       {
-        src: '../images/icon_intro.png',
-        txt: 'intro',
-        illustrate: 2,
+        id: 343,
+        name: '爱万戌哥',
+        type: 1,
+        cycle_type: 0,
+        cycle_value: 1,
+        color: 'green',
+        description: 33,
+      }, {
+        id: 21,
+        name: '背单词',
+        type: 0,
+        cycle_type: 2,
+        cycle_value: 1,
+        color: 'blue',
+        description: 49,
       },
-      {
-        src: '../images/icon_nav_nav.png',
-        txt: 'nav_nav',
-        illustrate: 3,
-      }
-    ]
+    ],
+    src: '../images/nullhabitlist.png'
   },
 
   /**

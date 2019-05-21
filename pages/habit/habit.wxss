@@ -4,15 +4,15 @@
   flex-direction: row;
   align-items: center;
   justify-content: stretch;
-  margin-left: 5%;
-  margin-right: 5%;
-}
+  margin: 20rpx;
+  padding: 20rpx;
+  background-color: gold;
+  border-radius: 3%;
+} 
 
 .flex_column{
   display: flex;
   flex-direction: column;
-  margin-left: 5%;
-  margin-right: 5%;
 }
 
 .illu{
@@ -22,4 +22,22 @@
 
 .addBtn{
   margin: 20rpx;
+}
+
+.iconfornull{
+  align-items: center;
+  border: 10px solid white;
+}
+
+.addBtn{
+  background-color:cadetblue;
+  margin: 20rpx;
+  color: white;
+}
+
+.warning{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px 5px 15px 5px;
 }
