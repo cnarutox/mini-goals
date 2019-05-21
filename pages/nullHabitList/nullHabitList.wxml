@@ -1,4 +1,0 @@
-<!--pages/nullHabitList.wxml-->
-<view class="warning">您还没有添加习惯</view>
-<button class="addBtn" bindtap="addHabit">添加习惯</button>
-<image class="iconfornull" mode="aspectFit" src="{{src}}"></image>
