@@ -8,7 +8,7 @@
     </block>
   </view>
   <view class="movie-content-wrapper">
-    <swiper class="swiper" current="{{navbarActiveIndex}}" bindanimationfinish="onBindAnimationFinish">
+    <swiper class="swiper" current="{{navbarActiveIndex}}" bindanimationfinish="onBindAnimationFinish" bindchange="handlechange" bindtransition="handletransition">
       <swiper-item class="swiper-item" wx:for="{{navbarTitle}}" wx:key="index">
         <scroll-view class="scroll-view" scroll-y="{{true}}" wx:if="{{index===0}}">
           <view class="outerdetails">

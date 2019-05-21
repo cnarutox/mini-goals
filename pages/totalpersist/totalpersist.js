@@ -32,6 +32,9 @@ Page({
     cur_year: 0,
     cur_month: 0,
     count: 0,
+    lastX: 0,
+    lastY: 0,
+    text: "没有滑动"
   },
 
   /**
@@ -251,7 +254,10 @@ Page({
     // that.setData({ days: daysArr });
   },
 
-  onBindAnimationFinish: function(e){
+  onBindAnimationFinish: function(event){
     console.log('onBindAnimationFinish')
+    this.setData({
+      navbarActiveIndex: event.detail.current
+    })
   }
 })
