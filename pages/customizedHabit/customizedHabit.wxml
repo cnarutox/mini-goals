@@ -62,17 +62,19 @@
         </view>
         <view class="outerIconSelect">
           <text class="iconSelectedText">已经选择icon:</text>
-          <button class="iconSelectedBtn" bindtap="selectIcon">
-            <icon class="iconSelected" type="{{iconSelectedAttr.type}}" color="{{iconSelectedAttr.color}}" size="{{iconSelectedAttr.size}}" />
+          <button class="iconSelectedBtn" style="background-color:{{iconSelectedAttr.color}}" bindtap="selectIcon">
+            <view class="habiticon" style="background-color:{{iconSelectedAttr.color}}"></view>
           </button>
         </view>
         <view class="outerIconRadios" hidden="{{hiddenIcon}}">
           <view class="iconRadios">
             <radio-group class="radio-group" bindchange="iconRadioChange">
-              <label class="iconRadio" wx:for="{{icon_items}}">
-                <radio value="{{item.name}}" checked="{{item.checked}}"/>
-                <icon type="{{item.value.type}}" color="{{item.value.color}}" size="{{item.value.size}}" />
-              </label>
+              <view class="outericonRadios">
+                <label class="iconRadios" wx:for="{{icon_items}}">
+                  <view class="habiticon" style="background-color:{{item.value.color}}"></view>
+                  <radio value="{{item.name}}" checked="{{item.checked}}"/>
+                </label>
+              </view>
             </radio-group>
           </view>
           <button class="confirmBtn" bindtap="confirmByIcon">确定</button>

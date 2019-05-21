@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/addHabit/addHabit",
     "pages/customizedHabit/customizedHabit",
+    "pages/addHabit/addHabit",
     "pages/habit/habit",
     "pages/totalpersist/totalpersist",
     "pages/index/index",

@@ -70,8 +70,8 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  width: 15%;
-  height: 8%;
+  width: 60rpx;
+  height: 60rpx;
 }
 
 .iconSelected{
@@ -90,12 +90,18 @@
   padding: 20rpx;
 }
 
+.outericonRadios{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 15rpx;
+}
 .iconRadios{
   display: flex;
-  flex-direction: flex-start;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  margin: 15rpx;
 }
 
 .iconRadio{
