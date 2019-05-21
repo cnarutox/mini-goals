@@ -3,7 +3,7 @@
 <view class="page">
   <block wx:for="{{habitArray}}" wx:for-item="itemName" wx:if="{{habitArray.length!==0}}">
         <view class="lst">
-            <navigator url="../habit_clock/habit_clock" class="nav" bindlongtap="handleLongPress">
+            <navigator url="../habit_clock/habit_clock" class="nav" bindlongtap="handleLongPress" data-id="{{itemName.id}}">
                 <view class="flex_row">
                   <view class="habiticon" style="background-color:{{itemName.color}}"></view>
                   <view class="flex_column">

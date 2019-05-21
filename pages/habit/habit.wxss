@@ -16,8 +16,8 @@
 }
 
 .illu{
-  font-size: 50%;
-  color: darkgray;
+  font-size: 30rpx;
+  color: white;
 }
 
 .addBtn{

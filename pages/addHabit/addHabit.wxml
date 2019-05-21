@@ -24,12 +24,11 @@
       <view class="lst">
           <navigator url="" class="nav">
               <view class="flex_row">
-                  <view class="img">
-                      <image src="{{itemName.src}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                  <view class="habiticon" style="background-color:{{itemName.color}}">
                   </view>
                 <view class="flex_column">
-                  <view class="habitNm">{{itemName.txt}}</view>
-                  <view class="illu">{{"已有" + itemName.illustrate + "位朋友在坚持"}}</view>
+                  <view class="habitNm">{{itemName.name}}</view>
+                  <view class="illu">{{"已有" + itemName.description + "位朋友在坚持"}}</view>
                 </view>
                 <button class="joinBtn" bindtap="addsuccess">加入</button>
               </view>
@@ -42,12 +41,11 @@
       <view class="lst">
           <navigator url="" class="nav">
               <view class="flex_row">
-                  <view class="img">
-                      <image src="{{itemName.src}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+                  <view class="habiticon" style="background-color:{{itemName.color}}">
                   </view>
                 <view class="flex_column">
-                  <view class="habitNm">{{itemName.txt}}</view>
-                  <view class="illu">{{"已有" + itemName.illustrate + "位朋友在坚持"}}</view>
+                  <view class="habitNm">{{itemName.name}}</view>
+                  <view class="illu">{{"已有" + itemName.description + "位朋友在坚持"}}</view>
                 </view>
                 <button class="joinBtn" bindtap="addsuccess">加入</button>
               </view>

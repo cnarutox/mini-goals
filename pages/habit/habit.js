@@ -101,7 +101,7 @@ Page({
     })
   },
 
-  handleLongPress: function() {
+  handleLongPress: function(e) {
     console.log("長按");
     wx.showActionSheet({
       itemList: ['删除习惯','归档习惯','修改习惯'],
@@ -136,7 +136,12 @@ Page({
             })
             break;
           case 2:
-            console.log("修改习惯");
+            console.log("修改习惯"); 
+            var index = e.currentTarget.dataset.id;
+            console.log(index);
+            wx.navigateTo({
+              url: '../customizedHabit/customizedHabit'
+            })
             break;
           default:
             console.log("default");

@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/addHabit/addHabit",
+    "pages/customizedHabit/customizedHabit",
     "pages/habit/habit",
     "pages/totalpersist/totalpersist",
     "pages/index/index",
@@ -10,9 +12,7 @@
     "pages/mypage/mypage",
     "pages/archive/archive",
     "pages/logs/logs",
-    "pages/friends/friends",
-    "pages/customizedHabit/customizedHabit",
-    "pages/addHabit/addHabit"
+    "pages/friends/friends"
   ],
   "window": {
     "backgroundTextStyle": "light",
