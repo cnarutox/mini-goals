@@ -6,35 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    curDate:'4/24',
-    habitArray: [
-    //   {
-    //     id: 232,
-    //     name: '早起',
-    //     type: 0,
-    //     cycle_type: 2,
-    //     cycle_value: 1,
-    //     color: 'yellow',
-    //     description: 0,
-    //   },
-    //   {
-    //     id: 343,
-    //     name: '爱万戌哥',
-    //     type: 1,
-    //     cycle_type: 0,
-    //     cycle_value: 1,
-    //     color: 'green',
-    //     description: 33,
-    //   }, {
-    //     id: 21,
-    //     name: '背单词',
-    //     type: 0,
-    //     cycle_type: 2,
-    //     cycle_value: 1,
-    //     color: 'blue',
-    //     description: 49,
-    //   },
-    ],
+    habitArray: [],
     src: '../images/nullhabitlist.png'
   },
 

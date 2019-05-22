@@ -8,9 +8,7 @@ Page({
    */
   data: {
     curDate: '加载中...',
-    todayClicked: true,
-    clockRightIcon:'../images/clock_right.png',
-    clockNullIcon: '../images/clock_null.png',
+    todayClicked: false,
     statisticsTag:'坚持情况',
     statisticsIcon:'../images/statistics_icon.png',
     shareButtonLabel:'炫耀一下',
@@ -39,15 +37,18 @@ Page({
         isClock: false
       }
     ],
+    habitId:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('onLoad,', options)
     var DATE = util.formatTime4(new Date())
     this.setData({
-      curDate: DATE
+      curDate: DATE,
+      habitId: options.habitId,
     })
   },
 
@@ -103,6 +104,12 @@ Page({
   gotoHabitClockStatistics:function(){
     wx.navigateTo({
       url: '../habit_clock_statistics/habit_clock_statistics'
+    })
+  },
+
+  clickHabit: function(){
+    this.setData({
+      todayClicked: true
     })
   }
 })
