@@ -1,11 +1,13 @@
 // pages/habit_clock/habit_clock.js
+
+var util = require('../../utils/util.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    curDate: '4/24',
+    curDate: '加载中...',
     clockRightIcon:'../images/clock_right.png',
     clockNullIcon: '../images/clock_null.png',
     statisticsTag:'坚持情况',
@@ -42,7 +44,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var DATE = util.formatTime4(new Date())
+    this.setData({
+      curDate: DATE
+    })
   },
 
   /**

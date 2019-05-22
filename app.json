@@ -1,19 +1,13 @@
 {
   "pages": [
-<<<<<<< Updated upstream
-    "pages/index/index",
-    "pages/habit/habit",
-    "pages/customizedHabit/customizedHabit",
-=======
-    "pages/customizedHabit/customizedHabit",
+    "pages/habit_clock/habit_clock",
     "pages/habit/habit",
     "pages/index/index",
->>>>>>> Stashed changes
+    "pages/customizedHabit/customizedHabit",
     "pages/addHabit/addHabit",
     "pages/totalpersist/totalpersist",
     "pages/archiveDetail/archiveDetail",
     "pages/habit_clock_details/habit_clock_details",
-    "pages/habit_clock/habit_clock",
     "pages/mine/mine",
     "pages/mypage/mypage",
     "pages/archive/archive",
@@ -30,9 +24,7 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "目标",
-        "iconPath": "images/todos.png",
-        "selectedIconPath": "images/todos-active.png"
+        "text": "目标"
       },
       {
         "pagePath": "pages/habit/habit",
