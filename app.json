@@ -1,8 +1,14 @@
 {
   "pages": [
+<<<<<<< Updated upstream
     "pages/index/index",
     "pages/habit/habit",
     "pages/customizedHabit/customizedHabit",
+=======
+    "pages/customizedHabit/customizedHabit",
+    "pages/habit/habit",
+    "pages/index/index",
+>>>>>>> Stashed changes
     "pages/addHabit/addHabit",
     "pages/totalpersist/totalpersist",
     "pages/archiveDetail/archiveDetail",
