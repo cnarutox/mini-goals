@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/index/index",
     "pages/habit/habit",
     "pages/customizedHabit/customizedHabit",
-    "pages/index/index",
     "pages/addHabit/addHabit",
     "pages/totalpersist/totalpersist",
     "pages/archiveDetail/archiveDetail",
@@ -24,7 +24,9 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "目标",
+        "iconPath": "images/todos.png",
+        "selectedIconPath": "images/todos-active.png"
       },
       {
         "pagePath": "pages/habit/habit",

@@ -1,54 +1,119 @@
-//index.js
-//获取应用实例
-const app = getApp()
-
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    input: '',
+    todos: [],
+    leftCount: 0,
+    allCompleted: false,
+    logs: []
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+
+  save: function () {
+    wx.setStorageSync('todo_list', this.data.todos)
+    wx.setStorageSync('todo_logs', this.data.logs)
   },
-  onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
+
+  load: function () {
+    var todos = wx.getStorageSync('todo_list')
+    if (todos) {
+      var leftCount = todos.filter(function (item) {
+        return !item.completed
+      }).length
+      this.setData({ todos: todos, leftCount: leftCount })
+    }
+    var logs = wx.getStorageSync('todo_logs')
+    if (logs) {
+      this.setData({ logs: logs })
     }
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
+
+  onLoad: function () {
+    this.load()
+  },
+
+  inputChangeHandle: function (e) {
+    this.setData({ input: e.detail.value })
+  },
+
+  addTodoHandle: function (e) {
+    if (!this.data.input || !this.data.input.trim()) return
+    var todos = this.data.todos
+    todos.push({ name: this.data.input, completed: false })
+    var logs = this.data.logs
+    logs.push({ timestamp: new Date(), action: 'Add', name: this.data.input })
     this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      input: '',
+      todos: todos,
+      leftCount: this.data.leftCount + 1,
+      logs: logs
     })
+    this.save()
+  },
+
+  toggleTodoHandle: function (e) {
+    var index = e.currentTarget.dataset.index
+    var todos = this.data.todos
+    todos[index].completed = !todos[index].completed
+    var logs = this.data.logs
+    logs.push({
+      timestamp: new Date(),
+      action: todos[index].completed ? 'Finish' : 'Restart',
+      name: todos[index].name
+    })
+    this.setData({
+      todos: todos,
+      leftCount: this.data.leftCount + (todos[index].completed ? -1 : 1),
+      logs: logs
+    })
+    this.save()
+  },
+
+  removeTodoHandle: function (e) {
+    var index = e.currentTarget.dataset.index
+    var todos = this.data.todos
+    var remove = todos.splice(index, 1)[0]
+    var logs = this.data.logs
+    logs.push({ timestamp: new Date(), action: 'Remove', name: remove.name })
+    this.setData({
+      todos: todos,
+      leftCount: this.data.leftCount - (remove.completed ? 0 : 1),
+      logs: logs
+    })
+    this.save()
+  },
+
+  toggleAllHandle: function (e) {
+    this.data.allCompleted = !this.data.allCompleted
+    var todos = this.data.todos
+    for (var i = todos.length - 1; i >= 0; i--) {
+      todos[i].completed = this.data.allCompleted
+    }
+    var logs = this.data.logs
+    logs.push({
+      timestamp: new Date(),
+      action: this.data.allCompleted ? 'Finish' : 'Restart',
+      name: 'All todos'
+    })
+    this.setData({
+      todos: todos,
+      leftCount: this.data.allCompleted ? 0 : todos.length,
+      logs: logs
+    })
+    this.save()
+  },
+
+  clearCompletedHandle: function (e) {
+    var todos = this.data.todos
+    var remains = []
+    for (var i = 0; i < todos.length; i++) {
+      todos[i].completed || remains.push(todos[i])
+    }
+    var logs = this.data.logs
+    logs.push({
+      timestamp: new Date(),
+      action: 'Clear',
+      name: 'Completed todo'
+    })
+    this.setData({ todos: remains, logs: logs })
+    this.save()
   }
 })
