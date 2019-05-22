@@ -8,32 +8,32 @@ Page({
   data: {
     curDate:'4/24',
     habitArray: [
-      {
-        id: 232,
-        name: '早起',
-        type: 0,
-        cycle_type: 2,
-        cycle_value: 1,
-        color: 'yellow',
-        description: 0,
-      },
-      {
-        id: 343,
-        name: '爱万戌哥',
-        type: 1,
-        cycle_type: 0,
-        cycle_value: 1,
-        color: 'green',
-        description: 33,
-      }, {
-        id: 21,
-        name: '背单词',
-        type: 0,
-        cycle_type: 2,
-        cycle_value: 1,
-        color: 'blue',
-        description: 49,
-      },
+    //   {
+    //     id: 232,
+    //     name: '早起',
+    //     type: 0,
+    //     cycle_type: 2,
+    //     cycle_value: 1,
+    //     color: 'yellow',
+    //     description: 0,
+    //   },
+    //   {
+    //     id: 343,
+    //     name: '爱万戌哥',
+    //     type: 1,
+    //     cycle_type: 0,
+    //     cycle_value: 1,
+    //     color: 'green',
+    //     description: 33,
+    //   }, {
+    //     id: 21,
+    //     name: '背单词',
+    //     type: 0,
+    //     cycle_type: 2,
+    //     cycle_value: 1,
+    //     color: 'blue',
+    //     description: 49,
+    //   },
     ],
     src: '../images/nullhabitlist.png'
   },
@@ -42,10 +42,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this;
     wx.request({
       url: 'http://localhost/api/habit/test',
       success: function (res) {
-        console.log(res.data)// 服务器回包信息
+        console.log(res.data);// 服务器回包信息
+        that.setData({
+          habitArray: res.data
+        });
       }
     })
     this.setData({
