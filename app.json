@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/customizedHabit/customizedHabit",
-    "pages/addHabit/addHabit",
     "pages/habit/habit",
+    "pages/index/index",
+    "pages/addHabit/addHabit",
     "pages/totalpersist/totalpersist",
     "pages/archiveDetail/archiveDetail",
     "pages/habit_clock_details/habit_clock_details",

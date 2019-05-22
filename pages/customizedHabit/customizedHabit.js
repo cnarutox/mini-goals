@@ -27,12 +27,6 @@ Page({
     persistenceSharaeble: false,
     hiddenPersist: true,
 
-    iconSelectedAttr: {
-      type: 'cancel',
-      color: '',
-      size: 25,
-    },
-    iconIndexSelected: 0,
 
     array: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
     index: 0,
@@ -50,48 +44,26 @@ Page({
       { name: 6, value: '星期六' },
       { name: 7, value: '星期天' }
     ],
-    icon_items: [
-      { 
-        name: '1', 
-        value: {
-          type: 'success',
-          color: 'red',
-          size: 25,
-        } 
+    colorData: {
+      //基础色相，即左侧色盘右上顶点的颜色，由右侧的色相条控制
+      hueData: {
+        colorStopRed: 255,
+        colorStopGreen: 0,
+        colorStopBlue: 0,
       },
-      {
-        name: '2',
-        value: {
-          type: 'success',
-          color: 'yellow',
-          size: 25,
-        }
+      //选择点的信息（左侧色盘上的小圆点，即你选择的颜色）
+      pickerData: {
+        x: 0, //选择点x轴偏移量
+        y: 480, //选择点y轴偏移量
+        red: 0,
+        green: 0,
+        blue: 0,
+        hex: '#000000'
       },
-      {
-        name: '3',
-        value: {
-          type: 'success',
-          color: 'orange',
-          size: 25,
-        }
-      },
-      {
-        name: '4',
-        value: {
-          type: 'success',
-          color: 'blue',
-          size: 25,
-        }
-      },
-      {
-        name: '5',
-        value: {
-          type: 'success',
-          color: 'rgb(0,255,255)',
-          size: 25,
-        }
-      },
-    ]
+      //色相控制条的位置
+      barY: 0
+    },
+    rpxRatio: 1 
   },
 
   /**
@@ -314,32 +286,6 @@ Page({
     })
   },
 
-  /**
-   * 周期选择勾选星期后点击确认
-   */
-  confirmByIcon: function () {
-    var iconIndex = this.data.iconIndexSelected
-    var iconSelectedAttrType = 'iconSelectedAttr.type'
-    var iconSelectedAttrColor = 'iconSelectedAttr..color'
-    var iconSelectedAttrSize = 'iconSelectedAttr.size'
-    this.setData({
-      hiddenIcon: true,
-      [iconSelectedAttrType]: this.data.icon_items[iconIndex].value.type,
-      [iconSelectedAttrColor]: this.data.icon_items[iconIndex].value.color,
-      [iconSelectedAttrSize]: this.data.icon_items[iconIndex].value.size,
-    })
-  },
-
-  /**
-   * icon选择单选框
-   */
-  iconRadioChange(e) {
-    console.log('icon radiod发生change事件，携带value值为：', e.detail.value)
-    this.setData({
-      iconIndexSelected: parseInt(e.detail.value) - 1
-    })
-    console.log('this.data.iconIndexSelected, ', this.data.iconIndexSelected)
-  },
 
 
   bindPickerChange(e) {
@@ -348,11 +294,7 @@ Page({
       index: e.detail.value,
     })
   },
-  selectIcon: function(){
-    this.setData({
-      hiddenIcon: !this.data.hiddenIcon,
-    })
-  },
+  
 
   /**
    * Input点击确认
@@ -419,6 +361,26 @@ Page({
       icon: 'succes',
       duration: 1000,
       mask: true
+    })
+  },
+
+  onChangeColor(e) {
+    //返回的信息在e.detail.colorData中
+    this.setData({
+      colorData: e.detail.colorData
+    })
+  },
+  selectIcon: function () {
+    this.setData({
+      hiddenIcon: !this.data.hiddenIcon,
+    })
+  },
+  /**
+ * 图标颜色选择勾选星期后点击确认
+ */
+  confirmByIcon: function () {
+    this.setData({
+      hiddenIcon: true,
     })
   }
 })

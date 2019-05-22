@@ -42,6 +42,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.request({
+      url: 'http://localhost/api/habit/test',
+      success: function (res) {
+        console.log(res.data)// 服务器回包信息
+      }
+    })
     this.setData({
       icon: base64.icon20
     });
