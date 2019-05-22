@@ -4,7 +4,7 @@
     <text>{{curDate}}</text>
   </view>
   <view style="display: flex;justify-content: center">
-    <image style='width:300rpx;height:300rpx' src="{{clockRightIcon}}" mode="aspectFit"></image>
+    <icon type="success" color="{{todayClicked === true?'blue':'gray'}}" class="clickedIcon" size="120"></icon>
   </view>
   <view style="display: flex;margin-top:30rpx;margin-bottom:30rpx">
     <image style='width:60rpx;height:60rpx;margin-left:60rpx;margin-right:30rpx' src="{{statisticsIcon}}" mode="aspectFit"></image>

@@ -8,6 +8,7 @@ Page({
    */
   data: {
     curDate: '加载中...',
+    todayClicked: true,
     clockRightIcon:'../images/clock_right.png',
     clockNullIcon: '../images/clock_null.png',
     statisticsTag:'坚持情况',
