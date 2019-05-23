@@ -34,7 +34,6 @@
   display: flex;
   align-items: center;
   padding: 25rpx;
-  border-bottom: 1rpx solid #e0e0e0;
 }
 
 .todos .item:last-child {

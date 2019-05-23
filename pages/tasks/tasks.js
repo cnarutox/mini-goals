@@ -1,36 +1,19 @@
 Page({
     data: {
         input: '',
-        todos: [],
-        todoTasks: [],
-        leftCount: 0,
-        allCompleted: false,
-        logs: []
-    },
-
-    bindTasks: function () {
-        wx.navigateTo({
-            url: '../tasks/tasks?taskListId=1'
-        })
-    },
-
-    save: function () {
-        wx.setStorageSync('todo_list', this.data.todos)
-        wx.setStorageSync('todo_logs', this.data.logs)
+        todo: null,
     },
 
     load: function () {
-        var todos = wx.getStorageSync('todo_list')
-        if (todos) {
-            var leftCount = todos.filter(function (item) {
-                return !item.completed
-            }).length
-            this.setData({todos: todos, leftCount: leftCount})
-        }
-        var logs = wx.getStorageSync('todo_logs')
-        if (logs) {
-            this.setData({logs: logs})
-        }
+        let that = this;
+        wx.getStorage({
+            key: 'todo',
+            success: function (res) {
+                that.setData({
+                    todo: res.data
+                })
+            }
+        })
     },
 
     onLoad: function () {
@@ -69,20 +52,6 @@ Page({
         this.setData({
             todos: todos,
             leftCount: this.data.leftCount + (todos[index].completed ? -1 : 1),
-            logs: logs
-        })
-        this.save()
-    },
-
-    removeTodoHandle: function (e) {
-        var index = e.currentTarget.dataset.index
-        var todos = this.data.todos
-        var remove = todos.splice(index, 1)[0]
-        var logs = this.data.logs
-        logs.push({timestamp: new Date(), action: 'Remove', name: remove.name})
-        this.setData({
-            todos: todos,
-            leftCount: this.data.leftCount - (remove.completed ? 0 : 1),
             logs: logs
         })
         this.save()

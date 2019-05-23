@@ -6,26 +6,27 @@
                placeholder="Anything here..." auto-focus
                bindinput="inputChangeHandle" bindconfirm="addTodoHandle"/>
     </view>
-    <block wx:if="{{ todos.length }}">
-        <view class="todos">
-            <!-- List items should get the class `completed` when marked as completed -->
-            <view class="item{{ item.completed ? ' completed' : '' }}"
-                  wx:for="{{ todos }}" wx:key="{{ index }}"
-                  bindtap="bindTasks" data-index="{{ index }}">
-                  <!--bindtap="toggleTodoHandle" data-index="{{ index }}">-->
-
-                <text class="name">{{ item.name }}</text>
+    <block wx:if="{{todos.length}}">
+        <view style="margin-bottom: 30rpx" wx:for="{{todos}}" wx:for-item="todo" wx:for-index="todoIndex" class="todos"  data-list-index="{{todoIndex}}" bindlongtap="bindTasks">
+            <text style="font-size:40rpx;font-weight: bold;margin-left: 25rpx">{{todo.name}}</text>
+            <view data-list-index="{{todoIndex}}" class="item" wx:for="{{todo.todoList}}" data-index="{{index}}" bindtap="bindComplete">
+                <icon class="checkbox"
+                      type="{{item.completed?'success':'circle'}}"/>
+                <text class="name">{{item.name}}</text>
+            </view>
+            <view style="font-size: 25rpx" class="item">
+                {{todo.completedList.length}} items completed
             </view>
         </view>
-        <view class="footer">
-            <text class="btn" bindtap="toggleAllHandle">Toggle all</text>
-            <text wx:if="{{ leftCount }}">{{ leftCount }} {{ leftCount === 1 ?
-                'item' : 'items' }} left
-            </text>
-            <text class="btn" wx:if="{{ todos.length > leftCount }}"
-                  bindtap="clearCompletedHandle">Clear completed
-            </text>
-        </view>
+        <!--<view class="footer">-->
+        <!--<text class="btn" bindtap="toggleAllHandle">Toggle all</text>-->
+        <!--<text wx:if="{{ leftCount }}">{{ leftCount }} {{ leftCount === 1 ?-->
+        <!--'item' : 'items' }} left-->
+        <!--</text>-->
+        <!--<text class="btn" wx:if="{{ todos.length > leftCount }}"-->
+        <!--bindtap="clearCompletedHandle">Clear completed-->
+        <!--</text>-->
+        <!--</view>-->
     </block>
     <block wx:else>
         <view class="empty">
