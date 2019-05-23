@@ -6,6 +6,12 @@ Page({
         todos: null
     },
 
+    test: function () {
+        wx.navigateTo({
+            url: '../demoItemMove/demoItemMove'
+        })
+    },
+
     load: function () {
         this.setData({
             todos: [
@@ -48,20 +54,33 @@ Page({
             ],
         })
 
-        let op = function (res,that) {
-            console.log(res)
-            that.setData({
-                input: res.data
-            })
-        };
-
-        app.request('http://localhost:8080/api/task/test',op,this);
+        // let op = function (res,that) {
+        //     console.log(res)
+        //     that.setData({
+        //         input: res.data
+        //     })
+        // };
+        //
+        // app.request('http://localhost:8080/api/task/test',op,this);
 
         wx.stopPullDownRefresh();
     },
 
-    save: function () {
-
+    save: function (operation, data) {
+        let postData = {
+            userId: 1234,
+            operation: operation,
+            data: data
+        };
+        let op = function (data, that) {
+            wx.showToast({
+                title: '操作成功'
+            });
+            console.log(JSON.stringify(data['key1']));
+            let d = JSON.parse(data);
+            console.log(d);
+        };
+        app.request('http://localhost:8080/api/task/save', postData, op, this);
     },
 
     onLoad: function () {
@@ -76,7 +95,7 @@ Page({
         // let tmp = arr[index2];
         // arr.splice(index2, 1);
         // arr.splice(index1, 0, tmp);
-        arr[index1] = arr.splice(index2,1,arr[index1])[0]
+        arr[index1] = arr.splice(index2, 1, arr[index1])[0]
     },
 
     bindUp: function (e) {
@@ -85,7 +104,7 @@ Page({
         this.setData({
             todos: this.data.todos
         });
-        this.save();
+        this.save("up", this.data.todos[listIndex]);
     },
 
     bindTasks: function (e) {
@@ -101,12 +120,6 @@ Page({
         })
     },
 
-    test: function () {
-        wx.navigateTo({
-            url: '../demoItemMove/demoItemMove'
-        })
-    },
-
     bindComplete: function (e) {
         let index = e.currentTarget.dataset.index;
         let listIndex = e.currentTarget.dataset.listIndex;
@@ -114,7 +127,8 @@ Page({
             !this.data.todos[listIndex].todoList[index].completed;
         this.setData({
             todos: this.data.todos
-        })
+        });
+        this.save("complete", this.data.todos[listIndex].todoList[index]);
     },
 
     inputChangeHandle: function (e) {
@@ -124,10 +138,11 @@ Page({
     addTodoHandle: function (e) {
         if (!this.data.input || !this.data.input.trim()) return
         let todos = this.data.todos;
-        todos.push({name: this.data.input, todoList: [], completedList: []})
+        todos.push({name: this.data.input, todoList: [], completedList: []});
         this.setData({
             input: '',
             todos: todos,
-        })
+        });
+        this.save("add", this.data.todos[this.data.todos.length - 1]);
     }
-})
+});

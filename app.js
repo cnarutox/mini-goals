@@ -46,7 +46,14 @@ App({
             data: data,
             method: 'POST',
             success: function (res) {
-                successFunc(res,that);
+                if (res.statusCode == 200) {
+                    successFunc(res.data, that);
+                } else {
+                    wx.showToast({
+                        title: '请求失败',
+                        icon: 'none'
+                    })
+                }
             },
             fail:function () {
                 wx.showToast({
