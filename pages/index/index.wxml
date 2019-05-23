@@ -8,7 +8,10 @@
     </view>
     <block wx:if="{{todos.length}}">
         <view style="margin-bottom: 30rpx" wx:for="{{todos}}" wx:for-item="todo" wx:for-index="todoIndex" class="todos"  data-list-index="{{todoIndex}}" bindlongtap="bindTasks">
-            <text style="font-size:40rpx;font-weight: bold;margin-left: 25rpx">{{todo.name}}</text>
+            <view style="display: flex;justify-content:space-between;margin: 20rpx">
+                <text style="font-size:40rpx;font-weight: bold">{{todo.name}}</text>
+                <icon wx:if="{{todoIndex!=0}}" style="transform: rotate(180deg)" type="download" bindtap="{{bindUp}}"></icon>
+            </view>
             <view data-list-index="{{todoIndex}}" class="item" wx:for="{{todo.todoList}}" data-index="{{index}}" bindtap="bindComplete"  wx:if="{{!item.state||item.state==0}}">
                 <icon class="checkbox"
                       type="{{item.completed?'success':'circle'}}"/>

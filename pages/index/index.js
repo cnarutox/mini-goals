@@ -60,9 +60,13 @@ Page({
         this.load();
     },
 
+    bindUp: function () {
+        let listIndex = e.currentTarget.dataset.listIndex;
+
+    },
+
     bindTasks: function (e) {
         let listIndex = e.currentTarget.dataset.listIndex;
-        console.log(e.currentTarget.dataset.listIndex)
         wx.setStorage({
             key: 'todo',
             data: this.data.todos[listIndex],
