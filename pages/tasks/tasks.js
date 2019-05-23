@@ -16,80 +16,65 @@ Page({
         })
     },
 
+    save: function () {
+
+    },
+
     onLoad: function () {
         this.load()
+    },
+
+    bindComplete: function (e) {
+        let index = e.currentTarget.dataset.index;
+        this.data.todo.todoList[index].completed =
+            !this.data.todo.todoList[index].completed;
+        this.setData({
+            todo: this.data.todo
+        })
+        this.save();
     },
 
     inputChangeHandle: function (e) {
         this.setData({input: e.detail.value})
     },
 
-    addTodoHandle: function (e) {
+    addTodoHandle: function () {
         if (!this.data.input || !this.data.input.trim()) return
-        var todos = this.data.todos
-        todos.push({name: this.data.input, completed: false})
-        var logs = this.data.logs
-        logs.push({timestamp: new Date(), action: 'Add', name: this.data.input})
+        let todo = this.data.todo;
+        todo.todoList.push({name: this.data.input});
         this.setData({
             input: '',
-            todos: todos,
-            leftCount: this.data.leftCount + 1,
-            logs: logs
+            todo: todo,
         })
         this.save()
     },
 
-    toggleTodoHandle: function (e) {
-        var index = e.currentTarget.dataset.index
-        var todos = this.data.todos
-        todos[index].completed = !todos[index].completed
-        var logs = this.data.logs
-        logs.push({
-            timestamp: new Date(),
-            action: todos[index].completed ? 'Finish' : 'Restart',
-            name: todos[index].name
-        })
+    removeTodoHandle: function (e) {
+        let index = e.currentTarget.dataset.index;
+        this.data.todo.todoList[index].state = 1;
         this.setData({
-            todos: todos,
-            leftCount: this.data.leftCount + (todos[index].completed ? -1 : 1),
-            logs: logs
+            todo: this.data.todo
         })
-        this.save()
+        this.save();
     },
 
-    toggleAllHandle: function (e) {
-        this.data.allCompleted = !this.data.allCompleted
-        var todos = this.data.todos
-        for (var i = todos.length - 1; i >= 0; i--) {
-            todos[i].completed = this.data.allCompleted
+    completedAllHandle: function () {
+        for (let i = 0; i < this.data.todo.todoList.length; i++) {
+            this.data.todo.todoList[i].completed = true;
         }
-        var logs = this.data.logs
-        logs.push({
-            timestamp: new Date(),
-            action: this.data.allCompleted ? 'Finish' : 'Restart',
-            name: 'All todos'
-        })
         this.setData({
-            todos: todos,
-            leftCount: this.data.allCompleted ? 0 : todos.length,
-            logs: logs
-        })
-        this.save()
+            todo: this.data.todo,
+        });
+        this.save();
     },
 
-    clearCompletedHandle: function (e) {
-        var todos = this.data.todos
-        var remains = []
-        for (var i = 0; i < todos.length; i++) {
-            todos[i].completed || remains.push(todos[i])
+    clearCompletedHandle: function () {
+        for (let i = 0; i < this.data.todo.todoList.length; i++) {
+            this.data.todo.todoList[i].completed = false;
         }
-        var logs = this.data.logs
-        logs.push({
-            timestamp: new Date(),
-            action: 'Clear',
-            name: 'Completed todo'
-        })
-        this.setData({todos: remains, logs: logs})
-        this.save()
+        this.setData({
+            todo: this.data.todo,
+        });
+        this.save();
     }
 })

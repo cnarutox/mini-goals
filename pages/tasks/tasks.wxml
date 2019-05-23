@@ -2,37 +2,29 @@
 <view class="index-container">
     <view class="header">
         <image class="plus" src="../../images/plus.png"/>
-        <input class="new-todo" value="{{ input }}"
+        <input class="new-todo" value="{{input}}"
                placeholder="Anything here..." auto-focus
                bindinput="inputChangeHandle" bindconfirm="addTodoHandle"/>
     </view>
     <block wx:if="{{todo.todoList.length}}">
         <view class="todos">
-            <view class="item" wx:for="{{todo.todoList}}">
-                <icon class="checkbox" type="circle"/>
-                <text class="name">{{item.name}}</text>
-                <icon class="remove" type="clear" size="16"
-                      catchtap="removeTodoHandle" data-index="{{index}}"/>
-            </view>
-            <view class="item completed" wx:for="{{todo.completedList}}">
-                <icon class="checkbox" type="success"/>
+            <view class="item" wx:for="{{todo.todoList}}" data-index="{{index}}" bindtap="bindComplete" wx:if="{{!item.state||item.state==0}}">
+                <icon class="checkbox"
+                      type="{{item.completed?'success':'circle'}}"/>
                 <text class="name">{{item.name}}</text>
                 <icon class="remove" type="clear" size="16"
                       catchtap="removeTodoHandle" data-index="{{index}}"/>
             </view>
         </view>
         <view class="footer">
-            <text class="btn" bindtap="toggleAllHandle">Completed all</text>
-            <text wx:if="{{todo.todoList.length}}">{{todo.todoList.length}} {{todo.todoList.length=== 1 ? 'item' : 'items' }} left
-            </text>
-            <text class="btn" wx:if="{{todo.completedList.length}}"
-                  bindtap="clearCompletedHandle">Clear completed
+            <text class="btn" bindtap="completedAllHandle">Completed all</text>
+            <text class="btn" bindtap="clearCompletedHandle">Clear completed
             </text>
         </view>
     </block>
     <block wx:else>
         <view class="empty">
-            <text class="title">Congratulations!</text>
+            <text class="title">Add Some!</text>
             <text class="content">There's no more work left.</text>
         </view>
     </block>

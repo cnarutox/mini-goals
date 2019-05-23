@@ -1,58 +1,72 @@
 Page({
     data: {
         input: '',
-        todos: [
-            {
-                id: 4,
-                name: 'name1',
-                todoList: [
-                    {
-                        id: 131,
-                        name: 'task1'
-                    },
-                    {
-                        id: 231,
-                        name: 'task2'
-                    }
-                ],
-                completedList: [
-                    {
-                        id: 313,
-                        name: 'task3'
-                    },
-                    {
-                        id: 431,
-                        name: 'task4'
-                    }
-                ]
-            },
-            {
-                id: 3,
-                name: 'name1',
-                todoList: [
-                ],
-                completedList: [
-                    {
+        todos: null
+    },
+
+    load: function () {
+        this.setData({
+            todos: [
+                {
+                    id: 4,
+                    name: 'name1',
+                    todoList: [
+                        {
+                            id: 131,
+                            name: 'task1',
+                            state: 1
+                        },
+                        {
+                            id: 231,
+                            name: 'task2'
+                        },
+                        {
+                            id: 313,
+                            name: 'task3'
+                        },
+                        {
+                            id: 431,
+                            name: 'task4'
+                        }
+                    ]
+                },
+                {
+                    id: 3,
+                    name: 'name1',
+                    todoList: [{
                         id: 331,
                         name: 'task3'
                     },
-                    {
-                        id: 431,
-                        name: 'task4'
-                    }
-                ]
-            }
-        ],
+                        {
+                            id: 431,
+                            name: 'task4'
+                        }
+                    ]
+                }
+            ],
+        })
+        wx.stopPullDownRefresh();
     },
 
+    save: function () {
+
+    },
+
+    onLoad: function () {
+        this.load();
+    },
+
+    onPullDownRefresh() {
+        this.load();
+    },
 
     bindTasks: function (e) {
         let listIndex = e.currentTarget.dataset.listIndex;
         console.log(e.currentTarget.dataset.listIndex)
         wx.setStorage({
-            key:'todo',
+            key: 'todo',
             data: this.data.todos[listIndex],
-            success:function () {
+            success: function () {
                 wx.navigateTo({
                     url: '../tasks/tasks'
                 })
@@ -62,20 +76,18 @@ Page({
 
     test: function () {
         wx.navigateTo({
-            url:'../demoItemMove/demoItemMove'
+            url: '../demoItemMove/demoItemMove'
         })
     },
 
     bindComplete: function (e) {
         let index = e.currentTarget.dataset.index;
         let listIndex = e.currentTarget.dataset.listIndex;
-        this.data.todos[listIndex].todoList[index].completed = true;
+        this.data.todos[listIndex].todoList[index].completed =
+            !this.data.todos[listIndex].todoList[index].completed;
         this.setData({
-            todos:this.data.todos
+            todos: this.data.todos
         })
-    },
-
-    onLoad: function () {
     },
 
     inputChangeHandle: function (e) {
@@ -84,16 +96,11 @@ Page({
 
     addTodoHandle: function (e) {
         if (!this.data.input || !this.data.input.trim()) return
-        var todos = this.data.todos
-        todos.push({name: this.data.input, completed: false})
-        var logs = this.data.logs
-        logs.push({timestamp: new Date(), action: 'Add', name: this.data.input})
+        let todos = this.data.todos;
+        todos.push({name: this.data.input, todoList: [], completedList: []})
         this.setData({
             input: '',
             todos: todos,
-            leftCount: this.data.leftCount + 1,
-            logs: logs
         })
-        this.save()
     }
 })
