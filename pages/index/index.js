@@ -1,3 +1,5 @@
+const app = getApp();
+
 Page({
     data: {
         input: '',
@@ -46,6 +48,14 @@ Page({
             ],
         })
 
+        let op = function (res,that) {
+            console.log(res)
+            that.setData({
+                input: res.data
+            })
+        };
+
+        app.request('http://localhost:8080/api/task/test',op,this);
 
         wx.stopPullDownRefresh();
     },

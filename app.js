@@ -37,9 +37,9 @@ App({
     globalData: {
         userInfo: null
     },
-    request: function (url,successFunc,param) {
+    request: function (url,successFunc,that) {
         wx.request({
-            url: '',
+            url: url,
             header: {
                 "Content-Type": 'application/x-www-form-urlencoded'
             },
@@ -48,7 +48,7 @@ App({
             },
             method: 'POST',
             success: function (res) {
-                successFunc(param);
+                successFunc(res,that);
             },
             fail:function () {
                 wx.showToast({
