@@ -34,6 +34,7 @@
             <text class="content">There's no more work left.</text>
         </view>
     </block>
+    <button bindtap="test">TEST</button>
 </view>
 
 

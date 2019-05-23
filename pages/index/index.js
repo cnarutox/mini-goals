@@ -60,6 +60,12 @@ Page({
         })
     },
 
+    test: function () {
+        wx.navigateTo({
+            url:'../demoItemMove/demoItemMove'
+        })
+    },
+
     bindComplete: function (e) {
         let index = e.currentTarget.dataset.index;
         let listIndex = e.currentTarget.dataset.listIndex;
