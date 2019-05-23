@@ -8,7 +8,8 @@
     </view>
     <block wx:if="{{todo.todoList.length}}">
         <view class="todos">
-            <view class="item" wx:for="{{todo.todoList}}" data-index="{{index}}" bindtap="bindComplete" wx:if="{{!item.state||item.state==0}}">
+            <view class="item" wx:for="{{todo.todoList}}" data-index="{{index}}"
+                  bindtap="bindComplete" wx:if="{{!item.state||item.state==0}}">
                 <icon class="checkbox"
                       type="{{item.completed?'success':'circle'}}"/>
                 <text class="name">{{item.name}}</text>
@@ -28,6 +29,10 @@
             <text class="content">There's no more work left.</text>
         </view>
     </block>
+    <view style="display:flex;justify-content:space-around;margin:8px;padding:8px">
+        <button bindtap="bindDelete">删除</button>
+        <button bindtap="bindOnFile">归档</button>
+    </view>
 </view>
 
 

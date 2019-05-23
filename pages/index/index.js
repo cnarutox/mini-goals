@@ -45,6 +45,8 @@ Page({
                 }
             ],
         })
+
+
         wx.stopPullDownRefresh();
     },
 
@@ -60,9 +62,20 @@ Page({
         this.load();
     },
 
-    bindUp: function () {
-        let listIndex = e.currentTarget.dataset.listIndex;
+    swap: function (arr, index1, index2) {
+        // let tmp = arr[index2];
+        // arr.splice(index2, 1);
+        // arr.splice(index1, 0, tmp);
+        arr[index1] = arr.splice(index2,1,arr[index1])[0]
+    },
 
+    bindUp: function (e) {
+        let listIndex = e.currentTarget.dataset.listIndex;
+        this.swap(this.data.todos, listIndex - 1, listIndex);
+        this.setData({
+            todos: this.data.todos
+        });
+        this.save();
     },
 
     bindTasks: function (e) {

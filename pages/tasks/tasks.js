@@ -54,7 +54,7 @@ Page({
         this.data.todo.todoList[index].state = 1;
         this.setData({
             todo: this.data.todo
-        })
+        });
         this.save();
     },
 
@@ -76,5 +76,43 @@ Page({
             todo: this.data.todo,
         });
         this.save();
+    },
+
+    bindDelete:function () {
+        let that = this;
+        wx.showModal({
+            title:'提示',
+            content: '确定删除此清单？',
+            success: function (res) {
+                if (res.confirm) {
+                    that.delete();
+                }
+            }
+        })
+    },
+
+    delete: function () {
+        wx.showToast({
+            title: 'delete'
+        })
+    },
+
+    bindOnFile: function () {
+        let that = this;
+        wx.showModal({
+            title:'提示',
+            content: '确定归档此清单？',
+            success: function (res) {
+                if (res.confirm) {
+                    that.onFile();
+                }
+            }
+        })
+    },
+
+    onFile:function () {
+        wx.showToast({
+            title: 'onfile'
+        })
     }
 })
