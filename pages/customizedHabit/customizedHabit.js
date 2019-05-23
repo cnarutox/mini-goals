@@ -6,13 +6,20 @@ Page({
    */
   data: {
     inputShowed: false,
-    inputVal: "",
     hiddenName: false,
     hiddenWeeks: true,
     hiddenFre: true,  
     hiddenInterval: true,
     hiddenIcon: true,
     
+    hiddenShowArea: false,
+    hiddenTextArea: true,
+
+    hiddenPersist: true,
+
+
+    inputVal: "",
+    habitName: "请输入你要自定义的习惯",
     cycleSelectType: 0, //1->byWeeks, 2->byFre, 3->byInterval
     weekDaySelected: [0, 0, 0, 0, 0, 0, 0],
     freSelected: 0,
@@ -20,12 +27,9 @@ Page({
     cycleStored: 0,
 
     descriptionForHabit: '点此输入你的描述~',
-    hiddenShowArea: false,
-    hiddenTextArea: true,
 
     shareable: false,
     persistenceSharaeble: false,
-    hiddenPersist: true,
 
 
     array: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
@@ -146,7 +150,8 @@ Page({
   },
   establish: function(){
     this.setData({
-      hiddenName: true
+      hiddenName: true,
+      habitName: this.data.inputVal
     })
   },
 
@@ -356,11 +361,24 @@ Page({
   },
 
   createSuc: function(){
+    var that = this
     wx.showToast({
       title: '成功',
       icon: 'succes',
       duration: 1000,
       mask: true
+    })
+    wx.request({
+      url: 'http://localhost/api/habit/createhabit',
+      method: 'POST',
+      header: {'content-type': 'application/json'},
+      data:{  
+        name: that.data.habitName,
+        cycle_type: that.data.cycleSelectType,
+      },
+      success: function(res){
+        console.log(res.data)
+      }
     })
   },
 

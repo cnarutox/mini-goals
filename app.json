@@ -12,8 +12,7 @@
     "pages/mypage/mypage",
     "pages/archive/archive",
     "pages/logs/logs",
-    "pages/friends/friends",
-    "pages/tasks/tasks"
+    "pages/friends/friends"
   ],
   "window": {
     "backgroundTextStyle": "light",

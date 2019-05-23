@@ -1,13 +1,14 @@
 // pages/habit_clock/habit_clock.js
+
+var util = require('../../utils/util.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    curDate: '4/24',
-    clockRightIcon:'../images/clock_right.png',
-    clockNullIcon: '../images/clock_null.png',
+    curDate: '加载中...',
+    todayClicked: false,
     statisticsTag:'坚持情况',
     statisticsIcon:'../images/statistics_icon.png',
     shareButtonLabel:'炫耀一下',
@@ -36,13 +37,19 @@ Page({
         isClock: false
       }
     ],
+    habitId:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    console.log('onLoad,', options)
+    var DATE = util.formatTime4(new Date())
+    this.setData({
+      curDate: DATE,
+      habitId: options.habitId,
+    })
   },
 
   /**
@@ -97,6 +104,12 @@ Page({
   gotoHabitClockStatistics:function(){
     wx.navigateTo({
       url: '../habit_clock_statistics/habit_clock_statistics'
+    })
+  },
+
+  clickHabit: function(){
+    this.setData({
+      todayClicked: true
     })
   }
 })
