@@ -37,15 +37,13 @@ App({
     globalData: {
         userInfo: null
     },
-    request: function (url,successFunc,that) {
+    request: function (url,data,successFunc,that) {
         wx.request({
             url: url,
             header: {
                 "Content-Type": 'application/x-www-form-urlencoded'
             },
-            data: {
-                a: 1,
-            },
+            data: data,
             method: 'POST',
             success: function (res) {
                 successFunc(res,that);
