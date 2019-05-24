@@ -247,7 +247,7 @@ Page({
    * 周期选择勾选星期后点击确认
    */
   confirmByWeeks: function(){
-    var binResult = this.data.weekDaySelected.join('')
+    var binResult = this.data.weekDaySelected.reverse().join('')
     console.log('binResult, ', binResult)
     var intResult = parseInt(binResult, 2)
     console.log('intResult,', intResult)
