@@ -24,7 +24,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .archives{
@@ -35,7 +35,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 330rpx;
+  width: 320rpx;
   height: 250rpx;
   background: skyblue;
   margin: 20rpx;

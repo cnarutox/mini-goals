@@ -7,26 +7,7 @@ Page({
   data: {
     archivenum: 0,
     archives:[
-      {
-        name: '早起',
-        day: 1,
-      },
-      {
-        name: '读书',
-        day: 2,
-      },
-      {
-        name: '背单词',
-        day: 76,
-      },
-      {
-        name: '手机电脑',
-        day: 1,
-      },
-      {
-        name: '早起',
-        day: 1,
-      },
+      
     ]
   },
 
@@ -45,9 +26,6 @@ Page({
         });
       }
     })
-    this.setData({
-      icon: base64.icon20
-    });
   },
 
   /**
@@ -99,14 +77,25 @@ Page({
 
   },
 
-  bindlongpress: function () {
+  bindlongpress: function (e) {
+    var that = this
     console.log('bindlongpress')
+    var habitid = e.currentTarget.dataset.id
+    console.log(habitid)
     wx.showModal({
       title: '恢复坚持习惯',
       content: '恢复坚持习惯后，习惯会重新进入坚持列表继续坚持，确定恢复吗？',
       success: function (res) {
         if (res.confirm) {
           console.log('用户点击确定')
+          wx.request({
+            url: "http://localhost/api/habit/cancelarchived?param="+habitid,
+            success: function(res){
+              that.onLoad()
+              console.log('res.data', res.data)
+            }
+          })
+
         } else {
           console.log('用户点击取消')
         }
