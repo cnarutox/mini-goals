@@ -9,37 +9,11 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    likenum: 25,
     totalhabit: 0,
     archivehabit: 0,
     unarchivebind: 'navigatetohabitdetail',
     archivebind: 'navigatetoarchive',
-    archives: [
-      // {
-      //   name: '读书',
-      //   description: '已坚持 2 天',
-      //   tag: 'scroll-inner-inner',
-      //   bindevent: 'navigatetohabitdetail'
-      // },
-      // {
-      //   name: '背单词',
-      //   description: '已坚持 4 天',
-      //   tag: 'scroll-inner-inner',
-      //   bindevent: 'navigatetohabitdetail',
-      // },
-      // {
-      //   name: '爱万戌哥',
-      //   description: '已坚持 30 天',
-      //   tag: 'scroll-inner-inner',
-      //   bindevent: 'navigatetohabitdetail',
-      // },
-      // {
-      //   name: '归档的习惯',
-      //   description: '已归档5个',
-      //   tag: 'archive-item',
-      //   bindevent: 'navigatetoarchive',
-      // },
-    ],
+    archives: [],
     toView: 'yellow',
     scrollTop: 0,
   },

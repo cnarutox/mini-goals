@@ -3,10 +3,10 @@
   <view class="textarchive">
     <text class="archivehead">{{archivenum}} 已经归档（长按可恢复坚持）</text>
     <view class="outerarchives">
-      <view class="archives" wx:for="{{archives}}">
+      <view class="archives" wx:for="{{archives}}" wx:if="{{item.state==3}}">
         <view class="archive-item" bindtap="navigatedetail" bindlongpress="bindlongpress">
           <text class="archivename">{{item.name}}</text>
-          <text class="archivetext">已坚持 {{item.day}} 天</text>
+          <text class="archivetext">已坚持null天</text>
         </view>
       </view>
     </view>

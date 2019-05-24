@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    archivenum: 5,
+    archivenum: 0,
     archives:[
       {
         name: '早起',
@@ -34,7 +34,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    wx.request({
+      url: 'http://localhost/api/habit/gethabitlist',
+      success: function (res) {
+        console.log(res.data);// 服务器回包信息
+        that.setData({
+          archives: res.data.habits,
+          archivenum: res.data.archivenum,
+        });
+      }
+    })
+    this.setData({
+      icon: base64.icon20
+    });
   },
 
   /**
