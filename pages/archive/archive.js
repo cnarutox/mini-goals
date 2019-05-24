@@ -17,7 +17,7 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'http://localhost/api/habit/gethabitlist',
+      url: 'http://localhost/api/habit/getarchivelist',
       success: function (res) {
         console.log(res.data);// 服务器回包信息
         that.setData({
