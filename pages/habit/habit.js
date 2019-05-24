@@ -123,6 +123,14 @@ Page({
             break;
           case 1:
             console.log("归档习惯");
+            wx.request({
+              url: "http://localhost/api/habit/archive?param=" + habitid,
+              success: function (res) {
+                console.log(res.data)
+                console.log('archive')
+                that.onLoad()
+              }
+            })     
             wx.showToast({
               title: '归档成功，可在个人主页恢复！',
               icon: 'none',
