@@ -10,33 +10,35 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     likenum: 25,
-    totalhabit: 3,
-    archivehabit: 1,
+    totalhabit: 0,
+    archivehabit: 0,
+    unarchivebind: 'navigatetohabitdetail',
+    archivebind: 'navigatetoarchive',
     archives: [
-      {
-        name: '读书',
-        description: '已坚持 2 天',
-        tag: 'scroll-inner-inner',
-        bindevent: 'navigatetohabitdetail'
-      },
-      {
-        name: '背单词',
-        description: '已坚持 4 天',
-        tag: 'scroll-inner-inner',
-        bindevent: 'navigatetohabitdetail',
-      },
-      {
-        name: '爱万戌哥',
-        description: '已坚持 30 天',
-        tag: 'scroll-inner-inner',
-        bindevent: 'navigatetohabitdetail',
-      },
-      {
-        name: '归档的习惯',
-        description: '已归档5个',
-        tag: 'archive-item',
-        bindevent: 'navigatetoarchive',
-      },
+      // {
+      //   name: '读书',
+      //   description: '已坚持 2 天',
+      //   tag: 'scroll-inner-inner',
+      //   bindevent: 'navigatetohabitdetail'
+      // },
+      // {
+      //   name: '背单词',
+      //   description: '已坚持 4 天',
+      //   tag: 'scroll-inner-inner',
+      //   bindevent: 'navigatetohabitdetail',
+      // },
+      // {
+      //   name: '爱万戌哥',
+      //   description: '已坚持 30 天',
+      //   tag: 'scroll-inner-inner',
+      //   bindevent: 'navigatetohabitdetail',
+      // },
+      // {
+      //   name: '归档的习惯',
+      //   description: '已归档5个',
+      //   tag: 'archive-item',
+      //   bindevent: 'navigatetoarchive',
+      // },
     ],
     toView: 'yellow',
     scrollTop: 0,
@@ -46,6 +48,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this
     console.log('onLoad')
     if (app.globalData.userInfo) {
       this.setData({
@@ -53,6 +56,17 @@ Page({
         hasUserInfo: true
       })
     }
+    wx.request({
+      url: 'http://localhost/api/habit/gethabitlist',
+      success: function (res) {
+        console.log(res.data);// 服务器回包信息
+        that.setData({
+          totalhabit: res.data.count,
+          archives: res.data.habits,
+          archivehabit: res.data.archivenum,
+        });
+      }
+    })
   },
 
   /**

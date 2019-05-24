@@ -1,15 +1,15 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/mypage/mypage",
     "pages/mine/mine",
     "pages/habit/habit",
-    "pages/index/index",
     "pages/customizedHabit/customizedHabit",
     "pages/addHabit/addHabit",
     "pages/totalpersist/totalpersist",
     "pages/archiveDetail/archiveDetail",
     "pages/habit_clock_details/habit_clock_details",
     "pages/habit_clock/habit_clock",
-    "pages/mypage/mypage",
     "pages/archive/archive",
     "pages/logs/logs",
     "pages/friends/friends"

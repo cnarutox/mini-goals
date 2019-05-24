@@ -20,7 +20,7 @@ Page({
       success: function (res) {
         console.log(res.data);// 服务器回包信息
         that.setData({
-          habitArray: res.data
+          habitArray: res.data.habits
         });
       }
     })

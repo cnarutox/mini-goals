@@ -75,7 +75,6 @@
   align-items: center;
   width: 500rpx;
   height: 250rpx;
-  background: yellow;
   margin: 10rpx;
 }
 

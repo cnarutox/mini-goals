@@ -14,9 +14,15 @@
     <scroll-view scroll-x="true" bindscrolltoupper="upper" bindscrolltolower="lower"  bindscroll="scroll" scroll-into-view="{{toView}}" scroll-left="{{scrollTop}}">
       <view class="scroll-x">
         <view class="scroll-inner" wx:for-items="{{archives}}">
-          <view class="{{item.tag}}" bindtap="{{item.bindevent}}">
+          <view class="scroll-inner-inner" bindtap="{{unarchivebind}}"  style="background-color: yellow" wx:if="{{item.state!=3}}">
             <text>{{item.name}}</text>
-            <text>{{item.description}}</text>
+            <text>已经坚持undefined天</text>
+          </view>
+        </view>
+        <view class="scroll-inner">
+          <view class="scroll-inner-inner" bindtap="{{archivebind}}" style="background-color: skyblue">
+              <text>归档的习惯</text>
+              <text>已经归档{{archivehabit}}个习惯</text>
           </view>
         </view>
       </view>
