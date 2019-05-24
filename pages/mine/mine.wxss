@@ -64,7 +64,7 @@
 }
 
 .likeicon{
-  margin-right: 10rpx;
+  margin-right: 20rpx;
 }
 
 .liketext{

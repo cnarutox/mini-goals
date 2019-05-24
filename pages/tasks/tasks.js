@@ -21,7 +21,7 @@ Page({
     },
 
     onLoad: function () {
-        this.load()
+      this.load()
     },
 
     bindComplete: function (e) {
