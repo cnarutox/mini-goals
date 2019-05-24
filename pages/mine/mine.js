@@ -16,6 +16,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
+    var that = this
     console.log('onLoad')
     if(app.globalData.userInfo){
       this.setData({
@@ -23,6 +24,15 @@ Page({
         hasUserInfo: true
       })
     }
+    wx.request({
+      url: 'http://localhost/api/habit/gettotallike',
+      success: function (res) {
+        console.log(res.data);// 服务器回包信息
+        that.setData({
+          likenum: res.data
+        });
+      }
+    })
   },
 
   /**
