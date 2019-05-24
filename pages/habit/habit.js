@@ -27,6 +27,7 @@ Page({
     this.setData({
       icon: base64.icon20
     });
+    console.log('onLoad')
   },
 
   /**
@@ -40,7 +41,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.onLoad()
   },
 
   /**
@@ -84,7 +85,10 @@ Page({
   },
 
   handleLongPress: function(e) {
-    console.log("長按");
+    console.log("長按")
+    var that = this
+    var habitid = e.currentTarget.dataset.id
+    console.log(habitid)
     wx.showActionSheet({
       itemList: ['删除习惯','归档习惯','修改习惯'],
       success: function(res){
@@ -101,10 +105,18 @@ Page({
               confirmColor: '#576B95',
               success: function(res){
                 if(res.cancel){
+                  
                   console.log("cancel")
                 }
-                else if(res.confirm){
-                  console.log('confirm')
+                else if (res.confirm) {
+                  wx.request({
+                    url: "http://localhost/api/habit/delete?param=" + habitid,
+                    success: function (res) {
+                      console.log(res.data)
+                      console.log('confirm')
+                      that.onLoad()
+                    }
+                  })
                 }
               }
             })
