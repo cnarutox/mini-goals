@@ -1,0 +1,12 @@
+<view class="tui-loading-cell">
+  <view class="circle-line">
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+    <text></text>
+  </view>
+</view>

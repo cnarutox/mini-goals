@@ -1,5 +1,15 @@
 <!--pages/totalpersist/totalpersist.wxml-->
-<view class="outercontainer">
+<view class="circle-line" hidden="{{notload}}">
+  <text></text>
+  <text></text>
+  <text></text>
+  <text></text>
+  <text></text>
+  <text></text>
+  <text></text>
+  <text></text>
+</view>
+<view class="outercontainer" hidden="{{hidden}}">
   <view class="navbar">
     <block wx:for="{{navbarTitle}}" wx:key="index">
       <view class="navbar-item {{navbarActiveIndex === index? 'navbar-item-active' : ''}}" data-navbar-index="{{index}}" catchtap="onNavBarTap">
@@ -12,7 +22,7 @@
       <swiper-item class="swiper-item" wx:for="{{navbarTitle}}" wx:key="index">
         <scroll-view class="scroll-view" scroll-y="{{true}}" wx:if="{{index===0}}">
           <view class="outerdetails">
-            <view class="details"> 
+            <view class="details">
               <text class="title">全部习惯今天统计
               </text>
               <view class="percent">
@@ -56,7 +66,7 @@
                           </view>
                           <view class="cell" wx:else>
                             <view wx:if="{{days[j+k].isSign === true}}" style="background-color: #83C75D" class="cell">
-                              <text>{{days[j+k].date}}</text> 
+                              <text>{{days[j+k].date}}</text>
                             </view>
                             <view wx:else>
                               <text>{{days[j+k].date}}</text>

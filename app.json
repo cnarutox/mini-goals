@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/totalpersist/totalpersist",
+    "pages/loadicon/loadicon", 
     "pages/index/index",
     "pages/habit/habit",
     "pages/archive/archive",
@@ -7,12 +9,12 @@
     "pages/mine/mine",
     "pages/customizedHabit/customizedHabit",
     "pages/addHabit/addHabit",
-    "pages/totalpersist/totalpersist",
     "pages/archiveDetail/archiveDetail",
     "pages/habit_clock_details/habit_clock_details",
     "pages/habit_clock/habit_clock",
     "pages/logs/logs",
-    "pages/friends/friends"
+    "pages/friends/friends",
+    "loadicon"
   ],
   "window": {
     "backgroundTextStyle": "light",

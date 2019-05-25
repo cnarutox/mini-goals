@@ -7,16 +7,13 @@ Page({
   data: {
     navbarActiveIndex: 0,
     navbarTitle: [
-      '全部',
-      '习惯1',
-      '习惯2',
-      '习惯3',
+      '全部'
     ],
     detailDict: [
-      { 
+      {
         "name": "已完成",
         "count": 0,
-       },
+      },
       {
         "name": "未完成",
         "count": 4,
@@ -34,7 +31,9 @@ Page({
     count: 0,
     lastX: 0,
     lastY: 0,
-    text: "没有滑动"
+    text: "没有滑动",
+    hidden: true,
+    notload: false
   },
 
   /**
@@ -42,6 +41,7 @@ Page({
    */
   onLoad: function (options) {
     console.log('onLoad')
+    var that = this
     //this.setData({objectId: options.objectId});
     const date = new Date()
     const cur_year = date.getFullYear();
@@ -54,6 +54,23 @@ Page({
       cur_year,
       cur_month,
       weeks_ch
+    })
+    wx.request({
+      url: 'http://localhost/api/habit/gethabitlist',
+      success(res) {
+        if (res) {
+          console.log(res.data)
+          that.setData({
+            navbarTitle: res.data['habits'].map(item => {
+              return item['name']
+            })
+          })
+          that.setData({
+            notload: true,
+            hidden: false
+          })
+        }
+      }
     })
   },
 
@@ -106,16 +123,16 @@ Page({
 
   },
 
-  onNavBarTap: function(event){
+  onNavBarTap: function (event) {
     console.log('onNavBarTap')
     let navbarTapIndex = event.currentTarget.dataset.navbarIndex
-    console.log('navbarTapIndex, ' , navbarTapIndex)
+    console.log('navbarTapIndex, ', navbarTapIndex)
     this.setData({
       navbarActiveIndex: navbarTapIndex
     })
   },
 
-  handleCalendar: function(e){
+  handleCalendar: function (e) {
     console.log('handleCalendar')
     const handle = e.currentTarget.dataset.handle;
     const cur_year = this.data.cur_year;
@@ -159,7 +176,7 @@ Page({
     if (firstDayOfWeek > 0) {
       for (let i = 0; i < firstDayOfWeek; i++) {
         var isSigned = false
-        if(i%2 === 0){
+        if (i % 2 === 0) {
           isSigned = true
         }
         var obj = {
@@ -189,7 +206,7 @@ Page({
       var rand = Math.round(Math.random() * (max - min));
       console.log('rand, ', rand)
       var isSigned = false;
-      if(i == rand){
+      if (i == rand) {
         isSigned = true;
         console.log('isSigned True');
       }
@@ -254,7 +271,7 @@ Page({
     // that.setData({ days: daysArr });
   },
 
-  onBindAnimationFinish: function(event){
+  onBindAnimationFinish: function (event) {
     console.log('onBindAnimationFinish')
     this.setData({
       navbarActiveIndex: event.detail.current
