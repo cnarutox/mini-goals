@@ -1,10 +1,11 @@
 
 {
   "pages": [
+    "pages/habit/habit",
+    "pages/index/index",
+    "pages/habit_clock/habit_clock",
     "pages/totalpersist/totalpersist",
     "pages/loadicon/loadicon", 
-    "pages/index/index",
-    "pages/habit/habit",
     "pages/archive/archive",
     "pages/mypage/mypage",
     "pages/mine/mine",
@@ -12,7 +13,6 @@
     "pages/addHabit/addHabit",
     "pages/archiveDetail/archiveDetail",
     "pages/habit_clock_details/habit_clock_details",
-    "pages/habit_clock/habit_clock",
     "pages/logs/logs",
     "pages/friends/friends",
     "loadicon"

@@ -13,6 +13,7 @@ Page({
     statisticsIcon: '../images/statistics_icon.png',
     shareButtonLabel: '炫耀一下',
     statisticsButtonLabel: '统计情况',
+    habitId: 0,
     weekClock: [
       {
         tag: '一',
@@ -36,23 +37,25 @@ Page({
         tag: '七',
         isClock: false
       }
-    ],
-    habitId: 0
+    ]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('onLoad,', options)
     var that = this
-    var habitid = options.habitId
+    console.log('onLoad,', options)
+    var habitid_temp = options.habitId
     var DATE = util.formatTime2(new Date())
     var date = util.formatTime2(new Date())
     var weekday = util.formatTime5(new Date())
     var weekClocked = [1, 0, 0, 1, 0, 0, 0]
+    that.setData({
+      habitId: habitid_temp,
+    })
     wx.request({
-      url: "http://localhost/api/habit/getclockin?param=" + habitid + "&date=" + date + "&weekday=" + weekday,
+      url: "http://localhost/api/habit/getclockin?param=" + habitid_temp + "&date=" + date + "&weekday=" + weekday,
       success: function (res) {
         console.log(res.data)
         var weeks = res.data.weeks
@@ -130,8 +133,24 @@ Page({
   },
 
   clickHabit: function () {
+    var that = this
+    var weekday = util.formatTime5(new Date())-1
+    var date = util.formatTime2(new Date())
+    var clocked = 'weekClock[' +weekday + '].isClock'
+    var weekday = util.formatTime5(new Date())
     this.setData({
-      todayClicked: true
+      todayClicked: true,
+      [clocked]: true,
+    })
+    console.log(that.data.habitid)
+    console.log(weekday)
+    wx.request({
+      url: "http://localhost/api/habit/clockin?param="+that.data.habitId+"&date="+date,
+      success: function(res){
+        if(res){
+          console.log(res)
+        }
+      }
     })
   }
 })
