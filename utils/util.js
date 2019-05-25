@@ -28,6 +28,11 @@ const formatTime4 = date => {
   return [month, day].map(formatNumber).join('/')
 }
 
+const formatTime5 = date => {
+  const weekday = date.getDay()
+  return weekday
+}
+
 const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
@@ -52,5 +57,6 @@ module.exports = {
   formatTime2: formatTime2,
   formatTime3: formatTime3,
   formatTime4: formatTime4,
+  formatTime5: formatTime5,
   addDay: addDay
 }

@@ -9,35 +9,35 @@ Page({
   data: {
     curDate: '加载中...',
     todayClicked: false,
-    statisticsTag:'坚持情况',
-    statisticsIcon:'../images/statistics_icon.png',
-    shareButtonLabel:'炫耀一下',
-    statisticsButtonLabel:'统计情况',
-    weekClock:[
+    statisticsTag: '坚持情况',
+    statisticsIcon: '../images/statistics_icon.png',
+    shareButtonLabel: '炫耀一下',
+    statisticsButtonLabel: '统计情况',
+    weekClock: [
       {
-        tag:'一',
-        isClock:false
+        tag: '一',
+        isClock: false
       }, {
         tag: '二',
         isClock: false
       }, {
         tag: '三',
-        isClock: true
+        isClock: false
       }, {
         tag: '四',
         isClock: false
       }, {
         tag: '五',
-        isClock: true
+        isClock: false
       }, {
         tag: '六',
-        isClock: true
+        isClock: false
       }, {
         tag: '七',
         isClock: false
       }
     ],
-    habitId:0
+    habitId: 0
   },
 
   /**
@@ -45,7 +45,29 @@ Page({
    */
   onLoad: function (options) {
     console.log('onLoad,', options)
-    var DATE = util.formatTime4(new Date())
+    var that = this
+    var habitid = options.habitId
+    var DATE = util.formatTime2(new Date())
+    var date = util.formatTime2(new Date())
+    var weekday = util.formatTime5(new Date())
+    var weekClocked = [1, 0, 0, 1, 0, 0, 0]
+    wx.request({
+      url: "http://localhost/api/habit/getclockin?param=" + habitid + "&date=" + date + "&weekday=" + weekday,
+      success: function (res) {
+        console.log(res.data)
+        var weeks = res.data.weeks
+        console.log(weeks)
+        for (var i = 0; i < 7; i++) {
+          if(weeks[i]==1){
+            var clocked = 'weekClock[' + i + '].isClock'
+            that.setData({
+              [clocked]: true
+            })
+          }
+          
+        }
+      }
+    })
     this.setData({
       curDate: DATE,
       habitId: options.habitId,
@@ -101,13 +123,13 @@ Page({
 
   },
 
-  gotoHabitClockStatistics:function(){
+  gotoHabitClockStatistics: function () {
     wx.navigateTo({
       url: '../habit_clock_statistics/habit_clock_statistics'
     })
   },
 
-  clickHabit: function(){
+  clickHabit: function () {
     this.setData({
       todayClicked: true
     })
