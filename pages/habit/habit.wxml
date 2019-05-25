@@ -8,7 +8,7 @@
                   <view class="habiticon" style="background-color:{{itemName.color}}"></view>
                   <view class="flex_column">
                     <view class="habitNm">{{itemName.name}}</view>
-                    <view class="illu">{{"已坚持 " + itemName.description + "天"}}</view>
+                    <view class="illu">{{"已坚持 " + itemName.persist + "天"}}</view>
                   </view>
                 </view>
             </navigator>
