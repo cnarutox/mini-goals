@@ -46,20 +46,23 @@ Page({
   onLoad: function (options) {
     var that = this
     console.log('onLoad,', options)
-    var habitid_temp = options.habitId
-    var DATE = util.formatTime2(new Date())
     var date = util.formatTime2(new Date())
     var weekday = util.formatTime5(new Date())
-    var weekClocked = [1, 0, 0, 1, 0, 0, 0]
-    that.setData({
-      habitId: habitid_temp,
+    this.setData({
+      curDate: date,
+      habitId: options.habitId,
     })
+    console.log('date', date)
     wx.request({
-      url: "http://localhost/api/habit/getclockin?param=" + habitid_temp + "&date=" + date + "&weekday=" + weekday,
+      url: "http://localhost/api/habit/getclockin?param=" + that.data.habitId + "&date=" + date + "&weekday=" + weekday,
       success: function (res) {
         console.log(res.data)
         var weeks = res.data.weeks
-        console.log(weeks)
+        var todayClicked = res.data.todayClicked
+        var todaydate = res.data.todaydate
+        console.log('weeks', weeks)
+        console.log('todayClicked', todayClicked)
+        console.log('todaydate', todaydate)
         for (var i = 0; i < 7; i++) {
           if(weeks[i]==1){
             var clocked = 'weekClock[' + i + '].isClock'
@@ -67,14 +70,13 @@ Page({
               [clocked]: true
             })
           }
-          
         }
+        that.setData({
+          todayClicked: res.data.todayClicked
+        })
       }
     })
-    this.setData({
-      curDate: DATE,
-      habitId: options.habitId,
-    })
+    
   },
 
   /**
@@ -134,23 +136,27 @@ Page({
 
   clickHabit: function () {
     var that = this
-    var weekday = util.formatTime5(new Date())-1
-    var date = util.formatTime2(new Date())
-    var clocked = 'weekClock[' +weekday + '].isClock'
-    var weekday = util.formatTime5(new Date())
-    this.setData({
-      todayClicked: true,
-      [clocked]: true,
-    })
-    console.log(that.data.habitid)
-    console.log(weekday)
-    wx.request({
-      url: "http://localhost/api/habit/clockin?param="+that.data.habitId+"&date="+date,
-      success: function(res){
-        if(res){
-          console.log(res)
+    console.log('todatClicked', that.data.todayClicked)
+    if(that.data.todayClicked!=true){
+      console.log('clickedHabit')
+      var weekday = util.formatTime5(new Date()) - 1
+      var date = util.formatTime2(new Date())
+      var clocked = 'weekClock[' + weekday + '].isClock'
+      // var weekday = util.formatTime5(new Date())
+      this.setData({
+        todayClicked: true,
+        [clocked]: true,
+      })
+      //console.log(that.data.habitid)
+      console.log('weekday', weekday)
+      wx.request({
+        url: "http://localhost/api/habit/clockin?param=" + that.data.habitId + "&date=" + date,
+        success: function (res) {
+          if (res) {
+            console.log(res)
+          }
         }
-      }
-    })
+      })
+    }
   }
 })
