@@ -11,16 +11,12 @@ Page({
     ],
     detailDict: [
       {
-        "name": "已完成",
-        "count": 0,
+        name: "已归档",
+        count: 4,
       },
       {
-        "name": "未完成",
-        "count": 4,
-      },
-      {
-        "name": "坚持中",
-        "count": 4,
+        name: "坚持中",
+        count: 4,
       },
     ],
     //objectId:'',
@@ -61,11 +57,11 @@ Page({
         if (res) {
           console.log(res.data)
           that.setData({
-            navbarTitle: res.data['habits'].map(item => {
+            navbarTitle: ['全部'].concat(res.data['habits'].map(item => {
               return item['name']
-            })
-          })
-          that.setData({
+            })),
+            ['detailDict[0].count']: res.data.archivenum,
+            ['detailDict[1].count']: res.data.count,
             notload: true,
             hidden: false
           })
