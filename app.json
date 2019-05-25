@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/habit/habit",
     "pages/index/index",
+    "pages/habit/habit",
     "pages/archive/archive",
     "pages/mypage/mypage",
     "pages/mine/mine",
