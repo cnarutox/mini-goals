@@ -5,17 +5,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    curHabitTag:'吃早餐',
-    curHabitPercent:'90',
-    habitPercentBeginLabel:'你以超过了%&nbsp;&nbsp;',
-    habitPercentEndLabel:'&nbsp;&nbsp;的用户',
+    habitId: 0,
+    curHabitTag:'',
+    curHabitPercent:'0',
+    habitPercentBeginLabel:'你以超过了&nbsp;&nbsp;',
+    habitPercentEndLabel:'&nbsp;&nbsp;%的用户',
     dataIcon:'../images/data_icon.png',
     dataTag:'数据统计',
     clockBeginLabel:'打卡',
-    clocks:20,
+    clocks:0,
     clockEndLabel:'&nbsp;&nbsp;天',
     likeBeginLabel:'点赞',
-    likes: 10,
+    likes: 0,
     likeThis:true,
     likeIcon: '../images/like.png',
     likeThisIcon: '../images/like_this.png',
@@ -27,7 +28,39 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    console.log(options)
+    wx.request({
+      url: 'http://localhost/api/habit/gethabitname?param='+options.habitId,
+      success: function(res){
+        if(res){
+          that.setData({
+            habitId: options.habitId,
+            curHabitTag: res.data.habitname
+          })
+        }
+      }
+    })
+    wx.request({
+      url: 'http://localhost/api/habit/countpersist?param='+options.habitId,
+      success: function(res){
+        if(res){
+          that.setData({
+            clocks: res.data.clocks
+          })
+        }
+      }
+    })
+    wx.request({
+      url: 'http://localhost/api/habit/getuserhabitlike?param='+options.habitId,
+      success: function(res){
+        if(res){
+          that.setData({
+            likes: res.data.userhabitlike
+          })
+        }
+      }
+    })
   },
 
   /**

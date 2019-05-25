@@ -129,8 +129,9 @@ Page({
   },
 
   gotoHabitClockStatistics: function () {
+    var that = this
     wx.navigateTo({
-      url: '../habit_clock_statistics/habit_clock_statistics'
+      url: '../habit_clock_statistics/habit_clock_statistics?habitId='+that.data.habitId
     })
   },
 
