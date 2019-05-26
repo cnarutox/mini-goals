@@ -20,13 +20,12 @@
           <view class="thumbUp" bindtap="thumbuptap" data-userhabit="{{itemName.userhabit}}" data-index="{{index}}">    
             <image class="thumbupicon" src="{{itemName.thumbed==true?thumbupdoneicon:thumbupicon}}"></image>
             <text class="thumbuptext">赞</text>
-          </view>
+          </view>  
         </view>
         <view class="pack14">
           <image class="likeicon" src="{{likeicon}}"></image>
-          <view class="likelist" wx:for="{{itemName.likelist}}">
-            <text wx-if="{{index!==itemName.likelist.length-1}}" class="likeitem">{{item+','}}</text>
-            <text wx-if="{{index===itemName.likelist.length-1}}" class="likeitem">{{item}}</text>
+          <view class="likelist">
+            <text class="likeitem">{{itemName.likelist}}</text>
           </view>
         </view>
       </view>

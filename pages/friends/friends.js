@@ -10,7 +10,7 @@ Page({
     thumbupdoneicon: "../images/zan_this.png",
     thumbupicon: "../images/zan.png",
     likeicon: "../images/hearts.png",
-    friendArray:[
+    friendArray: [
     ]
   },
 
@@ -23,9 +23,9 @@ Page({
     var date = util.formatTime2(new Date())
     console.log('date', date)
     wx.request({
-      url: "http://localhost/api/friend/moments?userid=" + app.globalData.userInfo.id+"&date="+date,
-      success: function(res){
-        if(res){
+      url: "http://localhost/api/friend/moments?userid=" + app.globalData.userInfo.id + "&date=" + date,
+      success: function (res) {
+        if (res) {
           console.log(res.data)
           that.setData({
             friendArray: res.data.list
@@ -84,7 +84,7 @@ Page({
 
   },
 
-  thumbuptap: function(e) {
+  thumbuptap: function (e) {
     console.log('thumbuptap')
     console.log('e.currentTarget.dataset', e.currentTarget.dataset)
     var index = e.currentTarget.dataset.index
@@ -95,19 +95,23 @@ Page({
     console.log('date', date)
     console.log('userhabitid', userhabitid)
     console.log('index', index)
-    if(this.data.friendArray[index].thumbed!=true){
+    if (this.data.friendArray[index].thumbed != true) {
+      var isthumbed = "friendArray[" + index + "].thumbed"
+      var list = "friendArray[" + index + "].likelist"
+      that.setData({
+        [isthumbed]: true,
+        [list]: that.data.friendArray[index].likelist + '，' + app.globalData.userInfo.nickName
+      })
       wx.request({
         url: "http://localhost/api/friend/thumbup?userid=" + app.globalData.userInfo.id + "&date=" + date + "&userhabit=" + userhabitid,
         success: function (res) {
           if (res) {
             console.log(res.data)
-            var isthumbed = "friendArray[" + index + "].thumbed"
-            let ceshi = that.data.friendArray[index].likelist
-            ceshi.push(res.data.username)
-            that.setData({
-              [isthumbed]: true,
-              ceshi
+            wx.showToast({
+              title: '成功',
             })
+            // console.log(that.data.friendArray[index].likelist)
+            // that.onLoad()
           }
         }
       })
