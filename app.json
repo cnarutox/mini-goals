@@ -1,6 +1,7 @@
 
 {
   "pages": [
+    "pages/friends/friends",
     "pages/habit/habit",
     "pages/index/index",
     "pages/habit_clock/habit_clock",
@@ -14,7 +15,6 @@
     "pages/archiveDetail/archiveDetail",
     "pages/habit_clock_details/habit_clock_details",
     "pages/logs/logs",
-    "pages/friends/friends",
     "loadicon"
   ],
   "window": {

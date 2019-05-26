@@ -1,1 +1,118 @@
 /* pages/friends/friends.wxss */
+page{
+  background-color: lightgray;
+  }
+
+  .outercontainer{
+
+  }
+
+  .iconpack1{
+    display: flex;
+    flex-direction: row;
+    margin: 5rpx;
+    background-color: white;
+  }
+
+  .iconview{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20rpx;
+  }
+
+  .usericon{
+    height: 85rpx;
+    width: 85rpx;
+  }
+
+  .pack1{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .pack11{
+    padding: 20rpx;
+  }
+
+  .username{
+    color: slateblue;
+    font-size: 45rpx;
+  }
+  .pack12{
+    display: flex;
+    flex-direction: row;
+    background-color:	#DCDCDC;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 20rpx;
+    margin-left: 20rpx;
+    padding: 10rpx;
+  }
+
+  .habiticon{
+  }
+
+  .habittext{
+    color: black;
+    font-size: 30rpx;
+  }
+  
+  .pack13{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx;
+  }
+
+  .time{
+    color: gray;
+    font-size: 30rpx;
+  }
+
+  .thumbUp{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20rpx;
+  }
+
+  .thumbupicon{
+    height: 50rpx;
+    width: 50rpx;
+  }
+
+  .thumbuptext{
+    font-size: 30rpx;
+  }
+
+  .pack14{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color:#DCDCDC;
+    margin: 0rpx 20rpx 20rpx 20rpx;
+  }
+
+  .likeicon{
+    height: 50rpx;
+    width: 50rpx;
+    margin: 5rpx 5rpx 5rpx 10rpx;
+  }
+
+
+  .likelist{
+
+  }
+
+  .likeitem{
+    font-size: 30rpx;
+    margin: 0rpx 5rpx 0rpx 5rpx;
+  }
+
+

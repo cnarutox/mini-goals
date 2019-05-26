@@ -1,2 +1,35 @@
 <!--pages/friends/friends.wxml-->
-<text>pages/friends/friends.wxml</text>
+<view class="outercontainer">
+  <block wx:for="{{friendArray}}" wx:for-item="itemName">
+    <view class="iconpack1">
+      <view class="iconview">
+        <image class="usericon" src="{{itemName.icon}}"></image>
+      </view>
+      <view class="pack1">
+        <view class="pack11">
+          <text class="username">{{itemName.userName}}</text>
+        </view>
+        <view class="pack12">
+          <view class="outerhabiticon">
+            <view class="habiticon" style="background-color:{{itemName.habitcolor}}"></view>
+          </view>
+          <view class="habittext">我今天打卡了{{itemName.habitName}}的习惯!已坚持{{itemName.habitpersist}}天,一起加油啊!</view>
+        </view>
+        <view class="pack13">
+          <view class="time">{{itemName.time}}</view>
+          <view class="thumbUp">    
+            <image class="thumbupicon" src="{{thumbupicon}}"></image>
+            <text class="thumbuptext">赞</text>
+          </view>
+        </view>
+        <view class="pack14">
+          <image class="likeicon" src="{{likeicon}}"></image>
+          <view class="likelist" wx:for="{{itemName.likelist}}">
+            <text wx-if="{{index!==itemName.likelist.length-1}}" class="likeitem">{{item+','}}</text>
+            <text wx-if="{{index===itemName.likelist.length-1}}" class="likeitem">{{item}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
