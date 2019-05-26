@@ -3,7 +3,7 @@
   <block wx:for="{{friendArray}}" wx:for-item="itemName">
     <view class="iconpack1">
       <view class="iconview">
-        <image class="usericon" src="{{itemName.icon}}"></image>
+        <image class="usericon" src="{{itemName.avatar}}"></image>
       </view>
       <view class="pack1">
         <view class="pack11">
