@@ -1,5 +1,6 @@
 // pages/habit/habit.js
 var base64 = require("../images/base64");
+var app = getApp();
 Page({
 
   /**
@@ -16,9 +17,9 @@ Page({
   onLoad: function (options) {
     var that = this;
     wx.request({
-      url: 'http://localhost/api/habit/gethabitlist',
+      url: 'http://localhost/api/habit/gethabitlist?userId=' + app.globalData.userInfo.id,
       success: function (res) {
-        console.log(res.data);// 服务器回包信息
+        console.log('habit onLoad: ' + res.data);// 服务器回包信息
         that.setData({
           habitArray: res.data.habits
         });
@@ -27,7 +28,6 @@ Page({
     this.setData({
       icon: base64.icon20
     });
-    console.log('onLoad')
   },
 
   /**
@@ -88,14 +88,13 @@ Page({
     console.log("長按")
     var that = this
     var habitid = e.currentTarget.dataset.id
-    console.log(habitid)
     wx.showActionSheet({
       itemList: ['删除习惯','归档习惯','修改习惯'],
       success: function(res){
-        console.log(res.tapIndex);
+        // console.log(res.tapIndex);
         switch(res.tapIndex){
           case 0:
-            console.log("删除习惯");
+            // console.log("删除习惯");
             wx.showModal({
               title: '删除习惯',
               content: '删除习惯后，该习惯的历史记录会被清空，你确定删除？',
@@ -105,15 +104,13 @@ Page({
               confirmColor: '#576B95',
               success: function(res){
                 if(res.cancel){
-                  
                   console.log("cancel")
                 }
                 else if (res.confirm) {
                   wx.request({
                     url: "http://localhost/api/habit/delete?param=" + habitid,
                     success: function (res) {
-                      console.log(res.data)
-                      console.log('confirm')
+                      console.log('delete' + res.data)
                       that.onLoad()
                     }
                   })
@@ -126,8 +123,7 @@ Page({
             wx.request({
               url: "http://localhost/api/habit/archive?param=" + habitid,
               success: function (res) {
-                console.log(res.data)
-                console.log('archive')
+                console.log('archive' + res.data)
                 that.onLoad()
               }
             })     
@@ -140,13 +136,13 @@ Page({
           case 2:
             console.log("修改习惯"); 
             var index = e.currentTarget.dataset.id;
-            console.log(index);
+            // console.log(index);
             wx.navigateTo({
               url: '../customizedHabit/customizedHabit'
             })
             break;
           default:
-            console.log("default");
+            // console.log("default");
         }
       },
       fail: function(res){

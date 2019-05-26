@@ -1,6 +1,6 @@
 // pages/customized_habit.js
+var app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -368,7 +368,12 @@ Page({
       header: { 'content-type': 'application/json' },
       data: {
         name: that.data.habitName,
-        cycle_type: that.data.cycleSelectType,
+        cycle_type: that.data.cycleSelectType, //1->byWeeks, 2->byFre, 3->byInterval
+        cycle_value: that.data.cycleStored,
+        color: that.data.colorData.pickerData.hex,
+        description: that.data.descriptionForHabit,
+        share_state: that.data.shareable + that.data.persistenceSharaeble,
+        id: app.globalData.userInfo.id
       },
       success: function (res) {
         console.log(res.data)
