@@ -13,12 +13,12 @@
           <view class="outerhabiticon">
             <view class="habiticon" style="background-color:{{itemName.habitcolor}}"></view>
           </view>
-          <view class="habittext">我今天打卡了{{itemName.habitName}}的习惯!已坚持{{itemName.habitpersist}}天,一起加油啊!</view>
+          <view class="habittext">我今天打卡了"{{itemName.habitName}}"的习惯!已坚持{{itemName.habitpersist}}天,一起加油啊!</view>
         </view>
         <view class="pack13">
           <view class="time">{{itemName.time}}</view>
-          <view class="thumbUp">    
-            <image class="thumbupicon" src="{{thumbupicon}}"></image>
+          <view class="thumbUp" bindtap="thumbuptap">    
+            <image class="thumbupicon" src="{{itemName.thumbed==true?thumbupdoneicon:thumbupicon}}"></image>
             <text class="thumbuptext">赞</text>
           </view>
         </view>

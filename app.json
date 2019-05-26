@@ -1,9 +1,9 @@
 
 {
   "pages": [
+    "pages/index/index",
     "pages/friends/friends",
     "pages/habit/habit",
-    "pages/index/index",
     "pages/habit_clock/habit_clock",
     "pages/totalpersist/totalpersist",
     "pages/loadicon/loadicon", 
