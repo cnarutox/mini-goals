@@ -19,7 +19,7 @@ Page({
     wx.request({
       url: 'http://localhost/api/habit/gethabitlist?userId=' + app.globalData.userInfo.id,
       success: function (res) {
-        console.log('habit onLoad: ' + res.data);// 服务器回包信息
+        console.log('habit onLoad: ' + res.data); // 服务器回包信息
         that.setData({
           habitArray: res.data.habits
         });
@@ -84,15 +84,15 @@ Page({
     })
   },
 
-  handleLongPress: function(e) {
+  handleLongPress: function (e) {
     console.log("長按")
     var that = this
     var habitid = e.currentTarget.dataset.id
     wx.showActionSheet({
-      itemList: ['删除习惯','归档习惯','修改习惯'],
-      success: function(res){
+      itemList: ['删除习惯', '归档习惯', '修改习惯'],
+      success: function (res) {
         // console.log(res.tapIndex);
-        switch(res.tapIndex){
+        switch (res.tapIndex) {
           case 0:
             // console.log("删除习惯");
             wx.showModal({
@@ -102,11 +102,10 @@ Page({
               cancelColor: '#000000',
               confirmText: '删除',
               confirmColor: '#576B95',
-              success: function(res){
-                if(res.cancel){
+              success: function (res) {
+                if (res.cancel) {
                   console.log("cancel")
-                }
-                else if (res.confirm) {
+                } else if (res.confirm) {
                   wx.request({
                     url: "http://localhost/api/habit/delete?param=" + habitid,
                     success: function (res) {
@@ -126,7 +125,7 @@ Page({
                 console.log('archive' + res.data)
                 that.onLoad()
               }
-            })     
+            })
             wx.showToast({
               title: '归档成功，可在个人主页恢复！',
               icon: 'none',
@@ -134,7 +133,7 @@ Page({
             })
             break;
           case 2:
-            console.log("修改习惯"); 
+            console.log("修改习惯");
             var index = e.currentTarget.dataset.id;
             // console.log(index);
             wx.navigateTo({
@@ -142,16 +141,16 @@ Page({
             })
             break;
           default:
-            // console.log("default");
+          // console.log("default");
         }
       },
-      fail: function(res){
+      fail: function (res) {
         console.log(res.errMsg)
       }
     })
   },
 
-  addHabit: function(){
+  addHabit: function () {
     console.log("addHabit");
     wx.navigateTo({
       url: "/pages/addHabit/addHabit"

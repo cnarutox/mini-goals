@@ -169,8 +169,7 @@ Page({
           this.setData({
             index: 0
           })
-        }
-        else {
+        } else {
           this.setData({
             weekDaySelected: [0, 0, 0, 0, 0, 0, 0]
           })
@@ -186,8 +185,7 @@ Page({
           this.setData({
             index: this.data.freSelected
           })
-        }
-        else {
+        } else {
           this.setData({
             index: 0
           })
@@ -203,8 +201,7 @@ Page({
           this.setData({
             index: this.data.intervalSelected
           })
-        }
-        else {
+        } else {
           this.setData({
             index: 0
           })
@@ -322,8 +319,7 @@ Page({
     var toShow = ""
     if (e.detail.value.length > 0) {
       toShow = e.detail.value
-    }
-    else {
+    } else {
       toShow = "点这里输入你的描述~"
     }
     this.setData({
@@ -399,8 +395,8 @@ Page({
     })
   },
   /**
- * 图标颜色选择勾选星期后点击确认
- */
+   * 图标颜色选择勾选星期后点击确认
+   */
   confirmByIcon: function () {
     this.setData({
       hiddenIcon: true,

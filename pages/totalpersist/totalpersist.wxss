@@ -42,10 +42,6 @@
   align-items: center;
 }
 
-.outershowtable{
-
-}
-
 .showtable{
   display: flex;
   flex-direction: row;
@@ -75,10 +71,6 @@
   align-items: center;
 }
 
-.percentage{
-
-}
-
 .illustration{
   color: gray;
   font-size: 25rpx;
@@ -96,12 +88,6 @@
 
 .swiper-item{
   height: 800rpx;
-}
-
-.scroll-view{
-}
-
-.outerdetails{
 }
 
 .details{

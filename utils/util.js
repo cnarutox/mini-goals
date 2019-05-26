@@ -30,7 +30,7 @@ const formatTime4 = date => {
 
 const formatTime5 = date => {
   const weekday = date.getDay()
-  if(weekday == 0) return 7
+  if (weekday == 0) return 7
   return weekday
 }
 
