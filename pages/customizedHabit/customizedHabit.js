@@ -8,10 +8,10 @@ Page({
     inputShowed: false,
     hiddenName: false,
     hiddenWeeks: true,
-    hiddenFre: true,  
+    hiddenFre: true,
     hiddenInterval: true,
     hiddenIcon: true,
-    
+
     hiddenShowArea: false,
     hiddenTextArea: true,
 
@@ -34,12 +34,12 @@ Page({
 
     array: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
     index: 0,
-    radio_items:[
-      {name: 'byWeek', value: '按星期'},
-      {name: 'byFre', value: '按频率'},
-      {name: 'byInterval', value: '按间隔'},
+    radio_items: [
+      { name: 'byWeek', value: '按星期' },
+      { name: 'byFre', value: '按频率' },
+      { name: 'byInterval', value: '按间隔' },
     ],
-    week_items:[
+    week_items: [
       { name: 1, value: '星期一' },
       { name: 2, value: '星期二' },
       { name: 3, value: '星期三' },
@@ -67,7 +67,7 @@ Page({
       //色相控制条的位置
       barY: 0
     },
-    rpxRatio: 1 
+    rpxRatio: 1
   },
 
   /**
@@ -148,7 +148,7 @@ Page({
       inputVal: e.detail.value
     });
   },
-  establish: function(){
+  establish: function () {
     this.setData({
       hiddenName: true,
       habitName: this.data.inputVal
@@ -159,18 +159,18 @@ Page({
   /**
    * 周期选择单选框
    */
-  radioChange(e){
+  radioChange(e) {
     console.log('radiod发生change事件，携带value值为：', e.detail.value)
     console.log('cycleSelectType: ', this.data.cycleSelectType)
-    switch(e.detail.value){
+    switch (e.detail.value) {
       case "byWeek":
         console.log('weekDaySelected, ', this.data.weekDaySelected)
-        if(this.data.cycleSelectType===1){
+        if (this.data.cycleSelectType === 1) {
           this.setData({
             index: 0
           })
         }
-        else{
+        else {
           this.setData({
             weekDaySelected: [0, 0, 0, 0, 0, 0, 0]
           })
@@ -182,12 +182,12 @@ Page({
         });
         break;
       case "byFre":
-        if(this.data.cycleSelectType===2){
+        if (this.data.cycleSelectType === 2) {
           this.setData({
             index: this.data.freSelected
           })
         }
-        else{
+        else {
           this.setData({
             index: 0
           })
@@ -199,12 +199,12 @@ Page({
         })
         break;
       case "byInterval":
-        if(this.data.cycleSelectType===3){
+        if (this.data.cycleSelectType === 3) {
           this.setData({
             index: this.data.intervalSelected
           })
         }
-        else{
+        else {
           this.setData({
             index: 0
           })
@@ -229,15 +229,15 @@ Page({
     console.log('lst, ', lst)
     console.log('length of lst, ', lst.length)
     this.setData({
-      weekDaySelected: [0,0,0,0,0,0,0]
+      weekDaySelected: [0, 0, 0, 0, 0, 0, 0]
     })
-    for(var i=0;i<lst.length;i++){
-      var idx = parseInt(lst[i])-1
+    for (var i = 0; i < lst.length; i++) {
+      var idx = parseInt(lst[i]) - 1
       console.log('idx, ', idx)
-      var weekday = 'weekDaySelected['+idx+']'
+      var weekday = 'weekDaySelected[' + idx + ']'
       var result = 0
       this.setData({
-        [weekday] : 1,
+        [weekday]: 1,
       })
     }
     console.log('weekDaySelected, ', this.data.weekDaySelected)
@@ -246,7 +246,7 @@ Page({
   /**
    * 周期选择勾选星期后点击确认
    */
-  confirmByWeeks: function(){
+  confirmByWeeks: function () {
     var binResult = this.data.weekDaySelected.reverse().join('')
     console.log('binResult, ', binResult)
     var intResult = parseInt(binResult, 2)
@@ -264,7 +264,7 @@ Page({
   /**
    * 周期选择勾选频率后点击确认
    */
-  confirmByFre: function(){
+  confirmByFre: function () {
     this.setData({
       hiddenFre: true,
       cycleSelectType: 2,
@@ -284,7 +284,7 @@ Page({
       hiddenInterval: true,
       cycleSelectType: 3,
       cycleStored: this.data.index,
-      weekDaySelected: [0,0,0,0,0,0,0],
+      weekDaySelected: [0, 0, 0, 0, 0, 0, 0],
       freSelected: 0,
       intervalSelected: this.data.index,
       index: 0,
@@ -299,12 +299,12 @@ Page({
       index: e.detail.value,
     })
   },
-  
+
 
   /**
    * Input点击确认
    */
-  confirmByText: function(e){
+  confirmByText: function (e) {
     console.log('confirmByText')
     console.log(e.detail.value)
   },
@@ -312,18 +312,18 @@ Page({
   /**
    * 监听textarea输入
    */
-  watchinput: function(e){
+  watchinput: function (e) {
     console.log(e.detail.value)
   },
 
-  textAreaOnBlur: function(e){
+  textAreaOnBlur: function (e) {
     console.log("textAreaOnBlur, ", e.detail.value)
     console.log("textAreaOnBlur.length", e.detail.value.length)
     var toShow = ""
-    if(e.detail.value.length>0){
+    if (e.detail.value.length > 0) {
       toShow = e.detail.value
     }
-    else{
+    else {
       toShow = "点这里输入你的描述~"
     }
     this.setData({
@@ -333,7 +333,7 @@ Page({
     })
   },
 
-  tapText: function(){
+  tapText: function () {
     console.log('tapText')
     this.setData({
       hiddenShowArea: true,
@@ -344,7 +344,7 @@ Page({
   /**
    * 监听textarea输入
    */
-  switchChange: function(){
+  switchChange: function () {
     console.log('switchChange')
     console.log(this.data.hiddenPersist)
     this.setData({
@@ -353,31 +353,31 @@ Page({
     })
   },
 
-  switchPersistChange: function(){
+  switchPersistChange: function () {
     console.log('switchPersistChange')
     this.setData({
       persistenceShareable: !this.data.persistenceSharaeble
     })
   },
 
-  createSuc: function(){
+  createSuc: function () {
     var that = this
-    wx.showToast({
-      title: '成功',
-      icon: 'succes',
-      duration: 1000,
-      mask: true
-    })
     wx.request({
       url: 'http://localhost/api/habit/createhabit',
       method: 'POST',
-      header: {'content-type': 'application/json'},
-      data:{  
+      header: { 'content-type': 'application/json' },
+      data: {
         name: that.data.habitName,
         cycle_type: that.data.cycleSelectType,
       },
-      success: function(res){
+      success: function (res) {
         console.log(res.data)
+        wx.showToast({
+          title: '成功',
+          icon: 'succes',
+          duration: 1000,
+          mask: true
+        })
       }
     })
   },

@@ -9,7 +9,7 @@ Page({
   data: {
     thumbupdoneicon: "../images/zan_this.png",
     thumbupicon: "../images/zan.png",
-    likeicon: "../images/like.png",
+    likeicon: "../images/hearts.png",
     friendArray:[
     ]
   },
