@@ -56,10 +56,10 @@ Page({
     wx.request({
       url: "http://localhost/api/habit/getclockin?param=" + that.data.habitId + "&date=" + date + "&weekday=" + weekday,
       success: function (res) {
-        console.log(res.data)
         var weeks = res.data.weeks
         var todayClicked = res.data.todayClicked
         var todaydate = res.data.todaydate
+        console.log(res.data)
         console.log('weeks', weeks)
         console.log('todayClicked', todayClicked)
         console.log('todaydate', todaydate)

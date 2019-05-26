@@ -17,7 +17,7 @@
         </view>
         <view class="pack13">
           <view class="time">{{itemName.time}}</view>
-          <view class="thumbUp" bindtap="thumbuptap">    
+          <view class="thumbUp" bindtap="thumbuptap" data-userhabit="{{itemName.userhabit}}" data-index="{{index}}">    
             <image class="thumbupicon" src="{{itemName.thumbed==true?thumbupdoneicon:thumbupicon}}"></image>
             <text class="thumbuptext">赞</text>
           </view>

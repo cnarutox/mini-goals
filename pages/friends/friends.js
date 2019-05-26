@@ -84,7 +84,33 @@ Page({
 
   },
 
-  thumbuptap: function() {
-    
+  thumbuptap: function(e) {
+    console.log('thumbuptap')
+    console.log('e.currentTarget.dataset', e.currentTarget.dataset)
+    var index = e.currentTarget.dataset.index
+    var date = util.formatTime2(new Date())
+    var userhabitid = e.currentTarget.dataset.userhabit
+    var that = this
+    console.log('this.data.friendArray[index].thumbed', this.data.friendArray[index].thumbed)
+    console.log('date', date)
+    console.log('userhabitid', userhabitid)
+    console.log('index', index)
+    if(this.data.friendArray[index].thumbed!=true){
+      wx.request({
+        url: "http://localhost/api/friend/thumbup?userid=" + app.globalData.userInfo.id + "&date=" + date + "&userhabit=" + userhabitid,
+        success: function (res) {
+          if (res) {
+            console.log(res.data)
+            var isthumbed = "friendArray[" + index + "].thumbed"
+            let ceshi = that.data.friendArray[index].likelist
+            ceshi.push(res.data.username)
+            that.setData({
+              [isthumbed]: true,
+              ceshi
+            })
+          }
+        }
+      })
+    }
   }
 })
