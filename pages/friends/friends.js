@@ -18,17 +18,30 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log ('onLoad' + app.globalData.userInfo.id)
+    // console.log ('onLoad' + app.globalData.userInfo.id)
     var that = this
     var date = util.formatTime2(new Date())
-    console.log('date', date)
+    // console.log('date', date)
+    wx.getStorage({
+      key: 'friendArray',
+      success(res) {
+        console.log('获取缓存朋友圈')
+        that.setData({
+          friendArray: res.data
+        })
+      }
+    })
     wx.request({
       url: "http://localhost/api/friend/moments?userid=" + app.globalData.userInfo.id + "&date=" + date,
       success: function (res) {
         if (res) {
-          console.log(res.data)
+          // console.log(res.data)
           that.setData({
             friendArray: res.data.list
+          })
+          wx.setStorage({
+            key: 'friendArray',
+            data: res.data.list,
           })
         }
       }
