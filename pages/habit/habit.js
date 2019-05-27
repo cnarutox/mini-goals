@@ -101,8 +101,10 @@ Page({
 
   handleLongPress: function (e) {
     console.log("長按")
+    console.log('e.currentTarget.dataset', e.currentTarget.dataset)
     var that = this
     var habitid = e.currentTarget.dataset.id
+    var arrayindex = e.currentTarget.dataset.index
     wx.showActionSheet({
       itemList: ['删除习惯', '归档习惯', '修改习惯'],
       success: function (res) {
@@ -121,11 +123,18 @@ Page({
                 if (res.cancel) {
                   console.log("cancel")
                 } else if (res.confirm) {
+                  console.log('confirm')
+                  that.setData({
+                    habitArray: that.data.habitArray.splice(arrayindex,1)
+                  })
                   wx.request({
                     url: "http://localhost/api/habit/delete?param=" + habitid,
                     success: function (res) {
                       console.log('delete' + res.data)
                       that.onLoad()
+                      wx.showToast({
+                        title: '删除成功'
+                      })
                     }
                   })
                 }

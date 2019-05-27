@@ -9,16 +9,17 @@
 .outernavbar{
   display: flex;
   flex-direction: row;
-  border: 5rpx solid green;
+  /* background-color: gold; */
 }
 
+.navbar{
+  display: flex;
+  white-space: nowrap;
+}
 
 .inner-navbar{
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  border: 5rpx solid red;
 }
 
 .navbar-item{
@@ -26,17 +27,12 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border: 5rpx solid black;
-}
-
-.scroll-item{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.scroll-text{
+  /* border: 5rpx solid black; */
+  background-color: gold;
+  border-radius: 5%;
+  margin: 5rpx;
+  padding: 20rpx;
+  color: white;
 }
 
 .navbar-item-active{
@@ -44,6 +40,14 @@
   border-bottom: 10rpx solid #494949;
   color: #494949;
 }
+
+.scroll-item{
+  display: inline-block;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 
 
 .title{

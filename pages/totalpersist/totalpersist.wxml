@@ -11,11 +11,11 @@
 </view>
 <view class="outercontainer" hidden="{{hidden}}">
   <view class="outernavbar">
-    <scroll-view scroll-x="true">
+    <scroll-view class="navbar" scroll-x="true">
       <view class="inner-navbar">
         <view wx:for="{{navbarTitle}}" wx:key="index">
           <view class="navbar-item {{navbarActiveIndex === index? 'navbar-item-active' : ''}}" data-navbar-index="{{index}}" catchtap="onNavBarTap">
-            <view class="scroll-item">
+            <view class="scroll-item scroll-view-item_H ">
               <text>{{item}}</text>
             </view>
           </view>
