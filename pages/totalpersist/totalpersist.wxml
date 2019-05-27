@@ -10,12 +10,18 @@
   <text></text>
 </view>
 <view class="outercontainer" hidden="{{hidden}}">
-  <view class="navbar">
-    <block wx:for="{{navbarTitle}}" wx:key="index">
-      <view class="navbar-item {{navbarActiveIndex === index? 'navbar-item-active' : ''}}" data-navbar-index="{{index}}" catchtap="onNavBarTap">
-        <text>{{item}}</text>
+  <view class="outernavbar">
+    <scroll-view scroll-x="true">
+      <view class="inner-navbar">
+        <view wx:for="{{navbarTitle}}" wx:key="index">
+          <view class="navbar-item {{navbarActiveIndex === index? 'navbar-item-active' : ''}}" data-navbar-index="{{index}}" catchtap="onNavBarTap">
+            <view class="scroll-item">
+              <text>{{item}}</text>
+            </view>
+          </view>
+        </view>
       </view>
-    </block>
+    </scroll-view>
   </view>
   <view class="movie-content-wrapper">
     <swiper class="swiper" current="{{navbarActiveIndex}}" bindanimationfinish="onBindAnimationFinish" bindchange="handlechange" bindtransition="handletransition">

@@ -43,7 +43,8 @@ Page({
     wx.request({
       url: 'http://localhost/api/habit/gethabitlist?userId=' + app.globalData.userInfo.id,
       success: function (res) {
-        console.log('habit onLoad: ' + res.data); // 服务器回包信息
+        console.log('habit onLoad:👇')
+        console.log(res.data); // 服务器回包信息
         that.setData({
           habitArray: res.data.habits
         })

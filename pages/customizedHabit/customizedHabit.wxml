@@ -19,12 +19,8 @@
         </view>
         <view class="pop" wx:if="{{inputVal.length > 0}}">
             <view class="popups" hidden="{{hiddenName}}">
-                <view class="inpt">习惯"{{inputVal}}"尚未创建</view>
+                <view class="inpt">习惯"{{inputVal}}"</view>
                 <button class="joinBtn" bindtap="establish">创建</button>
-            </view>
-            <view class="popups" hidden="{{hiddenName}}">
-                <view class="inpt">习惯"{{inputVal}}"已创建</view>
-                <button class="joinBtn" bindtap="establish">添加</button>
             </view>
         </view>
         <view class="radios">
