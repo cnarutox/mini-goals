@@ -1,4 +1,5 @@
 //app.js
+const serverUrl = 'http://localhost:80';
 App({
   onLaunch: function () {
     var that = this
@@ -91,7 +92,81 @@ App({
   globalData: {
     userInfo: {
       id: 0
+    },
+    userId: 2,
+    taskAddTaskListUrl: serverUrl + '/api/task/add-task-list',
+    taskGetTaskListUrl: serverUrl + '/api/task/get-task-list',
+    taskAddTaskUrl: serverUrl + '/api/task/add-task',
+    taskCompleteTaskUrl: serverUrl + '/api/task/complete-task',
+    taskRemoveTaskUrl: serverUrl + '/api/task/remove-task',
+    taskRemoveTaskListUrl: serverUrl + '/api/task/remove-task-list',
+    taskTaskListUpUrl: serverUrl + '/api/task/task-list-up',
+    taskTaskUpUrl: serverUrl + '/api/task/task-up',
+  },
+  requestAsync: function (url, data, successFunc, that) {
+    wx.request({
+      url: url,
+      data: data,
+      method: 'POST',
+      success: function (res) {
+        console.log(res);
+        if (res.statusCode == 200 && res.data.success) {
+          successFunc(res.data.data, that);
+        } else {
+          wx.showToast({
+            title: '请求失败',
+            icon: 'none'
+          });
+        }
+      },
+      fail: function () {
+        wx.showToast({
+          title: '服务器错误',
+          icon: 'none'
+        })
+      }
+    });
+  },
+  requestSync: function (url, data, successFunc, that) {
+    wx.showLoading({
+      title: '加载中',
+      mask: true
+    });
+    wx.request({
+      url: url,
+      data: data,
+      method: 'POST',
+      success: function (res) {
+        wx.hideLoading();
+        console.log(res);
+        if (res.statusCode == 200 && res.data.success) {
+          successFunc(res.data.data, that);
+        } else {
+          wx.showToast({
+            title: '请求失败',
+            icon: 'none'
+          });
+        }
+      },
+      fail: function () {
+        wx.hideLoading();
+        wx.showToast({
+          title: '服务器错误',
+          icon: 'none'
+        })
+      }
+    });
+  },
+  jsonToObject: function (jsonString) {
+    return JSON.parse(jsonString);
+  },
+  jsonArrayToObjectArray: function (jsonArray) {
+    let arr = [];
+    for (let i = 0; i < jsonArray.length; i++) {
+      let o = this.jsonToObject(jsonArray[i]);
+      arr = arr.concat(o);
     }
+    return arr;
   },
   request: function (url, data, successFunc, that) {
     wx.request({

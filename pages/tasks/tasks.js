@@ -1,3 +1,5 @@
+const app = getApp();
+
 Page({
     data: {
         input: '',
@@ -21,17 +23,27 @@ Page({
     },
 
     onLoad: function () {
-      this.load()
+        this.load()
     },
 
     bindComplete: function (e) {
         let index = e.currentTarget.dataset.index;
-        this.data.todo.todoList[index].completed =
-            !this.data.todo.todoList[index].completed;
+        this.data.todo.todoList[index].state =
+            6 - this.data.todo.todoList[index].state;
         this.setData({
             todo: this.data.todo
-        })
-        this.save();
+        });
+
+        let postData = {
+            taskId: this.data.todo.todoList[index].id,
+            state: this.data.todo.todoList[index].state
+        };
+        let op = function(data, that) {
+            // wx.showToast({
+            //     title: '操作成功'
+            // });
+        };
+        app.requestSync(app.globalData.taskCompleteTaskUrl, postData, op, this);
     },
 
     inputChangeHandle: function (e) {
@@ -45,43 +57,43 @@ Page({
         this.setData({
             input: '',
             todo: todo,
-        })
-        this.save()
+        });
+
+        let postData = {
+            taskListId: this.data.todo.id,
+            data: this.data.todo.todoList[this.data.todo.todoList.length - 1]
+        };
+        let op = function (data, that) {
+            wx.showToast({
+                title: '添加成功'
+            });
+        };
+        app.requestSync(app.globalData.taskAddTaskUrl, postData, op, this);
     },
 
     removeTodoHandle: function (e) {
         let index = e.currentTarget.dataset.index;
-        this.data.todo.todoList[index].state = 1;
+        this.data.todo.todoList[index].state = 2;
         this.setData({
             todo: this.data.todo
         });
-        this.save();
+
+        let postData = {
+            taskId: this.data.todo.todoList[index].id,
+            state: this.data.todo.todoList[index].state
+        };
+        let op = function(data, that) {
+            // wx.showToast({
+            //     title: '操作成功'
+            // });
+        };
+        app.requestSync(app.globalData.taskRemoveTaskUrl, postData, op, this);
     },
 
-    completedAllHandle: function () {
-        for (let i = 0; i < this.data.todo.todoList.length; i++) {
-            this.data.todo.todoList[i].completed = true;
-        }
-        this.setData({
-            todo: this.data.todo,
-        });
-        this.save();
-    },
-
-    clearCompletedHandle: function () {
-        for (let i = 0; i < this.data.todo.todoList.length; i++) {
-            this.data.todo.todoList[i].completed = false;
-        }
-        this.setData({
-            todo: this.data.todo,
-        });
-        this.save();
-    },
-
-    bindDelete:function () {
+    bindDelete: function () {
         let that = this;
         wx.showModal({
-            title:'提示',
+            title: '提示',
             content: '确定删除此清单？',
             success: function (res) {
                 if (res.confirm) {
@@ -92,15 +104,23 @@ Page({
     },
 
     delete: function () {
-        wx.showToast({
-            title: 'delete'
-        })
+        let postData = {
+            taskListId: this.data.todo.id,
+            state: 2
+        };
+        let op = function(data, that) {
+            wx.showToast({
+                title: '删除成功'
+            });
+            wx.navigateBack();
+        };
+        app.requestSync(app.globalData.taskRemoveTaskListUrl, postData, op, this);
     },
 
     bindOnFile: function () {
         let that = this;
         wx.showModal({
-            title:'提示',
+            title: '提示',
             content: '确定归档此清单？',
             success: function (res) {
                 if (res.confirm) {
@@ -110,9 +130,17 @@ Page({
         })
     },
 
-    onFile:function () {
-        wx.showToast({
-            title: 'onfile'
-        })
+    onFile: function () {
+        let postData = {
+            taskListId: this.data.todo.id,
+            state: 5
+        };
+        let op = function(data, that) {
+            wx.showToast({
+                title: '归档成功'
+            });
+            wx.navigateBack();
+        };
+        app.requestSync(app.globalData.taskRemoveTaskListUrl, postData, op, this);
     }
-})
+});
