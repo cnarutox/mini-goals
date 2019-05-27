@@ -1,14 +1,14 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/friends/friends",
     "pages/habit/habit",
+    "pages/friends/friends",
+    "pages/mine/mine",
     "pages/habit_clock/habit_clock",
     "pages/totalpersist/totalpersist",
     "pages/loadicon/loadicon", 
     "pages/archive/archive",
     "pages/mypage/mypage",
-    "pages/mine/mine",
     "pages/customizedHabit/customizedHabit",
     "pages/addHabit/addHabit",
     "pages/archiveDetail/archiveDetail",

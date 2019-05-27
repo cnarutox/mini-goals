@@ -1,22 +1,22 @@
 <!--pages/habit/habit.wxml-->
 <!-- <text>pages/habit/habit.wxml</text> -->
 <view class="page">
-  <block wx:for="{{habitArray}}" wx:for-item="itemName" wx:if="{{habitArray.length!==0}}">
-        <view class="lst">
-            <navigator url="../habit_clock/habit_clock?habitId={{itemName.id}}" class="nav" bindlongtap="handleLongPress" data-id="{{itemName.id}}" wx-if="{{itemName.state==1}}">
-                <view class="flex_row">
-                  <view class="habiticon" style="background-color:{{itemName.color}}"></view>
-                  <view class="flex_column">
-                    <view class="habitNm">{{itemName.name}}</view>
-                    <view class="illu">{{"已坚持 " + itemName.persist + "天"}}</view>
-                  </view>
-                </view>
-            </navigator>
+  <block wx:for="{{habitArray}}" wx:if="{{habitArray.length!==0}}">
+    <view class="lst">
+      <navigator url="../habit_clock/habit_clock?habitId={{item.id}}" class="nav" bindlongtap="handleLongPress" data-id="{{item.id}}" wx-if="{{item.state==1}}">
+        <view class="flex_row">
+          <view class="habiticon" style="background-color:{{item.color}}"></view>
+          <view class="flex_column">
+            <view class="habitNm">{{item.name}}</view>
+            <view class="illu">{{"已坚持 " + item.persist + "天"}}</view>
+          </view>
         </view>
-    </block>
-    <view wx:if="{{habitArray.length===0}}">
-      <view class="warning">您还没有添加习惯</view>
-      <image class="iconfornull" mode="aspectFit" src="{{src}}"></image>
+      </navigator>
     </view>
-    <button class="addBtn" bindtap="addHabit">添加习惯</button>
+  </block>
+  <view wx:if="{{habitArray.length===0}}">
+    <view class="warning">您还没有添加习惯</view>
+    <image class="iconfornull" mode="aspectFit" src="{{src}}"></image>
+  </view>
+  <button class="addBtn" bindtap="addHabit">添加习惯</button>
 </view>
