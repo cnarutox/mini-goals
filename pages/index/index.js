@@ -1,145 +1,127 @@
 const app = getApp();
 
 Page({
-  data: {
-    input: '',
-    todos: null
-  },
+    data: {
+        input: '',
+        todos: null
+    },
 
-  test: function () {
-    wx.navigateTo({
-      url: '../demoItemMove/demoItemMove'
-    })
-  },
-
-  load: function () {
-    this.setData({
-      todos: [{
-        id: 4,
-        name: 'name1',
-        todoList: [{
-          id: 131,
-          name: 'task1',
-          state: 1
-        },
-        {
-          id: 231,
-          name: 'task2'
-        },
-        {
-          id: 313,
-          name: 'task3'
-        },
-        {
-          id: 431,
-          name: 'task4'
-        }
-        ]
-      },
-      {
-        id: 3,
-        name: 'name1',
-        todoList: [{
-          id: 331,
-          name: 'task3'
-        },
-        {
-          id: 431,
-          name: 'task4'
-        }
-        ]
-      }
-      ],
-    })
-
-    // let op = function (res,that) {
-    //     console.log(res)
-    //     that.setData({
-    //         input: res.data
+    // test: function() {
+    //     wx.navigateTo({
+    //         url: '../demoItemMove/demoItemMove'
     //     })
-    // };
-    //
-    // app.request('http://localhost:8080/api/task/test',op,this);
+    // },
 
-    wx.stopPullDownRefresh();
-  },
+    load: function() {
+        let postData = {
+            userId: app.globalData.userId
+        };
+        let op = function (data, that) {
+            wx.showToast({
+                title: '加载成功'
+            });
+            let taskLists = app.jsonArrayToObjectArray(data.taskLists);
+            for (let i = 0; i < taskLists.length; i++) {
+                let tasks = data.tasks[i];
+                taskLists[i].todoList = app.jsonArrayToObjectArray(tasks);
+                taskLists[i].index = i;
+            }
+            that.setData({
+                todos: taskLists
+            });
+        };
+        app.requestSync(app.globalData.taskGetTaskListUrl, postData, op, this);
+        wx.stopPullDownRefresh();
+    },
 
-  save: function (operation, data) {
-    let postData = {
-      userId: 1234,
-      operation: operation,
-      data: data
-    };
-    let op = function (data, that) {
-      wx.showToast({
-        title: '操作成功'
-      });
-      console.log(JSON.stringify(data['key1']));
-      let d = JSON.parse(data);
-      console.log(d);
-    };
-    app.request('http://localhost/api/task/save', postData, op, this);
-  },
+    onShow: function () {
+        this.load();
+    },
 
-  onLoad: function () {
-    this.load();
-  },
+    onPullDownRefresh() {
+        this.load();
+    },
 
-  onPullDownRefresh() {
-    this.load();
-  },
+    swap: function(arr, index1, index2) {
+        // let tmp = arr[index2];
+        // arr.splice(index2, 1);
+        // arr.splice(index1, 0, tmp);
+        arr[index1] = arr.splice(index2, 1, arr[index1])[0]
+    },
 
-  swap: function (arr, index1, index2) {
-    // let tmp = arr[index2];
-    // arr.splice(index2, 1);
-    // arr.splice(index1, 0, tmp);
-    arr[index1] = arr.splice(index2, 1, arr[index1])[0]
-  },
+    bindUp: function(e) {
+        let listIndex = e.currentTarget.dataset.listIndex;
+        this.swap(this.data.todos, listIndex - 1, listIndex);
+        this.setData({
+            todos: this.data.todos
+        });
 
-  bindUp: function (e) {
-    let listIndex = e.currentTarget.dataset.listIndex;
-    this.swap(this.data.todos, listIndex - 1, listIndex);
-    this.setData({
-      todos: this.data.todos
-    });
-    this.save("up", this.data.todos[listIndex]);
-  },
+        let postData = {
+            taskListId : this.data.todos[listIndex].id,
+        };
+        let op = function(data, that) {
+        };
+        app.requestAsync(app.globalData.taskTaskListUpUrl, postData, op, this);
+    },
 
-  bindTasks: function (e) {
-    let listIndex = e.currentTarget.dataset.listIndex;
-    wx.setStorage({
-      key: 'todo',
-      data: this.data.todos[listIndex],
-      success: function () {
-        wx.navigateTo({
-          url: '../tasks/tasks'
+    bindTasks: function(e) {
+        let listIndex = e.currentTarget.dataset.listIndex;
+        wx.setStorage({
+            key: 'todo',
+            data: this.data.todos[listIndex],
+            success: function() {
+                wx.navigateTo({
+                    url: '../tasks/tasks'
+                })
+            }
         })
-      }
-    })
-  },
+    },
 
-  bindComplete: function (e) {
-    let index = e.currentTarget.dataset.index;
-    let listIndex = e.currentTarget.dataset.listIndex;
-    this.data.todos[listIndex].todoList[index].completed = !this.data.todos[listIndex].todoList[index].completed;
-    this.setData({
-      todos: this.data.todos
-    });
-    this.save("complete", this.data.todos[listIndex].todoList[index]);
-  },
+    bindComplete: function(e) {
+        let index = e.currentTarget.dataset.index;
+        let listIndex = e.currentTarget.dataset.listIndex;
+        this.data.todos[listIndex].todoList[index].state = 6 - this.data.todos[listIndex].todoList[index].state;
+        this.setData({
+            todos: this.data.todos
+        });
 
-  inputChangeHandle: function (e) {
-    this.setData({ input: e.detail.value })
-  },
+        let postData = {
+            taskId: this.data.todos[listIndex].todoList[index].id,
+            state: this.data.todos[listIndex].todoList[index].state
+        };
+        let op = function(data, that) {
+            // wx.showToast({
+            //     title: '操作成功'
+            // });
+        };
+        app.requestSync(app.globalData.taskCompleteTaskUrl, postData, op, this);
+    },
 
-  addTodoHandle: function (e) {
-    if (!this.data.input || !this.data.input.trim()) return
-    let todos = this.data.todos;
-    todos.push({ name: this.data.input, todoList: [], completedList: [] });
-    this.setData({
-      input: '',
-      todos: todos,
-    });
-    this.save("add", this.data.todos[this.data.todos.length - 1]);
-  }
+    inputChangeHandle: function(e) {
+        this.setData({ input: e.detail.value })
+    },
+
+    addTodoHandle: function(e) {
+        if (!this.data.input || !this.data.input.trim()) {
+            return;
+        }
+        // let todos = this.data.todos;
+        // todos.push({ name: this.data.input, todoList: [] });
+        // this.setData({
+        //     input: '',
+        //     todos: todos,
+        // });
+
+        let postData = {
+            userId: app.globalData.userId,
+            data: { name: this.data.input}
+        };
+        let op = function(data, that) {
+            wx.showToast({
+                title: '添加成功'
+            });
+            that.load();
+        };
+        app.requestSync(app.globalData.taskAddTaskListUrl, postData, op, this);
+    }
 });

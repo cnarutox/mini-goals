@@ -6,21 +6,15 @@
                placeholder="Anything here..." auto-focus
                bindinput="inputChangeHandle" bindconfirm="addTodoHandle"/>
     </view>
+    <view style="display: flex;justify-content:center;font-size: 40rpx;font-weight: bold">{{todo.name}}</view>
     <block wx:if="{{todo.todoList.length}}">
         <view class="todos">
-            <view class="item" wx:for="{{todo.todoList}}" data-index="{{index}}"
-                  bindtap="bindComplete" wx:if="{{!item.state||item.state==0}}">
-                <icon class="checkbox"
-                      type="{{item.completed?'success':'circle'}}"/>
+            <view class="item" wx:for="{{todo.todoList}}" data-index="{{index}}" bindtap="bindComplete" wx:if="{{item.state!=2}}">
+                <icon class="checkbox" type="{{item.state==5?'success':'circle'}}"/>
                 <text class="name">{{item.name}}</text>
                 <icon class="remove" type="clear" size="16"
                       catchtap="removeTodoHandle" data-index="{{index}}"/>
             </view>
-        </view>
-        <view class="footer">
-            <text class="btn" bindtap="completedAllHandle">Completed all</text>
-            <text class="btn" bindtap="clearCompletedHandle">Clear completed
-            </text>
         </view>
     </block>
     <block wx:else>
