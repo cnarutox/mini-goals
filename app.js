@@ -45,7 +45,8 @@ App({
                           success: res => {
                             // 可以将 res 发送给后台解码出 unionId
                             res.userInfo.id = that.globalData.userInfo.id
-                            if (JSON.stringify(that.globalData.userInfo) != JSON.stringify(res.userInfo)) {
+                            if (JSON.stringify(that.globalData.userInfo)
+                              != JSON.stringify(res.userInfo)) {
                               that.globalData.userInfo = res.userInfo
                               wx.setStorage({
                                 key: 'userInfo',
@@ -139,7 +140,7 @@ App({
       method: 'POST',
       success: function (res) {
         wx.hideLoading();
-        console.log(res);
+        // console.log(res);
         if (res.statusCode == 200 && res.data.success) {
           successFunc(res.data.data, that);
         } else {
