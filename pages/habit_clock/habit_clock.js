@@ -1,4 +1,3 @@
-// pages/habit_clock/habit_clock.js
 var util = require('../../utils/util.js')
 Page({
 
@@ -42,35 +41,63 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    wx.getStorage({
+      key: 'todayClicked' + options.habitId,
+      success: function (res) {
+        that.setData({
+          todayClicked: res.data
+        })
+        console.log('成功获取缓存')
+      },
+    })
+    wx.getStorage({
+      key: 'weekClock' + options.habitId,
+      success: function (res) {
+        that.setData({
+          weekClock: res.data
+        })
+      },
+    })
     console.log('habit_clock onLoad,', options)
     var date = util.formatTime2(new Date())
     var weekday = util.formatTime5(new Date())
-    console.log('weekday: ' + weekday)
+    // console.log('weekday: ' + weekday)
     this.setData({
       curDate: date,
       habitId: options.habitId,
     })
-    console.log('date', date)
+    // console.log('date', date)
     wx.request({
       url: "http://localhost/api/habit/getclockin?param=" + that.data.habitId + "&date=" + date + "&weekday=" + weekday,
       success: function (res) {
         var weeks = res.data.weeks
         var todayClicked = res.data.todayClicked
         var todaydate = res.data.todaydate
-        console.log(res.data)
-        console.log('weeks', weeks)
-        console.log('todayClicked', todayClicked)
-        console.log('todaydate', todaydate)
+        // console.log(res.data)
+        // console.log('weeks', weeks)
+        // console.log('todayClicked', todayClicked)
+        // console.log('todaydate', todaydate)
         for (var i = 0; i < 7; i++) {
+          var clocked = 'weekClock[' + i + '].isClock'
           if (weeks[i] == 1) {
-            var clocked = 'weekClock[' + i + '].isClock'
             that.setData({
               [clocked]: true
             })
           }
+          else that.setData({
+            [clocked]: false
+          })
         }
         that.setData({
           todayClicked: res.data.todayClicked
+        })
+        wx.setStorage({
+          key: 'todayClicked' + options.habitId,
+          data: that.data.todayClicked,
+        })
+        wx.setStorage({
+          key: 'weekClock' + options.habitId,
+          data: that.data.weekClock,
         })
       }
     })
@@ -135,8 +162,8 @@ Page({
 
   clickHabit: function () {
     var that = this
-    console.log('todatClicked', that.data.todayClicked)
     if (that.data.todayClicked != true) {
+      console.log('todatClicked', that.data.todayClicked)
       console.log('clickedHabit')
       var weekday = util.formatTime5(new Date()) - 1
       var date = util.formatTime2(new Date())
@@ -146,13 +173,20 @@ Page({
         todayClicked: true,
         [clocked]: true,
       })
+      wx.setStorage({
+        key: 'todayClicked' + that.data.habitId,
+        data: that.data.todayClicked,
+      })
+      wx.setStorage({
+        key: 'weekClock' + that.data.habitId,
+        data: that.data.weekClock,
+      })
       //console.log(that.data.habitid)
       console.log('weekday', weekday)
       wx.request({
         url: "http://localhost/api/habit/clockin?param=" + that.data.habitId + "&date=" + date,
         success: function (res) {
           if (res) {
-            console.log(res)
           }
         }
       })
