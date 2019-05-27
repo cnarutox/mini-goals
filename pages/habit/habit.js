@@ -29,6 +29,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    console.log('onShow')
     var that = this;
     wx.getStorage({
       key: 'habitArray',
@@ -124,17 +125,19 @@ Page({
                   console.log("cancel")
                 } else if (res.confirm) {
                   console.log('confirm')
+                  console.log('arrayindex,', arrayindex)
+                  var habitArray_temp = that.data.habitArray
+                  habitArray_temp.splice(arrayindex, 1)
                   that.setData({
-                    habitArray: that.data.habitArray.splice(arrayindex,1)
+                    habitArray: habitArray_temp
                   })
                   wx.request({
                     url: "http://localhost/api/habit/delete?param=" + habitid,
                     success: function (res) {
-                      console.log('delete' + res.data)
-                      that.onLoad()
                       wx.showToast({
                         title: '删除成功'
                       })
+                      //that.onShow()
                     }
                   })
                 }
@@ -143,17 +146,22 @@ Page({
             break;
           case 1:
             console.log("归档习惯");
+            var habitArray_temp = that.data.habitArray
+            habitArray_temp.splice(arrayindex, 1)
+            that.setData({
+              habitArray: habitArray_temp
+            })
             wx.request({
               url: "http://localhost/api/habit/archive?param=" + habitid,
               success: function (res) {
                 console.log('archive' + res.data)
-                that.onLoad()
+                wx.showToast({
+                  title: '归档成功，可在个人主页恢复！',
+                  icon: 'none',
+                  duration: 2000,
+                })
+                //that.onShow()
               }
-            })
-            wx.showToast({
-              title: '归档成功，可在个人主页恢复！',
-              icon: 'none',
-              duration: 2000,
             })
             break;
           case 2:
