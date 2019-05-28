@@ -113,6 +113,7 @@ page{
   .likeitem{
     font-size: 30rpx;
     margin: 0rpx 5rpx 0rpx 5rpx;
+    color: darkblue;
   }
 
 
