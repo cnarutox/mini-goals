@@ -359,7 +359,7 @@ Page({
     createSuc: function() {
         var that = this
         wx.request({
-            url: 'http://localhost/api/habit/createhabit',
+            url: getApp().globalData.serverUrl + '/api/habit/createhabit',
             method: 'POST',
             header: { 'content-type': 'application/json' },
             data: {

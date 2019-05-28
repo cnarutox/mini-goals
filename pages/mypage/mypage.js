@@ -31,7 +31,7 @@ Page({
             })
         }
         wx.request({
-            url: 'http://localhost/api/habit/gethabitlist',
+            url: getApp().globalData.serverUrl + '/api/habit/gethabitlist',
             success: function(res) {
                 console.log(res.data); // 服务器回包信息
                 that.setData({

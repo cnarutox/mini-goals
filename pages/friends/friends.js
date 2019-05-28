@@ -45,7 +45,7 @@ Page({
       }
     })
     wx.request({
-      url: "http://localhost/api/friend/moments?userid=" + app.globalData.userInfo.id + "&date=" + date,
+      url: "https://aliyun.alumik.cn:5180/api/friend/moments?userid=" + app.globalData.userInfo.id + "&date=" + date,
       success: function (res) {
         if (res) {
           // console.log(res.data)
@@ -117,7 +117,7 @@ Page({
         [list]: that.data.friendArray[index].likelist + add_str + app.globalData.userInfo.nickName
       })
       wx.request({
-        url: "http://localhost/api/friend/thumbup?userid=" + app.globalData.userInfo.id + "&date=" + date + "&userhabit=" + userhabitid,
+        url: "https://aliyun.alumik.cn:5180/api/friend/thumbup?userid=" + app.globalData.userInfo.id + "&date=" + date + "&userhabit=" + userhabitid,
         success: function (res) {
           if (res) {
             // console.log(res.data)

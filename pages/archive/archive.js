@@ -17,7 +17,7 @@ Page({
     onLoad: function(options) {
         var that = this;
         wx.request({
-            url: 'http://localhost/api/habit/getarchivelist',
+            url: getApp().globalData.serverUrl + '/api/habit/getarchivelist',
             success: function(res) {
                 console.log(res.data); // 服务器回包信息
                 that.setData({
@@ -89,7 +89,7 @@ Page({
                 if (res.confirm) {
                     console.log('用户点击确定')
                     wx.request({
-                        url: "http://localhost/api/habit/cancelarchived?param=" + habitid,
+                        url: "https://aliyun.alumik.cn:5180/api/habit/cancelarchived?param=" + habitid,
                         success: function(res) {
                             that.onLoad()
                             console.log('res.data', res.data)

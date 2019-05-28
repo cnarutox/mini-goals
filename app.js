@@ -1,7 +1,23 @@
 
 //app.js
-const serverUrl = 'http://localhost:80';
+const serverUrl = 'https://aliyun.alumik.cn:5180';
+// const serverUrl = 'http://localhost';
 App({
+  globalData: {
+    serverUrl: serverUrl,
+    userInfo: {
+      id: 0
+    },
+    userId: 2,
+    taskAddTaskListUrl: serverUrl + '/api/task/add-task-list',
+    taskGetTaskListUrl: serverUrl + '/api/task/get-task-list',
+    taskAddTaskUrl: serverUrl + '/api/task/add-task',
+    taskCompleteTaskUrl: serverUrl + '/api/task/complete-task',
+    taskRemoveTaskUrl: serverUrl + '/api/task/remove-task',
+    taskRemoveTaskListUrl: serverUrl + '/api/task/remove-task-list',
+    taskTaskListUpUrl: serverUrl + '/api/task/task-list-up',
+    taskTaskUpUrl: serverUrl + '/api/task/task-up',
+  },
   onLaunch: function () {
     var that = this
     // 展示本地存储能力
@@ -29,7 +45,7 @@ App({
             if (res.code) {
               // 发起网络请求
               wx.request({
-                url: 'http://localhost/api/user/login',
+                url: getApp().globalData.serverUrl + '/api/user/login',
                 data: {
                   code: res.code
                 },
@@ -58,7 +74,7 @@ App({
                               })
                               // console.log(that.globalData.userInfo)
                               wx.request({
-                                url: 'http://localhost/api/user/update',
+                                url: getApp().globalData.serverUrl + '/api/user/update',
                                 data: {
                                   id: that.globalData.userInfo.id,
                                   name: that.globalData.userInfo.nickName,
@@ -91,20 +107,7 @@ App({
       }
     })
   },
-  globalData: {
-    userInfo: {
-      id: 0
-    },
-    userId: 2,
-    taskAddTaskListUrl: serverUrl + '/api/task/add-task-list',
-    taskGetTaskListUrl: serverUrl + '/api/task/get-task-list',
-    taskAddTaskUrl: serverUrl + '/api/task/add-task',
-    taskCompleteTaskUrl: serverUrl + '/api/task/complete-task',
-    taskRemoveTaskUrl: serverUrl + '/api/task/remove-task',
-    taskRemoveTaskListUrl: serverUrl + '/api/task/remove-task-list',
-    taskTaskListUpUrl: serverUrl + '/api/task/task-list-up',
-    taskTaskUpUrl: serverUrl + '/api/task/task-up',
-  },
+
   requestAsync: function (url, data, successFunc, that) {
     wx.request({
       url: url,

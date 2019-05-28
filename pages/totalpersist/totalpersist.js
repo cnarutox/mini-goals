@@ -52,7 +52,7 @@ Page({
             weeks_ch
         })
         wx.request({
-            url: 'http://localhost/api/habit/gethabitlist?userId=' + app.globalData.userInfo.id,
+            url: getApp().globalData.serverUrl + '/api/habit/gethabitlist?userId=' + app.globalData.userInfo.id,
             success(res) {
                 if (res) {
                     console.log(res.data)

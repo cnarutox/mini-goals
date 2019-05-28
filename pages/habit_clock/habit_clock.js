@@ -68,7 +68,7 @@ Page({
     })
     // console.log('date', date)
     wx.request({
-      url: "http://localhost/api/habit/getclockin?param=" + that.data.habitId + "&date=" + date + "&weekday=" + weekday,
+      url: "https://aliyun.alumik.cn:5180/api/habit/getclockin?param=" + that.data.habitId + "&date=" + date + "&weekday=" + weekday,
       success: function (res) {
         var weeks = res.data.weeks
         var todayClicked = res.data.todayClicked
@@ -184,7 +184,7 @@ Page({
       //console.log(that.data.habitid)
       console.log('weekday', weekday)
       wx.request({
-        url: "http://localhost/api/habit/clockin?param=" + that.data.habitId + "&date=" + date,
+        url: "https://aliyun.alumik.cn:5180/api/habit/clockin?param=" + that.data.habitId + "&date=" + date,
         success: function (res) {
           if (res) {
           }

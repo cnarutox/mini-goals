@@ -42,7 +42,7 @@ Page({
       }
     })
     wx.request({
-      url: 'http://localhost/api/habit/gethabitlist?userId=' + app.globalData.userInfo.id,
+      url: getApp().globalData.serverUrl + '/api/habit/gethabitlist?userId=' + app.globalData.userInfo.id,
       success: function (res) {
         console.log('habit onShow:👇')
         console.log(res.data); // 服务器回包信息
@@ -136,7 +136,7 @@ Page({
                     data: habitArray_temp
                   })
                   wx.request({
-                    url: "http://localhost/api/habit/delete?param=" + habitid,
+                    url: "https://aliyun.alumik.cn:5180/api/habit/delete?param=" + habitid,
                     success: function (res) {
                       wx.showToast({
                         title: '删除成功'
@@ -156,7 +156,7 @@ Page({
               habitArray: habitArray_temp
             })
             wx.request({
-              url: "http://localhost/api/habit/archive?param=" + habitid,
+              url: "https://aliyun.alumik.cn:5180/api/habit/archive?param=" + habitid,
               success: function (res) {
                 console.log('archive' + res.data)
                 wx.showToast({
