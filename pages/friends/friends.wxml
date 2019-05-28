@@ -16,7 +16,7 @@
           <view class="habittext">我今天打卡了"{{itemName.habitName}}"的习惯!已坚持{{itemName.habitpersist}}天,一起加油啊!</view>
         </view>
         <view class="pack13">
-          <view class="time">{{itemName.time}}</view>
+          <view class="time">{{itemName.date}}</view>
           <view class="thumbUp" bindtap="thumbuptap" data-userhabit="{{itemName.userhabit}}" data-index="{{index}}">    
             <image class="thumbupicon" src="{{itemName.thumbed==true?thumbupdoneicon:thumbupicon}}"></image>
             <text class="thumbuptext">赞</text>
