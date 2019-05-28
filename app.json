@@ -27,20 +27,26 @@
       {
         "pagePath": "pages/index/index",
         "text": "目标",
-        "iconPath": "images/todos.png",
-        "selectedIconPath": "images/todos-active.png"
+        "iconPath": "images/todo.png",
+        "selectedIconPath": "images/todo-active.png"
       },
       {
         "pagePath": "pages/habit/habit",
-        "text": "习惯"
+        "text": "习惯",
+        "iconPath": "images/run.png",
+        "selectedIconPath": "images/running.png"
       },
       {
         "pagePath": "pages/friends/friends",
-        "text": "朋友"
+        "text": "朋友",
+        "iconPath": "images/friends.png",
+        "selectedIconPath": "images/friends-active.png"
       },
       {
         "pagePath": "pages/mine/mine",
-        "text": "我的"
+        "text": "我的",
+        "iconPath": "images/mine.png",
+        "selectedIconPath": "images/mine-active.png"
       }
     ],
     "backgroundColor": "#FFE23B",
