@@ -44,7 +44,7 @@ Page({
     wx.request({
       url: 'http://localhost/api/habit/gethabitlist?userId=' + app.globalData.userInfo.id,
       success: function (res) {
-        console.log('habit onLoad:👇')
+        console.log('habit onShow:👇')
         console.log(res.data); // 服务器回包信息
         that.setData({
           habitArray: res.data.habits
@@ -130,6 +130,10 @@ Page({
                   habitArray_temp.splice(arrayindex, 1)
                   that.setData({
                     habitArray: habitArray_temp
+                  })
+                  wx.setStorage({
+                    key: 'habitArray',
+                    data: habitArray_temp
                   })
                   wx.request({
                     url: "http://localhost/api/habit/delete?param=" + habitid,

@@ -19,9 +19,22 @@ Page({
    */
   onLoad: function (options) {
     // console.log ('onLoad' + app.globalData.userInfo.id)
+
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     var that = this
     var date = util.formatTime2(new Date())
-    // console.log('date', date)
     wx.getStorage({
       key: 'friendArray',
       success(res) {
@@ -46,20 +59,6 @@ Page({
         }
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
   },
 
   /**
@@ -98,34 +97,36 @@ Page({
   },
 
   thumbuptap: function (e) {
-    console.log('thumbuptap')
-    console.log('e.currentTarget.dataset', e.currentTarget.dataset)
+    // console.log('thumbuptap')
+    // console.log('e.currentTarget.dataset', e.currentTarget.dataset)
     var index = e.currentTarget.dataset.index
     var date = util.formatTime2(new Date())
     var userhabitid = e.currentTarget.dataset.userhabit
     var that = this
-    console.log('this.data.friendArray[index].thumbed', this.data.friendArray[index].thumbed)
-    console.log('date', date)
-    console.log('userhabitid', userhabitid)
-    console.log('index', index)
+    // console.log('this.data.friendArray[index].thumbed', this.data.friendArray[index].thumbed)
+    // console.log('date', date)
+    // console.log('userhabitid', userhabitid)
+    // console.log('index', index)
     if (this.data.friendArray[index].thumbed != true) {
       var isthumbed = "friendArray[" + index + "].thumbed"
       var list = "friendArray[" + index + "].likelist"
+      var add_str =this.data.friendArray[index].likelist.length !== 0 ? '，' : ''
+      // console.log(this.data.friendArray[index].likelist.length, add_str)
       that.setData({
         [isthumbed]: true,
-        [list]: that.data.friendArray[index].likelist + '，' + app.globalData.userInfo.nickName
+        [list]: that.data.friendArray[index].likelist + add_str + app.globalData.userInfo.nickName
       })
       wx.request({
         url: "http://localhost/api/friend/thumbup?userid=" + app.globalData.userInfo.id + "&date=" + date + "&userhabit=" + userhabitid,
         success: function (res) {
           if (res) {
-            console.log(res.data)
+            // console.log(res.data)
             wx.showToast({
               title: '成功',
             })
+          }
         }
-    }
-})
+      })
     }
   }
 })

@@ -22,7 +22,7 @@
             <text class="thumbuptext">赞</text>
           </view>  
         </view>
-        <view class="pack14">
+        <view class="pack14" hidden="{{itemName.likelist.length==0}}">
           <image class="likeicon" src="{{likeicon}}"></image>
           <view class="likelist">
             <text class="likeitem">{{itemName.likelist}}</text>
