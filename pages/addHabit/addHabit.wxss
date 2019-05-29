@@ -11,6 +11,10 @@
   color: white;
 }
 
+.part1{
+  display: flex;
+  flex-wrap: wrap;
+}
 
 
 
@@ -48,9 +52,18 @@ btn1::after{
 }
 
 .box{
-  display: block;
+  display: flex;
   padding-top: 15px;
+  padding-bottom: 15rpx;
   width: 100%;
+}
+
+.inner-box{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .row{

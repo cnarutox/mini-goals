@@ -3,53 +3,62 @@
   <image class="btnImg" src="/pages/images/icon_nav_feedback.png"></image>
   <view>自定义习惯</view>
 </button>
-<button class="btn2">
-  <image class="btnImg" src="/pages/images/icon_nav_feedback.png"></image>
-  <view>搜索习惯</view>
-</button>
+
 <view class="box">
-  <view>
-    <view class="row" wx:for="{{buttonFirstLine}}" wx:for-item="item">
-      <button class="{{btnNameIndex[item.title]==idx?'_cell':'cell'}}" size="mini" bindtap="goIndex" data-text="{{item.title}}">{{item.title}}</button>
-    </view>
-  </view>
-  <view>
-    <view class="row" wx:for="{{buttonSecondLine}}" wx:for-item="item">
-      <button class="{{btnNameIndex[item.title]==idx?'_cell':'cell'}}" size="mini" bindtap="goIndex" data-text="{{item.title}}">{{item.title}}</button>
+  <view class="inner-box">
+    <view class="row" wx:for="{{btnNameIndex}}" wx:for-item="item">
+      <button class="{{index==idx?'_cell':'cell'}}" size="mini" bindtap="goIndex" data-text="{{item}}">{{item}}</button>
     </view>
   </view>
 </view>
-<view wx:if="{{idx<4}}">
-    <block wx:for="{{buttonFirstLine[idx].habitArray}}" wx:for-item="itemName">
-      <view class="lst">
-          <navigator url="" class="nav">
-              <view class="flex_row">
-                  <view class="habiticon" style="background-color:{{itemName.color}}">
-                  </view>
-                <view class="flex_column">
-                  <view class="habitNm">{{itemName.name}}</view>
-                  <view class="illu">{{"已有" + itemName.description + "位朋友在坚持"}}</view>
-                </view>
-                <button class="joinBtn" bindtap="addsuccess">加入</button>
-              </view>
-          </navigator>
+
+<block wx:for="{{buttonSelectedArray.habitArray}}" wx:for-item="itemName">
+  <view class="lst">
+    <navigator url="" class="nav">
+      <view class="flex_row">
+        <view class="habiticon" style="background-color:{{itemName.color}}">
+        </view>
+        <view class="flex_column">
+          <view class="habitNm">{{itemName.name}}</view>
+          <view class="illu">{{"已有" + itemName.description + "位朋友在坚持"}}</view>
+        </view>
+        <button class="joinBtn" bindtap="addsuccess">加入</button>
       </view>
+    </navigator>
+  </view>
+</block>
+
+<!-- <view wx:if="{{idx<4}}">
+  <block wx:for="{{buttonFirstLine[idx].habitArray}}" wx:for-item="itemName">
+    <view class="lst">
+      <navigator url="" class="nav">
+        <view class="flex_row">
+          <view class="habiticon" style="background-color:{{itemName.color}}">
+          </view>
+          <view class="flex_column">
+            <view class="habitNm">{{itemName.name}}</view>
+            <view class="illu">{{"已有" + itemName.description + "位朋友在坚持"}}</view>
+          </view>
+          <button class="joinBtn" bindtap="addsuccess">加入</button>
+        </view>
+      </navigator>
+    </view>
   </block>
 </view>
 <view wx:if="{{idx>=4}}">
   <block wx:for="{{buttonSecondLine[idx-4].habitArray}}" wx:for-item="itemName">
-      <view class="lst">
-          <navigator url="" class="nav">
-              <view class="flex_row">
-                  <view class="habiticon" style="background-color:{{itemName.color}}">
-                  </view>
-                <view class="flex_column">
-                  <view class="habitNm">{{itemName.name}}</view>
-                  <view class="illu">{{"已有" + itemName.description + "位朋友在坚持"}}</view>
-                </view>
-                <button class="joinBtn" bindtap="addsuccess">加入</button>
-              </view>
-          </navigator>
-      </view>
+    <view class="lst">
+      <navigator url="" class="nav">
+        <view class="flex_row">
+          <view class="habiticon" style="background-color:{{itemName.color}}">
+          </view>
+          <view class="flex_column">
+            <view class="habitNm">{{itemName.name}}</view>
+            <view class="illu">{{"已有" + itemName.description + "位朋友在坚持"}}</view>
+          </view>
+          <button class="joinBtn" bindtap="addsuccess">加入</button>
+        </view>
+      </navigator>
+    </view>
   </block>
-</view>
+</view> -->

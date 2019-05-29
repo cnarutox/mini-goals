@@ -5,15 +5,45 @@ Page({
    * 页面的初始数据
    */
   data: {
-    btnNameIndex: {
-      '热门': 0,
-      '健康': 1,
-      '学习': 2,
-      '思考': 3,
-      '晨间': 4,
-      '晚间': 5,
-      '有趣': 6,
-      '推荐': 7,
+    btnNameIndex: [
+      '热门',
+      '健康',
+      '学习',
+      '思考',
+      '晨间',
+      '晚间',
+      '有趣',
+      '推荐',
+    ],
+    idx: 0,
+    buttonSelectedArray:{
+      title: '热门',
+      habitArray: [
+        {
+          name: '早起',
+          type: 0,
+          cycle_type: 2,
+          cycle_value: 1,
+          color: 'yellow',
+          description: 0,
+        },
+        {
+          name: '爱万戌哥',
+          type: 1,
+          cycle_type: 0,
+          cycle_value: 1,
+          color: 'green',
+          description: 33,
+        }, 
+        {
+          name: '背单词',
+          type: 0,
+          cycle_type: 2,
+          cycle_value: 1,
+          color: 'blue',
+          description: 49,
+        },
+      ]
     },
     buttonFirstLine:[
       {
@@ -192,7 +222,6 @@ Page({
         'title': '推荐',
       }
     ],
-    idx: 0,
   },
 
   /**
@@ -252,12 +281,24 @@ Page({
   },
 
   goIndex: function(e){
+    var that = this;
     let btn = e.currentTarget.dataset.text;
-    let btnIndex = this.data.btnNameIndex[btn];
+    let btnIndex = this.data.btnNameIndex.indexOf(btn) + 1;
     console.log("clicked button ", btn);
     console.log("clicked button index ", btnIndex);
     this.setData({
-      idx: btnIndex
+      idx: btnIndex - 1
+    })
+    wx.request({
+      url: "http://localhost/api/habit/getrecommendation?recid="+btnIndex,
+      success: function(res){
+        var habitSeletedTitle = 'buttonSelectedArray.title'
+        var habitSeleted = 'buttonSelectedArray.habitArray'
+        that.setData({
+          [habitSeletedTitle]: btn,
+          [habitSeleted]: res.data,
+        })
+      }
     })
   },
 
