@@ -1,11 +1,11 @@
 <!--pages/achiveDetail/archiveDetail.wxml-->
 <view class="outerarchive">
   <view class="archivedetail">
-    <view class="iconwordsdetail">
-      <view class="icon" style="background-color:{{archiveHabit.color}}"></view>
-      <view class="words">
-        <text class="archivename">{{ archiveHabit.name}}</text>
-        <text class="archivepersist">已经坚持 {{archiveHabit.description}} 天</text>
+    <view class="flex_row" style="background:linear-gradient(to left, {{color}}, {{colorto}})">
+      <icon class="habiticon iconfont {{iconfont}}"></icon>
+      <view class="flex_column">
+        <view class="habitNm">{{archiveName}}</view>
+        <view class="illu">{{"已坚持 " + archivepersist + "天"}}</view>
       </view>
     </view>
   </view>

@@ -4,7 +4,7 @@
     <text class="archivehead">{{archivenum}} 已经归档（长按可恢复坚持）</text>
     <view class="outerarchives">
       <view class="archives" wx:for="{{archives}}" wx:if="{{item.state==3}}">
-        <view class="archive-item" bindtap="navigatedetail" bindlongpress="bindlongpress" data-id="{{item.id}}">
+        <view class="archive-item" bindtap="navigatedetail" data-userhabitid="{{item.id}}" data-habitname="{{item.name}}" data-persist="{{item.persist}}" data-iconfont="{{item.iconfont}}" bindlongpress="bindlongpress" data-id="{{item.id}}" data-color="{{item.color}}" data-colorto="{{item.color_to}}">
           <text class="archivename">{{item.name}}</text>
           <text class="archivetext">已坚持{{item.persist}}天</text>
         </view>

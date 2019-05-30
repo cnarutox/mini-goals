@@ -5,22 +5,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    archiveHabit:{
-      id: 782,
-      name: '早起',
-      type: 0,
-      cycle_type: 0,
-      cycle_value: 1,
-      color: 'red',
-      description: 2,
-    }
+    archiveName: '',
+    archivepersist: 0,
+    iconfont:'',
+    color: '',
+    colorto: '',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var that = this
+    console.log('onLoad')
+    console.log(options)
+    that.setData({
+      'archiveName': options.habitname,
+      'archivepersist': options.persist,
+      'iconfont': options.iconfont,
+      'color': options.color,
+      'colorto': options.colorto,
+    })
   },
 
   /**
@@ -33,8 +38,8 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-
+  onShow: function (options) {
+    console.log('onshow')
   },
 
   /**

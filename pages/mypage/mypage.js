@@ -11,7 +11,6 @@ Page({
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
         totalhabit: 0,
         archivehabit: 0,
-        unarchivebind: 'navigatetohabitdetail',
         archivebind: 'navigatetoarchive',
         archives: [],
         toView: 'yellow',
@@ -103,11 +102,6 @@ Page({
     navigatetoarchive: function() {
         wx.navigateTo({
             url: '../archive/archive',
-        })
-    },
-    navigatetohabitdetail: function() {
-        wx.navigateTo({
-            url: '../habit_clock_details/habit_clock_details'
         })
     }
 })

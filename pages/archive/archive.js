@@ -104,10 +104,14 @@ Page({
         })
     },
 
-    navigatedetail: function() {
+    navigatedetail: function(e) {
         console.log('navigatedetail')
+      var userhabitid = e.currentTarget.dataset.userhabitid;
+      console.log('e.currentTarget.dataset.userhabitid', userhabitid)
         wx.navigateTo({
-            url: '../archiveDetail/archiveDetail'
+          url: '../archiveDetail/archiveDetail?userhabitId=' + e.currentTarget.dataset.userhabitid + '&habitname=' + e.currentTarget.dataset.habitname + '&persist=' + e.currentTarget.dataset.persist + '&iconfont=' + e.currentTarget.dataset.iconfont + '&color=' +
+e.currentTarget.dataset.color + '&colorto=' +
+e.currentTarget.dataset.colorto
         })
     }
 })
