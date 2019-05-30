@@ -1,4 +1,5 @@
 /* pages/habit/habit.wxss */
+@import '../../styles/iconfont.wxss';
 .flex_row{
   display: flex;
   flex-direction: row;
@@ -6,8 +7,9 @@
   justify-content: stretch;
   margin: 20rpx;
   padding: 20rpx;
-  background-color: gold;
+  /* background: linear-gradient(to left, gold, white); */
   border-radius: 3%;
+  box-shadow: 0rpx 2rpx 5rpx 5rpx grey;
 } 
 
 .flex_column{
@@ -17,7 +19,7 @@
 
 .illu{
   font-size: 30rpx;
-  color: white;
+  color: gray;
 }
 
 .addBtn{
@@ -41,3 +43,6 @@
   justify-content: center;
   margin: 50px 5px 15px 5px;
 }
+
+
+

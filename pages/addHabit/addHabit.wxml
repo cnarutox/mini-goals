@@ -15,7 +15,7 @@
 <block wx:for="{{buttonSelectedArray.habitArray}}" wx:for-item="itemName">
   <view class="lst">
     <view class="nav">
-      <view class="flex_row">
+      <view class="flex_row" style="background:linear-gradient(to left, {{itemName.color}}, white)">
         <view class="habiticon" style="background-color:{{itemName.color}}">
         </view>
         <view class="flex_column">

@@ -79,15 +79,17 @@ btn1::after{
   color: white;
 }
 
+
 .flex_row{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: stretch;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
+  margin: 20rpx;
+  padding: 20rpx;
+  border-radius: 3%;
+  box-shadow: 0rpx 2rpx 5rpx 5rpx grey;
+} 
 .flex_column{
   display: flex;
   flex-direction: column;
@@ -97,5 +99,5 @@ btn1::after{
 
 .illu{
   font-size: 50%;
-  color: darkgray;
+  color: black;
 }

@@ -4,7 +4,7 @@ const serverUrl = 'https://aliyun.alumik.cn:5180/mini-goals';
 App({
   globalData: {
     serverUrl: serverUrl,
-    userInfo: {
+    userInfo: { 
       id: 0
     },
     userId: 2,
