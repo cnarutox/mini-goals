@@ -15,6 +15,27 @@
 
 .addBtn{
   margin: 20rpx;
+  border-radius: 50%;
+  width: 160rpx;
+  height: 160rpx;
+  font-size: 40rpx;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 5rpx solid gray;
+}
+
+.addText{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100rpx;
+  height: 100rpx;
+  line-height: 50rpx;
+  font-size: 35rpx;
 }
 
 .iconfornull{
@@ -22,11 +43,6 @@
   border: 10px solid white;
 }
 
-.addBtn{
-  background-color:cadetblue;
-  margin: 20rpx;
-  color: white;
-}
 
 .warning{
   display: flex;
@@ -35,5 +51,11 @@
   margin: 50px 5px 15px 5px;
 }
 
+.outerBtn{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
 

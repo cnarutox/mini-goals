@@ -18,5 +18,7 @@
     <view class="warning">您还没有添加习惯</view>
     <image class="iconfornull" mode="aspectFit" src="{{src}}"></image>
   </view>
-  <button class="addBtn" bindtap="addHabit">添加习惯</button>
+  <view class="outerBtn">
+    <button class="addBtn" bindtap="addHabit"><text class="addText">添加\n习惯</text></button>
+  </view>
 </view>
