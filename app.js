@@ -1,10 +1,10 @@
-  //app.js
+//app.js
 const serverUrl = 'https://aliyun.alumik.cn:5180/mini-goals';
 // const serverUrl = 'http://localhost';
 App({
   globalData: {
     serverUrl: serverUrl,
-    userInfo: { 
+    userInfo: {
       id: 0
     },
     userId: 2,
@@ -62,26 +62,26 @@ App({
                             res.userInfo.id = that.globalData.userInfo.id
                             // if (JSON.stringify(that.globalData.userInfo)
                             //   != JSON.stringify(res.userInfo)) {
-                              that.globalData.userInfo = res.userInfo
-                              wx.setStorage({
-                                key: 'userInfo',
-                                data: that.globalData.userInfo,
-                                success(res) {
-                                  console.log('成功缓存👇')
-                                  console.log(that.globalData.userInfo)
-                                }
-                              })
-                              wx.request({
-                                url: getApp().globalData.serverUrl + '/api/user/update',
-                                data: {
-                                  id: that.globalData.userInfo.id,
-                                  name: that.globalData.userInfo.nickName,
-                                  avatar: that.globalData.userInfo.avatarUrl
-                                },
-                                success(res) {
-                                  console.log(res.data)
-                                }
-                              })
+                            that.globalData.userInfo = res.userInfo
+                            wx.setStorage({
+                              key: 'userInfo',
+                              data: that.globalData.userInfo,
+                              success(res) {
+                                console.log('成功缓存👇')
+                                console.log(that.globalData.userInfo)
+                              }
+                            })
+                            wx.request({
+                              url: getApp().globalData.serverUrl + '/api/user/update',
+                              data: {
+                                id: that.globalData.userInfo.id,
+                                name: that.globalData.userInfo.nickName,
+                                avatar: that.globalData.userInfo.avatarUrl
+                              },
+                              success(res) {
+                                console.log(res.data)
+                              }
+                            })
                             // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
                             // 所以此处加入 callback 以防止这种情况
                             if (that.userInfoReadyCallback) {
