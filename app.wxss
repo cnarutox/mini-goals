@@ -1,5 +1,6 @@
 /**app.wxss**/
-@import 'weui.wxss'
+@import 'weui.wxss';
+@import 'icon/iconfont.wxss';
 
 .container {
   height: 100%;
@@ -12,9 +13,5 @@
 } 
 
 .habiticon{
-  height: 50rpx;
-  width: 50rpx;
-  border-radius: 50%;
-  margin: 20rpx;
-  box-shadow: 0rpx 2rpx 5rpx 5rpx gray;
+  margin: 0rpx 20rpx;
 }

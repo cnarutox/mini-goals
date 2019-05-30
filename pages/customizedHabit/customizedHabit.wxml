@@ -1,91 +1,89 @@
 <!--pages/customized_habit.wxml-->
 <view class="page">
-    <view class="page__bd">
-        <view class="weui-search-bar">
-            <view class="weui-search-bar__form">
-                <view class="weui-search-bar__box">
-                    <icon class="weui-icon-search_in-box" type="s" size="14"></icon>
-                    <input type="text" class="weui-search-bar__input" placeholder="输入你要自定义的习惯" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
-                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
-                        <icon type="clear" size="14"></icon>
-                    </view>
-                </view>
-                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
-                    <icon class="weui-icon-search" type="search" size="14"></icon>
-                    <view class="weui-search-bar__text">{{habitName}}</view>
-                </label>
-            </view>
-            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+  <view class="page__bd">
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="s" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="输入你要自定义的习惯" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
         </view>
-        <view class="pop" wx:if="{{inputVal.length > 0}}">
-            <view class="popups" hidden="{{hiddenName}}">
-                <view class="inpt">习惯"{{inputVal}}"</view>
-                <button class="joinBtn" bindtap="establish">创建</button>
-            </view>
-        </view>
-        <view class="radios">
-          <radio-group class="radio-group" bindchange="radioChange">
-            <label class="radio" wx:for="{{radio_items}}">
-              <radio value="{{item.name}}" checked="{{item.checked}}"/>
-              {{item.value}}
-            </label>
-          </radio-group>
-        </view>
-        <view class="outerChexkBoxes" hidden="{{hiddenWeeks}}">
-          <checkbox-group  class="checkboxes" bindchange="checkboxChange">
-            <label class="checkbox" wx:for="{{week_items}}">
-              <checkbox value="{{item.name}}" checked="{{weekDaySelected[index]===1}}"/>
-              {{item.value}}
-            </label>
-          </checkbox-group>
-          <button class="confirmBtn" bindtap="confirmByWeeks">确定</button>
-        </view>
-        <view class="outerTimePicker" hidden="{{hiddenFre}}">
-            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-              <view class="picker">
-                当前选择，每周 {{array[index]}} 次
-              </view>
-            </picker>
-            <button class="confirmBtn" bindtap="confirmByFre">确定</button>    
-        </view>
-        <view class="outerTimePicker" hidden="{{hiddenInterval}}">
-            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
-              <view class="picker">
-                当前选择，每隔 {{array[index]}} 天
-              </view>
-            </picker>
-            <button class="confirmBtn" bindtap="confirmByInterval">确定</button>    
-        </view>
-        <view class="outerIconSelect">
-          <text class="iconSelectedText">已经选择icon:</text>
-          <button class="iconSelectedBtn" style="background-color:{{colorData.pickerData.hex}}" bindtap="selectIcon">
-          </button>
-        </view>
-        <view class="outerColorPicker" hidden="{{hiddenIcon}}">
-        <view class="ColorPickerText">
-          <color-picker class="color-picker" colorData="{{colorData}}" rpxRatio="{{rpxRatio}}" bindchangecolor="onChangeColor"></color-picker>
-        </view>
-          <button class="confirmBtn" bindtap="confirmByIcon">确定</button>
-        </view>
-        <view class="outerDescription">
-            <view class="descriptionHead">习惯详细描述:</view>
-            <view class="textAreaContainer" hidden="{{hiddenTextArea}}">
-              <textarea class="descriptionArea" placeholder="请输入文本"  bindinput="watchinput" bindblur="textAreaOnBlur"/>
-            </view>
-            <view class="showDescriptionArea" hidden="{{hiddenShowArea}}">
-              <text bindtap="tapText">{{descriptionForHabit}}</text>
-            </view>
-        </view>
-        <view class="outerPermissionSelect">
-          <text class="iconSelectedText">是否展示该习惯</text>
-          <switch style='zoom:.6;' class="sharablePermission" checked="{{shareable}}" bindchange="switchChange"></switch>
-        </view>
-        <view class="outerPersistencePermissionSelected" hidden="{{hiddenPersist}}">
-          <text class="iconSelectedText">是否分享坚持情况</text>
-          <switch style='zoom:.6;' class="sharablePermission" checked="{{persistenceSharaeble}}" bindchange="switchPersistChange"></switch>
-        </view>
-        <view class="outerConfirm">
-          <button class="createBtn" bindtap="createSuc">创建习惯</button>
-        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">{{habitName}}</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
     </view>
+    <view class="pop" wx:if="{{inputVal.length > 0}}">
+      <view class="popups" hidden="{{hiddenName}}">
+        <view class="inpt">习惯"{{inputVal}}"</view>
+        <button class="joinBtn" bindtap="establish">创建</button>
+      </view>
+    </view>
+    <view class="radios">
+      <radio-group class="radio-group" bindchange="radioChange">
+        <label class="radio" wx:for="{{radio_items}}">
+          <radio value="{{item.name}}" checked="{{item.checked}}" /> {{item.value}}
+        </label>
+      </radio-group>
+    </view>
+    <view class="outerChexkBoxes" hidden="{{hiddenWeeks}}">
+      <checkbox-group class="checkboxes" bindchange="checkboxChange">
+        <label class="checkbox" wx:for="{{week_items}}">
+          <checkbox value="{{item.name}}" checked="{{weekDaySelected[index]===1}}" /> {{item.value}}
+        </label>
+      </checkbox-group>
+      <button class="confirmBtn" bindtap="confirmByWeeks">确定</button>
+    </view>
+    <view class="outerTimePicker" hidden="{{hiddenFre}}">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          当前选择，每周 {{array[index]}} 次
+        </view>
+      </picker>
+      <button class="confirmBtn" bindtap="confirmByFre">确定</button>
+    </view>
+    <view class="outerTimePicker" hidden="{{hiddenInterval}}">
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          当前选择，每隔 {{array[index]}} 天
+        </view>
+      </picker>
+      <button class="confirmBtn" bindtap="confirmByInterval">确定</button>
+    </view>
+    <view class="outerIconSelect">
+      <text class="iconSelectedText">已经选择icon:</text>
+      <button class="iconSelectedBtn" style="background-color:{{colorData.pickerData.hex}}" bindtap="selectIcon">
+      </button>
+    </view>
+    <view class="outerColorPicker" hidden="{{hiddenIcon}}">
+      <view class="ColorPickerText">
+        <color-picker class="color-picker" colorData="{{colorData}}" rpxRatio="{{rpxRatio}}" bindchangecolor="onChangeColor"></color-picker>
+      </view>
+      <button class="confirmBtn" bindtap="confirmByIcon">确定</button>
+    </view>
+    <view class="outerDescription">
+      <view class="descriptionHead">习惯详细描述:</view>
+      <view class="textAreaContainer" hidden="{{hiddenTextArea}}">
+        <textarea class="descriptionArea" placeholder="请输入文本" bindinput="watchinput" bindblur="textAreaOnBlur" />
+      </view>
+      <view class="showDescriptionArea" hidden="{{hiddenShowArea}}">
+        <text bindtap="tapText">{{descriptionForHabit}}</text>
+      </view>
+    </view>
+    <view class="outerPermissionSelect">
+      <text class="iconSelectedText">是否展示该习惯</text>
+      <switch style='zoom:.6;' class="sharablePermission" checked="{{shareable}}" bindchange="switchChange"></switch>
+    </view>
+    <view class="outerPersistencePermissionSelected" hidden="{{hiddenPersist}}">
+      <text class="iconSelectedText">是否分享坚持情况</text>
+      <switch style='zoom:.6;' class="sharablePermission" checked="{{persistenceSharaeble}}" bindchange="switchPersistChange"></switch>
+    </view>
+    <view class="outerConfirm">
+      <button class="createBtn" bindtap="createSuc">创建习惯</button>
+    </view>
+  </view>
 </view>
