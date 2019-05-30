@@ -185,7 +185,7 @@ Page({
       //console.log(that.data.habitid)
       console.log('weekday', weekday)
       wx.request({
-        url: "https://aliyun.alumik.cn:5180/api/habit/clockin?param=" + that.data.habitId + "&date=" + date,
+        url: getApp().globalData.serverUrl + '/api/habit/clockin?param=' + that.data.habitId + "&date=" + date,
         success: function (res) {
           if (res) {
           }
