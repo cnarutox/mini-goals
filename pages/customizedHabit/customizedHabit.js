@@ -378,6 +378,7 @@ Page({
       header: { 'content-type': 'application/json' },
       data: {
         name: that.data.habitName,
+        type: 0,
         cycle_type: that.data.cycleSelectType, //1->byWeeks, 2->byFre, 3->byInterval
         cycle_value: that.data.cycleStored,
         color: that.data.colorData.pickerData.hex,

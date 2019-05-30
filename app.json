@@ -1,10 +1,10 @@
 {
   "pages": [
-    "pages/addHabit/addHabit",
     "pages/index/index",
     "pages/habit/habit",
     "pages/friends/friends",
     "pages/mine/mine",
+    "pages/addHabit/addHabit",
     "pages/totalpersist/totalpersist",
     "pages/mypage/mypage",
     "pages/habit_clock/habit_clock",

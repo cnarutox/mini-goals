@@ -14,51 +14,16 @@
 
 <block wx:for="{{buttonSelectedArray.habitArray}}" wx:for-item="itemName">
   <view class="lst">
-    <navigator url="" class="nav">
+    <view class="nav">
       <view class="flex_row">
         <view class="habiticon" style="background-color:{{itemName.color}}">
         </view>
         <view class="flex_column">
           <view class="habitNm">{{itemName.name}}</view>
-          <view class="illu">{{"已有" + itemName.description + "位朋友在坚持"}}</view>
+          <view class="illu">{{"已有" + itemName.peer + "位朋友在坚持"}}</view>
         </view>
-        <button class="joinBtn" bindtap="addsuccess">加入</button>
+        <button class="joinBtn" bindtap="addsuccess" data-name="{{itemName.name}}" data-cycle-type="{{itemName.cycle_type}}" data-cycle-value="{{itemName.cycle_value}}" data-color="{{itemName.color}}" data-description="{{itemName.description}}">加入</button>
       </view>
-    </navigator>
+    </view>
   </view>
 </block>
-
-<!-- <view wx:if="{{idx<4}}">
-  <block wx:for="{{buttonFirstLine[idx].habitArray}}" wx:for-item="itemName">
-    <view class="lst">
-      <navigator url="" class="nav">
-        <view class="flex_row">
-          <view class="habiticon" style="background-color:{{itemName.color}}">
-          </view>
-          <view class="flex_column">
-            <view class="habitNm">{{itemName.name}}</view>
-            <view class="illu">{{"已有" + itemName.description + "位朋友在坚持"}}</view>
-          </view>
-          <button class="joinBtn" bindtap="addsuccess">加入</button>
-        </view>
-      </navigator>
-    </view>
-  </block>
-</view>
-<view wx:if="{{idx>=4}}">
-  <block wx:for="{{buttonSecondLine[idx-4].habitArray}}" wx:for-item="itemName">
-    <view class="lst">
-      <navigator url="" class="nav">
-        <view class="flex_row">
-          <view class="habiticon" style="background-color:{{itemName.color}}">
-          </view>
-          <view class="flex_column">
-            <view class="habitNm">{{itemName.name}}</view>
-            <view class="illu">{{"已有" + itemName.description + "位朋友在坚持"}}</view>
-          </view>
-          <button class="joinBtn" bindtap="addsuccess">加入</button>
-        </view>
-      </navigator>
-    </view>
-  </block>
-</view> -->
