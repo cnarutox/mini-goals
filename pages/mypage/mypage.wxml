@@ -16,7 +16,7 @@
         <view class="scroll-inner" wx:for-items="{{archives}}">
           <view class="scroll-inner-inner" bindtap="{{unarchivebind}}"  style="background-color: yellow" wx:if="{{item.state!=3}}">
             <text>{{item.name}}</text>
-            <text>已经坚持undefined天</text>
+            <text class="illustration">已经坚持{{item.persist}}天</text>
           </view>
         </view>
         <view class="scroll-inner">

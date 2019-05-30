@@ -68,7 +68,7 @@ Page({
     })
     // console.log('date', date)
     wx.request({
-      url: "https://aliyun.alumik.cn:5180/api/habit/getclockin?param=" + that.data.habitId + "&date=" + date + "&weekday=" + weekday,
+      url: getApp().globalData.serverUrl + '/api/habit/getclockin?param=' + that.data.habitId + "&date=" + date + "&weekday=" + weekday,
       success: function (res) {
         console.log('res.data,', res.data)
         var weeks = res.data.weeks

@@ -25,7 +25,7 @@ Page({
       })
     }
     wx.request({
-      url: getApp().globalData.serverUrl + '/api/habit/gettotallike',
+      url: getApp().globalData.serverUrl + '/api/habit/gettotallike?userId=' + app.globalData.userInfo.id,
       success: function (res) {
         console.log(res.data); // 服务器回包信息
         that.setData({
