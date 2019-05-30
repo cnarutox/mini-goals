@@ -17,7 +17,6 @@ Page({
    */
   onLoad: function () {
     var that = this
-    console.log('onLoad')
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -25,7 +24,7 @@ Page({
       })
     }
     wx.request({
-      url: getApp().globalData.serverUrl + '/api/habit/gettotallike?userId=' + app.globalData.userInfo.id,
+      url: getApp().globalData.serverUrl + '/api/habit/user-like?openid=' + app.globalData.userInfo.id,
       success: function (res) {
         console.log(res.data); // 服务器回包信息
         that.setData({

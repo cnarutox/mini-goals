@@ -1,15 +1,5 @@
 <!--pages/totalpersist/totalpersist.wxml-->
-<view class="circle-line" hidden="{{notload}}">
-  <text></text>
-  <text></text>
-  <text></text>
-  <text></text>
-  <text></text>
-  <text></text>
-  <text></text>
-  <text></text>
-</view>
-<view class="outercontainer" hidden="{{hidden}}">
+<view class="outercontainer">
   <view class="outernavbar">
     <scroll-view class="navbar" scroll-x="true">
       <view class="inner-navbar">

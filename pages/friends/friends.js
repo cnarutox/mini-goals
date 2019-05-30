@@ -48,6 +48,7 @@ Page({
       url: getApp().globalData.serverUrl + '/api/friend/moments?openid=' + app.globalData.userInfo.id,
       success(res) {
         if (res) {
+          console.log(res.data)
           that.setData({
             friendArray: res.data
           })

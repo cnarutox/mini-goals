@@ -373,7 +373,7 @@ Page({
     var that = this
     console.log(that.data.habitName)
     wx.request({
-      url: getApp().globalData.serverUrl + '/api/habit/createhabit',
+      url: getApp().globalData.serverUrl + '/api/habit/create',
       method: 'POST',
       header: { 'content-type': 'application/json' },
       data: {
@@ -384,7 +384,7 @@ Page({
         color: that.data.colorData.pickerData.hex,
         description: that.data.descriptionForHabit,
         share_state: that.data.shareable + that.data.persistenceSharaeble,
-        id: app.globalData.userInfo.id
+        openid: app.globalData.userInfo.id
       },
       success: function (res) {
         console.log(res)

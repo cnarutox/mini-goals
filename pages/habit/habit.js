@@ -42,17 +42,20 @@ Page({
       }
     })
     wx.request({
-      url: getApp().globalData.serverUrl + '/api/habit/gethabitlist?userId=' + app.globalData.userInfo.id,
+      url: getApp().globalData.serverUrl + '/api/habit?openid=' + app.globalData.userInfo.id + '&state=1',
       success: function (res) {
         console.log('habit onShow:👇')
         console.log(res.data); // 服务器回包信息
-        that.setData({
-          habitArray: res.data.habits
-        })
-        wx.setStorage({
-          key: 'habitArray',
-          data: res.data.habits,
-        })
+        if (res.data.habits) {
+          that.setData({
+            habitArray: res.data.habits
+          })
+          wx.setStorage({
+            key: 'habitArray',
+            data: res.data.habits,
+          })
+        }
+        else console.log('习惯为空')
       }
     })
     this.setData({

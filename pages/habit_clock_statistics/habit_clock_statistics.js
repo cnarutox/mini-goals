@@ -31,7 +31,7 @@ Page({
         var that = this
         console.log(options)
         wx.request({
-            url: getApp().globalData.serverUrl + '/api/habit/gethabitname?param=' + options.habitId,
+          url: getApp().globalData.serverUrl + '/api/habit/gethabitname?user_habit=' + options.habitId,
             success: function(res) {
                 if (res) {
                     that.setData({
@@ -42,7 +42,7 @@ Page({
             }
         })
         wx.request({
-            url: getApp().globalData.serverUrl + '/api/habit/countpersist?param=' + options.habitId,
+          url: getApp().globalData.serverUrl + '/api/habit/countpersist?user_habit=' + options.habitId,
             success: function(res) {
                 if (res) {
                     that.setData({
@@ -52,7 +52,7 @@ Page({
             }
         })
         wx.request({
-            url: getApp().globalData.serverUrl + '/api/habit/getuserhabitlike?param=' + options.habitId,
+          url: getApp().globalData.serverUrl + '/api/habit/like?user_habit=' + options.habitId,
             success: function(res) {
                 if (res) {
                     that.setData({

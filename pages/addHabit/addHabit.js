@@ -41,7 +41,7 @@ Page({
   onShow: function () {
     var that = this
     wx.request({
-      url: getApp().globalData.serverUrl + '/api/habit/getrecommendation?recid=' + 1,
+      url: getApp().globalData.serverUrl + '/api/habit/recommendation-index?type=' + 1,
       success: function (res) {
         var habitSeletedTitle = 'buttonSelectedArray.title'
         var habitSeleted = 'buttonSelectedArray.habitArray'
@@ -98,7 +98,7 @@ Page({
       idx: btnIndex - 1
     })
     wx.request({
-      url: getApp().globalData.serverUrl + '/api/habit/getrecommendation?recid='+btnIndex,
+      url: getApp().globalData.serverUrl + '/api/habit/recommendation-index?type='+btnIndex,
       success: function(res){
         var habitSeletedTitle = 'buttonSelectedArray.title'
         var habitSeleted = 'buttonSelectedArray.habitArray'
