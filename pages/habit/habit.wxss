@@ -1,5 +1,4 @@
 /* pages/habit/habit.wxss */
-@import '../../styles/iconfont.wxss';
 .flex_row{
   
 }
@@ -19,12 +18,11 @@
   width: 160rpx;
   height: 160rpx;
   font-size: 40rpx;
-  background-color: whitesmoke;
+  background: radial-gradient(circle,#F3E3AE,#F3E3AE,#C29DF1);
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border: 5rpx solid gray;
 }
 
 .addText{

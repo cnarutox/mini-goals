@@ -19,6 +19,6 @@
     <image class="iconfornull" mode="aspectFit" src="{{src}}"></image>
   </view>
   <view class="outerBtn">
-    <button class="addBtn" bindtap="addHabit"><text class="addText">添加\n习惯</text></button>
+    <button class="addBtn" bindtap="addHabit"><icon class="iconfont .icon-zengjia" style="color: gray"></icon></button>
   </view>
 </view>
