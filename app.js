@@ -74,7 +74,7 @@ App({
                             wx.request({
                               url: getApp().globalData.serverUrl + '/api/user/update',
                               data: {
-                                id: that.globalData.userInfo.id,
+                                openid: that.globalData.userInfo.id,
                                 name: that.globalData.userInfo.nickName,
                                 avatar: that.globalData.userInfo.avatarUrl
                               },

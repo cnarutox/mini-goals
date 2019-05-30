@@ -45,7 +45,7 @@ Page({
       }
     })
     wx.request({
-      url: getApp().globalData.serverUrl + '/api/friend/moments?userid=' + app.globalData.userInfo.id + "&date=" + date,
+      url: getApp().globalData.serverUrl + '/api/friend/moments?openid=' + app.globalData.userInfo.id,
       success(res) {
         if (res) {
           that.setData({
@@ -120,7 +120,7 @@ Page({
         data: that.data.friendArray,
       })
       wx.request({
-        url: getApp().globalData.serverUrl + '/api/friend/thumbup?userid=' + app.globalData.userInfo.id + "&date=" + date + "&userhabit=" + userhabitid,
+        url: getApp().globalData.serverUrl + '/api/friend/like?openid=' + app.globalData.userInfo.id + "&user_habit=" + userhabitid,
         success(res) {
           if (res) {
             wx.showToast({
