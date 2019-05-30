@@ -37,7 +37,7 @@ Page({
     var date = util.formatTime2(new Date())
     wx.getStorage({
       key: 'friendArray',
-      success(res) {  
+      success(res) {
         console.log('获取缓存朋友圈')
         that.setData({
           friendArray: res.data
@@ -46,15 +46,14 @@ Page({
     })
     wx.request({
       url: getApp().globalData.serverUrl + '/api/friend/moments?userid=' + app.globalData.userInfo.id + "&date=" + date,
-      success: function (res) {
+      success(res) {
         if (res) {
-          console.log(res.data)
           that.setData({
-            friendArray: res.data.list
+            friendArray: res.data
           })
           wx.setStorage({
             key: 'friendArray',
-            data: res.data.list,
+            data: res.data,
           })
         }
       }
@@ -96,7 +95,7 @@ Page({
 
   },
 
-  thumbuptap: function (e) {
+  thumbuptap(e) {
     // console.log('thumbuptap')
     // console.log('e.currentTarget.dataset', e.currentTarget.dataset)
     var index = e.currentTarget.dataset.index
@@ -110,20 +109,24 @@ Page({
     if (this.data.friendArray[index].thumbed != true) {
       var isthumbed = "friendArray[" + index + "].thumbed"
       var list = "friendArray[" + index + "].likelist"
-      var add_str =this.data.friendArray[index].likelist.length !== 0 ? '，' : ''
+      var add_str = this.data.friendArray[index].likelist.length !== 0 ? '，' : ''
       // console.log(this.data.friendArray[index].likelist.length, add_str)
       that.setData({
         [isthumbed]: true,
         [list]: that.data.friendArray[index].likelist + add_str + app.globalData.userInfo.nickName
       })
+      wx.setStorage({
+        key: 'friendArray',
+        data: that.data.friendArray,
+      })
       wx.request({
-        url: "https://aliyun.alumik.cn:5180/api/friend/thumbup?userid=" + app.globalData.userInfo.id + "&date=" + date + "&userhabit=" + userhabitid,
-        success: function (res) {
+        url: getApp().globalData.serverUrl + '/api/friend/thumbup?userid=' + app.globalData.userInfo.id + "&date=" + date + "&userhabit=" + userhabitid,
+        success(res) {
           if (res) {
-            // console.log(res.data)
             wx.showToast({
               title: '成功',
             })
+            console.log(userhabitid)
           }
         }
       })

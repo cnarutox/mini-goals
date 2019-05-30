@@ -8,13 +8,11 @@
     "pages/totalpersist/totalpersist",
     "pages/mypage/mypage",
     "pages/habit_clock/habit_clock",
-    "pages/loadicon/loadicon",
     "pages/archive/archive",
     "pages/customizedHabit/customizedHabit",
     "pages/archiveDetail/archiveDetail",
     "pages/habit_clock_details/habit_clock_details",
-    "pages/logs/logs",
-    "loadicon"
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",
