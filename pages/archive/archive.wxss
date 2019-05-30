@@ -35,10 +35,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 320rpx;
+  width: 300rpx;
   height: 250rpx;
   background: skyblue;
   margin: 20rpx;
+  border: 5rpx solid black;
 }
 
 .archivename{

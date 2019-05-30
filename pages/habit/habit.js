@@ -136,7 +136,7 @@ Page({
                     data: habitArray_temp
                   })
                   wx.request({
-                    url: "https://aliyun.alumik.cn:5180/api/habit/delete?param=" + habitid,
+                    url: getApp().globalData.serverUrl + '/api/habit/delete?param=' + habitid,
                     success: function (res) {
                       wx.showToast({
                         title: '删除成功'
@@ -150,13 +150,14 @@ Page({
             break;
           case 1:
             console.log("归档习惯");
+            console.log('habitid,', habitid);
             var habitArray_temp = that.data.habitArray
             habitArray_temp.splice(arrayindex, 1)
             that.setData({
               habitArray: habitArray_temp
             })
             wx.request({
-              url: "https://aliyun.alumik.cn:5180/api/habit/archive?param=" + habitid,
+              url: getApp().globalData.serverUrl + '/api/habit/archive?param=' + habitid,
               success: function (res) {
                 console.log('archive' + res.data)
                 wx.showToast({

@@ -6,7 +6,7 @@
       <view class="archives" wx:for="{{archives}}" wx:if="{{item.state==3}}">
         <view class="archive-item" bindtap="navigatedetail" bindlongpress="bindlongpress" data-id="{{item.id}}">
           <text class="archivename">{{item.name}}</text>
-          <text class="archivetext">已坚持null天</text>
+          <text class="archivetext">已坚持{{item.persist}}天</text>
         </view>
       </view>
     </view>
