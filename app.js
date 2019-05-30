@@ -1,4 +1,4 @@
-//app.js
+  //app.js
 const serverUrl = 'https://aliyun.alumik.cn:5180/mini-goals';
 // const serverUrl = 'http://localhost';
 App({
@@ -60,8 +60,8 @@ App({
                           success: res => {
                             // 可以将 res 发送给后台解码出 unionId
                             res.userInfo.id = that.globalData.userInfo.id
-                            if (JSON.stringify(that.globalData.userInfo)
-                              != JSON.stringify(res.userInfo)) {
+                            // if (JSON.stringify(that.globalData.userInfo)
+                            //   != JSON.stringify(res.userInfo)) {
                               that.globalData.userInfo = res.userInfo
                               wx.setStorage({
                                 key: 'userInfo',
@@ -71,7 +71,6 @@ App({
                                   console.log(that.globalData.userInfo)
                                 }
                               })
-                              // console.log(that.globalData.userInfo)
                               wx.request({
                                 url: getApp().globalData.serverUrl + '/api/user/update',
                                 data: {
@@ -83,9 +82,6 @@ App({
                                   console.log(res.data)
                                 }
                               })
-                            } else {
-                              console.log('无需更新用户缓存信息')
-                            }
                             // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
                             // 所以此处加入 callback 以防止这种情况
                             if (that.userInfoReadyCallback) {
