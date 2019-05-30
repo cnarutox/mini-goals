@@ -8,7 +8,7 @@ Page({
         habitId: 0,
         curHabitTag: '',
         curHabitPercent: '0',
-        habitPercentBeginLabel: '你以超过了&nbsp;&nbsp;',
+        habitPercentBeginLabel: '你已超过了&nbsp;&nbsp;',
         habitPercentEndLabel: '&nbsp;&nbsp;%的用户',
         dataIcon: '../images/data_icon.png',
         dataTag: '数据统计',
