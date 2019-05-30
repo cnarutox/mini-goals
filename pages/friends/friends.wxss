@@ -39,7 +39,7 @@ page{
 
   .username{
     color: slateblue;
-    font-size: 45rpx;
+    font-size: 40rpx;
   }
   .pack12{
     display: flex;
@@ -52,12 +52,13 @@ page{
     padding: 10rpx;
   }
 
-  .habiticon{
+  .habiticon {
+    font-size:60rpx;
   }
 
   .habittext{
     color: black;
-    font-size: 30rpx;
+    font-size: 35rpx;
   }
   
   .pack13{
