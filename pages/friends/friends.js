@@ -37,7 +37,7 @@ Page({
     var date = util.formatTime2(new Date())
     wx.getStorage({
       key: 'friendArray',
-      success(res) {
+      success(res) {  
         console.log('获取缓存朋友圈')
         that.setData({
           friendArray: res.data
@@ -45,10 +45,10 @@ Page({
       }
     })
     wx.request({
-      url: "https://aliyun.alumik.cn:5180/api/friend/moments?userid=" + app.globalData.userInfo.id + "&date=" + date,
+      url: getApp().globalData.serverUrl + '/api/friend/moments?userid=' + app.globalData.userInfo.id + "&date=" + date,
       success: function (res) {
         if (res) {
-          // console.log(res.data)
+          console.log(res.data)
           that.setData({
             friendArray: res.data.list
           })

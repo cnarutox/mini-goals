@@ -1,6 +1,6 @@
 //app.js
-const serverUrl = 'https://aliyun.alumik.cn:5180';
-// const serverUrl = 'http://localhost';
+// const serverUrl = 'https://aliyun.alumik.cn:5180/mini-goals';
+const serverUrl = 'http://localhost';
 App({
   globalData: {
     serverUrl: serverUrl,
