@@ -15,9 +15,8 @@
 <block wx:for="{{buttonSelectedArray.habitArray}}" wx:for-item="itemName">
   <view class="lst">
     <view class="nav">
-      <view class="flex_row" style="background:linear-gradient(to left, {{itemName.color}}, white)">
-        <view class="habiticon" style="background-color:{{itemName.color}}">
-        </view>
+      <view class="flex_row" style="background:linear-gradient(to left, {{itemName.color}}, {{itemName.color_to}})">
+        <icon class="habiticon iconfont {{itemName.iconfont}}"></icon>
         <view class="flex_column">
           <view class="habitNm">{{itemName.name}}</view>
           <view class="illu">{{"已有" + itemName.peer + "位朋友在坚持"}}</view>

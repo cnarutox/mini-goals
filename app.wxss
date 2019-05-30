@@ -15,3 +15,23 @@
 .habiticon{
   margin: 0rpx 20rpx;
 }
+
+.habitNm{
+  font-size: 40rpx;
+}
+
+.illu{
+  font-size: 30rpx;
+  color: black;
+}
+
+.flex_row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: stretch;
+  margin: 20rpx;
+  padding: 20rpx;
+  border-radius: 3%;
+  box-shadow: 0rpx 2rpx 5rpx 5rpx grey;
+} 

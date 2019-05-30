@@ -3,20 +3,27 @@
   width: 20%;
   height: 1%;
   align-items: flex-start;
-  border-radius: 98rpx;
   align-self: center;
-  font-size: 60%;
+  border-radius: 20%;
+  font-size: 30rpx;
   margin-right: 2%;
-  background-color: orange;
-  color: white;
+  background-color: transparent;
+  color: black;
+  box-shadow: 0rpx 2rpx 5rpx 5rpx black;
+}
+
+.habitNm{
+  
+}
+
+.illu{
+  
 }
 
 .part1{
   display: flex;
   flex-wrap: wrap;
 }
-
-
 
 
 
@@ -81,23 +88,12 @@ btn1::after{
 
 
 .flex_row{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: stretch;
-  margin: 20rpx;
-  padding: 20rpx;
-  border-radius: 3%;
-  box-shadow: 0rpx 2rpx 5rpx 5rpx grey;
+
 } 
+
 .flex_column{
   display: flex;
   flex-direction: column;
   margin-left: 5%;
   margin-right: 5%;
-}
-
-.illu{
-  font-size: 50%;
-  color: black;
 }

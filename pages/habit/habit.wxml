@@ -5,8 +5,7 @@
     <view class="lst">
       <navigator url="../habit_clock/habit_clock?habitId={{item.id}}" class="nav" bindlongtap="handleLongPress" data-index="{{index}}" data-id="{{item.id}}" wx-if="{{item.state==1}}">
         <view class="flex_row" style="background:linear-gradient(to left, {{item.color}}, {{item.color_to}})">
-          <!-- <view class="habiticon" style="background-color:{{item.color}}"></view> -->
-          <icon class="habiticon iconfont icon-canyin"></icon>
+          <icon class="habiticon iconfont {{item.iconfont}}"></icon>
           <view class="flex_column">
             <view class="habitNm">{{item.name}}</view>
             <view class="illu">{{"已坚持 " + item.persist + "天"}}</view>
