@@ -1,4 +1,5 @@
 //app.js
+// const serverUrl = 'https://www.werehunter.com/mini-goals';
 const serverUrl = 'https://aliyun.alumik.cn:5180/mini-goals';
 // const serverUrl = 'http://localhost';
 App({

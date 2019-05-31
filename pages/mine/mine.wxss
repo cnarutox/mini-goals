@@ -21,7 +21,6 @@
   align-self: stretch;
   padding: 20rpx;
   margin-bottom: 20rpx;
-  background: linear-gradient(320deg, #3f9fff8a, #9faadf8a, #d5b6bf8a, #ffc39d8a);
   border-radius: 10rpx;
 }
 

@@ -1,41 +1,27 @@
 <!--index.wxml-->
 <view class="index-container">
-    <view class="header">
-        <image class="plus" src="../../images/plus.png"/>
-        <input class="new-todo" value="{{ input }}"
-               placeholder="Anything here..." auto-focus
-               bindinput="inputChangeHandle" bindconfirm="addTodoHandle"/>
-    </view>
-    <block wx:if="{{todos.length}}">
-        <view style="margin-bottom: 30rpx"
-              wx:for="{{todos}}"
-              wx:for-item="todo"
-              wx:for-index="todoIndex" class="todos"
-              data-list-index="{{todoIndex}}" bindlongtap="bindTasks">
-            <view style="display: flex;justify-content:space-between;margin: 20rpx">
-                <text style="font-size:40rpx;font-weight: bold">{{todo.name}}
+  <view class="header">
+    <image class="plus" src="../../images/plus.png" />
+    <input class="new-todo" value="{{ input }}" placeholder="Anything here..." bindinput="inputChangeHandle" bindconfirm="addTodoHandle" />
+  </view>
+  <block wx:if="{{todos.length}}">
+    <view style="margin-bottom: 30rpx" wx:for="{{todos}}" wx:for-item="todo" wx:for-index="todoIndex" class="todos" data-list-index="{{todoIndex}}" bindlongtap="bindTasks">
+      <view style="display: flex;justify-content:space-between;margin: 20rpx">
+        <text style="font-size:40rpx;font-weight: bold">{{todo.name}}
                 </text>
-                <icon wx:if="{{todoIndex!=0}}" style="transform: rotate(180deg)"
-                      type="download" data-list-index="{{todoIndex}}"
-                      bindtap="bindUp"></icon>
-            </view>
-            <view data-list-index="{{todoIndex}}" class="item"
-                  wx:for="{{todo.todoList}}" data-index="{{index}}"
-                  bindtap="bindComplete">
-                <icon class="checkbox"
-                      type="{{item.state==5?'success':'circle'}}"/>
-                <text class="name">{{item.name}}</text>
-            </view>
-        </view>
-    </block>
-    <block wx:else>
-        <view class="empty">
-            <text class="title">Congratulations!</text>
-            <text class="content">There's no more work left.</text>
-        </view>
-    </block>
-    <!--<button bindtap="test">TEST</button>-->
+        <icon wx:if="{{todoIndex!=0}}" style="transform: rotate(180deg)" type="download" data-list-index="{{todoIndex}}" bindtap="bindUp"></icon>
+      </view>
+      <view data-list-index="{{todoIndex}}" class="item" wx:for="{{todo.todoList}}" data-index="{{index}}" bindtap="bindComplete">
+        <icon class="checkbox" type="{{item.state==5?'success':'circle'}}" />
+        <text class="name">{{item.name}}</text>
+      </view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="empty">
+      <text class="title">Congratulations!</text>
+      <text class="content">There's no more work left.</text>
+    </view>
+  </block>
+  <!--<button bindtap="test">TEST</button>-->
 </view>
-
-
-   
