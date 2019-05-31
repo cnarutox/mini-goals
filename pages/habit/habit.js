@@ -139,7 +139,12 @@ Page({
                     data: habitArray_temp
                   })
                   wx.request({
-                    url: getApp().globalData.serverUrl + '/api/habit/delete?param=' + habitid,
+                    url: getApp().globalData.serverUrl + '/api/habit/delete',
+                    method: 'POST',
+                    header: {'content-type':  'application/json'},
+                    data: {
+                      user_habit: habitid,
+                    },
                     success: function (res) {
                       wx.showToast({
                         title: '删除成功'
@@ -160,7 +165,12 @@ Page({
               habitArray: habitArray_temp
             })
             wx.request({
-              url: getApp().globalData.serverUrl + '/api/habit/archive?param=' + habitid,
+              url: getApp().globalData.serverUrl + '/api/habit/archive',
+              method: 'POST',
+              header: {'content-type': 'application/json'},
+              data: {
+                user_habit: habitid,
+              },
               success: function (res) {
                 console.log('archive' + res.data)
                 wx.showToast({
