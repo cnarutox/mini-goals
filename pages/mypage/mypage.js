@@ -15,6 +15,8 @@ Page({
     archives: [],
     toView: 'yellow',
     scrollTop: 0,
+    totallikeicon: "icon-zanfill",
+    likenum: 0,
   },
 
   /**

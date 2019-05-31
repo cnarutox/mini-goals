@@ -1,95 +1,31 @@
 /* pages/mine/mine.wxss */
 
-.outercontainer {
+.outercontainer{
+  background: lightgray;
+  height: 100vh;
 }
 
-.innercontainer {
-  display: flex;
-  flex-direction: column;
-  align-self: flex-start;
-  width: 100%;
-  border: 5rpx dotted green;
-}
-
-.userinfoview {
+.mainpage{
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  height: 300rpx;
-}
-
-.userinfo {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  background: linear-gradient(180deg, #da48f7, #f393d4);
-  width: 100%;
-  height: 100%;
-}
-
-.avatarnamelike {
-  display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
-}
-
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 50rpx;
-  border-radius: 50%;
-}
-
-.namelike {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.userinfo-nickname {
-  color: #fff;
-}
-
-.like {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.likeicon {
-  margin-right: 20rpx;
-}
-
-.liketext {
-}
-
-.mainpage {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  background: linear-gradient(180deg, #f393d4, #edbf8f, #e8eb54);
 }
 
 .icontext {
   display: flex;
   flex-direction: row;
-  padding: 40rpx;
-  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  background: yellow;
+  align-self: stretch;
+  padding: 20rpx;
+  margin: 20rpx;
 }
 
-.iconmine {
+.icons{
   margin-right: 10rpx;
 }
 
-.separate {
-  width: 100%;
-  height: 20rpx;
-  background-color: lightgray;
-}
+
+

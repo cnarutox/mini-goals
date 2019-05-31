@@ -35,3 +35,43 @@
   border-radius: 3%;
   box-shadow: 0rpx 2rpx 5rpx 5rpx grey;
 } 
+
+.userinfoview{
+  height: 30vh;
+  background: yellowgreen;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.avatarname{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname{
+  color: #fff;
+}
+
+.thumbupnum{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.likeicon{
+  font-size: 45rpx;
+  margin-right: 15rpx;
+}

@@ -10,6 +10,9 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     likenum: 0,
+    totallikeicon: "icon-zanfill",
+    persisticon: "icon-jianshen",
+    mineicon: "icon-geren",
   },
 
   /**

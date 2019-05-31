@@ -1,18 +1,26 @@
 <!--pages/mypage/mypage.wxml-->
 <view class="outercontainer">
+
   <view class="userinfoview">
     <view class="avatarname">
       <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <view class="thumbupnum">
+        <icon class="likeicon iconfont {{totallikeicon}}"></icon>
+        <text>{{likenum}}</text>
+      </view>
     </view>
-    <view class="separate"></view>
   </view>
-  <scroll-view class="scrollview" scroll-y>
+
+
+  <view class="outerscrollview">
+
     <view class="archivetext">
       <text class="archivestatistic">{{totalhabit}} 个习惯在坚持，{{archivehabit}} 个习惯已归档</text>
     </view>
-    <scroll-view scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-left="{{scrollTop}}">
-      <view class="scroll-x">
+
+    <scroll-view  scroll-y style="height: 60vh;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+      <view class="scroll-y">
         <view class="scroll-inner" wx:for-items="{{archives}}">
           <view class="scroll-inner-inner" style="background-color: yellow" wx:if="{{item.state!=3}}">
             <text>{{item.name}}</text>
@@ -27,6 +35,11 @@
         </view>
       </view>
     </scroll-view>
-    <view class="separate"></view>
-  </scroll-view>>
+
+  
+  </view>
+
+
+
+
 </view>
