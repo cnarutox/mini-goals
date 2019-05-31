@@ -5,9 +5,6 @@
     <view class="lst">
       <navigator url="../habit_clock/habit_clock?habitId={{item.id}}" class="nav" bindlongtap="handleLongPress" data-index="{{index}}" data-id="{{item.id}}" wx-if="{{item.state==1}}">
         <view class="flex_row" style="background:{{item.style}}">
-        <!-- <view class="flex_row" style="background:linear-gradient(to left, {{item.color}}, {{item.color_to}})"> -->
-        <!-- <view class="flex_row" style="background:{{item.todayClicked?'linear-gradient(to left, {{item.color}}, {{item.color_to}})':'transparent'}}"> -->
-        <!-- <view class="flex_row" style="background:{{item.todayClicked?linear-gradient('to left', item.color, item.color_to):'transparent'}}"> -->
           <icon class="habiticon iconfont {{item.iconfont}}"></icon>
           <view class="flex_column">
             <view class="habitNm">{{item.name}}</view>
