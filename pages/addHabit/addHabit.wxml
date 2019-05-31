@@ -21,7 +21,7 @@
           <view class="habitNm">{{itemName.name}}</view>
           <view class="illu">{{"已有" + itemName.peer + "位朋友在坚持"}}</view>
         </view>
-        <button class="joinBtn" bindtap="addsuccess" data-name="{{itemName.name}}" data-cycle-type="{{itemName.cycle_type}}" data-cycle-value="{{itemName.cycle_value}}" data-color="{{itemName.color}}" data-description="{{itemName.description}}">加入</button>
+        <button class="joinBtn" bindtap="addsuccess" data-habit="{{itemName.id}}" data-cycle-type="{{itemName.cycle_type}}" data-cycle-value="{{itemName.cycle_value}}" data-color="{{itemName.color}}" data-description="{{itemName.description}}">加入</button>
       </view>
     </view>
   </view>

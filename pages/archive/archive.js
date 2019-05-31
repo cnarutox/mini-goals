@@ -17,8 +17,9 @@ Page({
      */
     onLoad: function(options) {
         var that = this;
+        console.log(options)
         wx.request({
-          url: getApp().globalData.serverUrl + '/api/habit/getarchivelist?userId=' + app.globalData.userInfo.id,
+          url: getApp().globalData.serverUrl + '/api/habit/index?openid=' + app.globalData.userInfo.id + '&state=' + 3,
             success: function(res) {
                 console.log(res.data); // 服务器回包信息
                 that.setData({
@@ -90,7 +91,12 @@ Page({
                 if (res.confirm) {
                     console.log('用户点击确定')
                     wx.request({
-                        url: getApp().globalData.serverUrl + '/api/habit/cancelarchived?param=' + habitid,
+                        url: getApp().globalData.serverUrl + '/api/habit/unarchive?param=',
+                        method: 'POST',
+                        header: { 'content-type': 'application/json' },
+                        data: {
+                          user_habit: habitid,
+                        },
                         success: function(res) {
                             that.onLoad()
                             console.log('res.data', res.data)

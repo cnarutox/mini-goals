@@ -115,12 +115,12 @@ Page({
     console.log("addsuccess")
     console.log("e.currentTarget,", e.currentTarget)
     wx.request({
-      url: getApp().globalData.serverUrl + '/api/habit/addhabit',
+      url: getApp().globalData.serverUrl + '/api/habit/follow',
       method: 'POST',
       header: { 'content-type': 'application/json' },
       data: {
-        name: e.currentTarget.dataset.name,
-        id: app.globalData.userInfo.id,
+        habit: e.currentTarget.dataset.habit,
+        openid: app.globalData.userInfo.id,
         share_state: 2
       },
       success: function (res) {
