@@ -1,10 +1,9 @@
 /* pages/mine/mine.wxss */
 
-.outercontainer{
-
+.outercontainer {
 }
 
-.innercontainer{
+.innercontainer {
   display: flex;
   flex-direction: column;
   align-self: flex-start;
@@ -12,7 +11,7 @@
   border: 5rpx dotted green;
 }
 
-.userinfoview{
+.userinfoview {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,17 +20,17 @@
   height: 300rpx;
 }
 
-.userinfo{
+.userinfo {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
-  background: yellowgreen;
+  background: linear-gradient(180deg, #da48f7, #f393d4);
   width: 100%;
   height: 100%;
 }
 
-.avatarnamelike{
+.avatarnamelike {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -45,57 +44,52 @@
   border-radius: 50%;
 }
 
-.namelike{
+.namelike {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
 }
 
-.userinfo-nickname{
+.userinfo-nickname {
   color: #fff;
 }
 
-.like{
+.like {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.likeicon{
+.likeicon {
   margin-right: 20rpx;
 }
 
-.liketext{
+.liketext {
 }
 
-.mainpage{
+.mainpage {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  width: 100%;
+  background: linear-gradient(180deg, #f393d4, #edbf8f, #e8eb54);
 }
 
-
-.icontext{
+.icontext {
   display: flex;
   flex-direction: row;
   padding: 40rpx;
-  background: yellow;
   width: 100%;
 }
 
-.iconmine{
+.iconmine {
   margin-right: 10rpx;
 }
-
 
 .separate {
   width: 100%;
   height: 20rpx;
   background-color: lightgray;
 }
-
-

@@ -2,16 +2,16 @@
 <view class="outercontainer">
   <view class="userinfoview">
     <view class="avatarname">
-      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" ></image>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </view>
     <view class="separate"></view>
   </view>
-  <view class="scrollview">
+  <scroll-view class="scrollview" scroll-y>
     <view class="archivetext">
       <text class="archivestatistic">{{totalhabit}} 个习惯在坚持，{{archivehabit}} 个习惯已归档</text>
     </view>
-    <scroll-view scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower"  bindscroll="scroll" scroll-into-view="{{toView}}" scroll-left="{{scrollTop}}">
+    <scroll-view scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-left="{{scrollTop}}">
       <view class="scroll-x">
         <view class="scroll-inner" wx:for-items="{{archives}}">
           <view class="scroll-inner-inner" style="background-color: yellow" wx:if="{{item.state!=3}}">
@@ -21,12 +21,12 @@
         </view>
         <view class="scroll-inner">
           <view class="scroll-inner-inner" bindtap="{{archivebind}}" style="background-color: skyblue">
-              <text>归档的习惯</text>
-              <text>已经归档{{archivehabit}}个习惯</text>
+            <text>归档的习惯</text>
+            <text>已经归档{{archivehabit}}个习惯</text>
           </view>
         </view>
       </view>
     </scroll-view>
     <view class="separate"></view>
-  </view>
+  </scroll-view>>
 </view>
