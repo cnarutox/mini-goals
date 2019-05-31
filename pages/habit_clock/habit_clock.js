@@ -40,10 +40,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('onLoadclock')
+    console.log(options)
     var that = this
     wx.getStorage({
       key: 'todayClicked' + options.habitId,
       success: function (res) {
+        console.log('getStorage', res.data)
         that.setData({
           todayClicked: res.data
         })
@@ -53,27 +56,28 @@ Page({
     wx.getStorage({
       key: 'weekClock' + options.habitId,
       success: function (res) {
+        console.log('getStorage', res.data)
         that.setData({
           weekClock: res.data
         })
-      },
+      }
     })
     console.log('habit_clock onLoad,', options)
     var date = util.formatTime2(new Date())
     var weekday = util.formatTime5(new Date())
-    // console.log('weekday: ' + weekday)
+    console.log('weekday: ' + weekday)
     this.setData({
       curDate: date,
       habitId: options.habitId,
     })
-    // console.log('date', date)
+    console.log('user_habit,', that.data.habitId)
     wx.request({
-      url: getApp().globalData.serverUrl + '/api/habit/getclockin?param=' + that.data.habitId + "&date=" + date + "&weekday=" + weekday,
+      url: getApp().globalData.serverUrl + '/api/habit/weekly-check?user_habit=' + that.data.habitId + "&date=" + date + "&weekday=" + weekday,
       success: function (res) {
         console.log('res.data,', res.data)
         var weeks = res.data.weeks
-        var todayClicked = res.data.todayClicked
-        var todaydate = res.data.todaydate
+        // var todayClicked = res.data.todayClicked
+        // var todaydate = res.data.todaydate
         // console.log(res.data)
         // console.log('weeks', weeks)
         // console.log('todayClicked', todayClicked)
@@ -94,11 +98,11 @@ Page({
         })
         wx.setStorage({
           key: 'todayClicked' + options.habitId,
-          data: that.data.todayClicked,
+          data: res.data.todayClicked,
         })
         wx.setStorage({
           key: 'weekClock' + options.habitId,
-          data: that.data.weekClock,
+          data: res.data.weeks,
         })
       }
     })
@@ -164,12 +168,10 @@ Page({
   clickHabit: function () {
     var that = this
     if (that.data.todayClicked != true) {
-      console.log('todatClicked', that.data.todayClicked)
-      console.log('clickedHabit')
-      var weekday = util.formatTime5(new Date()) - 1
+      console.log('todatClicked != true')
+      var weekday = util.formatTime5(new Date())-1
       var date = util.formatTime2(new Date())
       var clocked = 'weekClock[' + weekday + '].isClock'
-      // var weekday = util.formatTime5(new Date())
       this.setData({
         todayClicked: true,
         [clocked]: true,
@@ -182,12 +184,20 @@ Page({
         key: 'weekClock' + that.data.habitId,
         data: that.data.weekClock,
       })
-      //console.log(that.data.habitid)
-      console.log('weekday', weekday)
+      console.log('call check')
+      console.log(that.data.habitId)
       wx.request({
-        url: getApp().globalData.serverUrl + '/api/habit/clockin?param=' + that.data.habitId + "&date=" + date,
+        url: getApp().globalData.serverUrl + '/api/habit/check',
+        method: 'POST',
+        header: {'content-type': 'application/json'},
+        data: {
+          user_habit: that.data.habitId
+        },
         success: function (res) {
-          if (res) {
+          if (res.data==1) {
+            wx.showToast({
+              title: 'success'
+            })
           }
         }
       })
