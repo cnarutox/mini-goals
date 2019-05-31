@@ -63,7 +63,7 @@
 }
 
 .userinfo-nickname{
-  color: #fff;
+  color: linear-gradient(272deg, #385178, #7785a1, #b6bdcc, #f7f8f9)
 }
 
 .thumbupnum{

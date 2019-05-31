@@ -55,7 +55,7 @@
       <button class="confirmBtn" bindtap="confirmByInterval">确定</button>
     </view>
     <view class="outerIconSelect">
-      <text class="iconSelectedText">已经选择icon:</text>
+      <text class="iconSelectedText">选择icon配色:</text>
       <button class="iconSelectedBtn" style="background-color:{{colorData.pickerData.hex}}" bindtap="selectIcon">
       </button>
     </view>
@@ -66,12 +66,12 @@
       <button class="confirmBtn" bindtap="confirmByIcon">确定</button>
     </view>
     <view class="outerDescription">
-      <view class="descriptionHead">习惯详细描述:</view>
+      <text class="descriptionHead">习惯详细描述:</text>
       <view class="textAreaContainer" hidden="{{hiddenTextArea}}">
         <textarea class="descriptionArea" placeholder="请输入文本" bindinput="watchinput" bindblur="textAreaOnBlur" />
       </view>
       <view class="showDescriptionArea" hidden="{{hiddenShowArea}}">
-        <text bindtap="tapText">{{descriptionForHabit}}</text>
+        <text bindtap="tapText" style='color: gray; font-size:30rpx;'>{{descriptionForHabit}}</text>
       </view>
     </view>
     <view class="outerPermissionSelect">

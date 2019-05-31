@@ -5,7 +5,8 @@
 
 .createBtn{
   color: white;
-  background-color: green;
+  background: linear-gradient(274deg, #2abd7f, #30ac60, #25be3c, #32cf32);
+  margin: 20rpx;
 }
 
 .outerPersistencePermissionSelected{
@@ -37,7 +38,7 @@
 }
 
 .descriptionHead{
-  color: gray;
+  color: black;
   padding: 0% 5% 0% 5%;
 }
 
@@ -62,7 +63,7 @@
 }
 
 .iconSelectedText{
-  color: gray;
+  color: rgb(0, 0, 0);
   padding-left: 5%;
 }
 
@@ -142,6 +143,7 @@
   justify-content: center;
   align-items: center;
   padding: 5% 5% 0% 5%;
+  margin-bottom: 20rpx;
 }
 
 
@@ -171,4 +173,6 @@
   padding-top: 20rpx;
 }
 
-
+text {
+  font-size: 35rpx;
+}

@@ -18,7 +18,6 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  background: yellow;
   align-self: stretch;
   padding: 20rpx;
   margin-bottom: 20rpx;

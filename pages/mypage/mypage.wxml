@@ -19,18 +19,18 @@
       <text class="archivestatistic">{{totalhabit}} 个习惯在坚持，{{archivehabit}} 个习惯已归档</text>
     </view>
 
-    <scroll-view  scroll-y style="height: 60vh;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <scroll-view  scroll-y style="height: 56vh;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
       <view class="scroll-y">
         <view class="scroll-inner" wx:for-items="{{archives}}">
-          <view class="scroll-inner-inner" style="background-color: yellow" wx:if="{{item.state!=3}}">
-            <text>{{item.name}}</text>
+          <view class="scroll-inner-inner" wx:if="{{item.state!=3}}">
+            <text style='font-weight: bold'>{{item.name}}</text>
             <text class="illustration">已经坚持{{item.persist}}天</text>
           </view>
         </view>
         <view class="scroll-inner">
-          <view class="scroll-inner-inner" bindtap="{{archivebind}}" style="background-color: skyblue">
-            <text>归档的习惯</text>
-            <text>已经归档{{archivehabit}}个习惯</text>
+          <view class="scroll-inner-inner" bindtap="{{archivebind}}" style="background: linear-gradient(282deg, #0063ff, #4797f1, #4dcae2, #24ffd0)">
+            <text style='font-weight: bold'>归档的习惯</text>
+            <text class='illustration'>已经归档{{archivehabit}}个习惯</text>
           </view>
         </view>
       </view>

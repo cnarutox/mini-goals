@@ -42,7 +42,6 @@ color: transparent;
   height: 30vh;
   width: 100%;
   margin: 20rpx;
-  background: yellow;
 }
 
 .scroll-y {
@@ -63,11 +62,10 @@ color: transparent;
   width: 500rpx;
   height: 250rpx;
   margin: 10rpx;
+  background: linear-gradient(-225deg, #FFE29F 0%, #FFA99F 48%, #FF719A 100%);
+  border-radius: 10rpx;
 }
 
 .illustration{
-  color: gray;
+  color:whitesmoke;
 }
-
-
-
