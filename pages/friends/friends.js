@@ -10,6 +10,7 @@ Page({
     thumbupdoneicon: "../images/zan_this.png",
     thumbupicon: "../images/zan.png",
     likeicon: "../images/hearts.png",
+    likeClickedicon: "../images/hearts-active.png",
     friendArray: [
     ]
   },
@@ -114,7 +115,7 @@ Page({
       // console.log(this.data.friendArray[index].likelist.length, add_str)
       that.setData({
         [isthumbed]: true,
-        [list]: that.data.friendArray[index].likelist + add_str + app.globalData.userInfo.nickName
+        [list]: that.data.friendArray[index].likelist + add_str + app.globalData.userInfo.nickName,
       })
       wx.setStorage({
         key: 'friendArray',

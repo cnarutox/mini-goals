@@ -11,7 +11,7 @@
     <view class="archivetext">
       <text class="archivestatistic">{{totalhabit}} 个习惯在坚持，{{archivehabit}} 个习惯已归档</text>
     </view>
-    <scroll-view scroll-x="true" bindscrolltoupper="upper" bindscrolltolower="lower"  bindscroll="scroll" scroll-into-view="{{toView}}" scroll-left="{{scrollTop}}">
+    <scroll-view scroll-y="true" bindscrolltoupper="upper" bindscrolltolower="lower"  bindscroll="scroll" scroll-into-view="{{toView}}" scroll-left="{{scrollTop}}">
       <view class="scroll-x">
         <view class="scroll-inner" wx:for-items="{{archives}}">
           <view class="scroll-inner-inner" style="background-color: yellow" wx:if="{{item.state!=3}}">

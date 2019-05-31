@@ -50,6 +50,7 @@ page{
     margin-right: 20rpx;
     margin-left: 20rpx;
     padding: 10rpx;
+    border-radius: 25rpx;
   }
 
   .habiticon {
@@ -58,7 +59,7 @@ page{
 
   .habittext{
     color: black;
-    font-size: 35rpx;
+    font-size: 30rpx;
   }
   
   .pack13{
@@ -98,6 +99,8 @@ page{
     align-items: center;
     background-color:#DCDCDC;
     margin: 0rpx 20rpx 20rpx 20rpx;
+    box-shadow: 0rpx 00rpx 20rpx 20rpx #fdfbfb;
+    border-radius: 80rpx;
   }
 
   .likeicon{

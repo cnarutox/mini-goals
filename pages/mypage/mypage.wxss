@@ -68,7 +68,9 @@ color: transparent;
 }
 .scroll-x {
   display: flex;
-  flex-direction: row; 
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
 }
 
 .scroll-inner{

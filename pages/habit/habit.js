@@ -141,7 +141,7 @@ Page({
                   wx.request({
                     url: getApp().globalData.serverUrl + '/api/habit/delete',
                     method: 'POST',
-                    header: {'content-type':  'application/json'},
+                    header: { 'content-type': 'application/json' },
                     data: {
                       user_habit: habitid,
                     },
@@ -149,6 +149,7 @@ Page({
                       wx.showToast({
                         title: '删除成功'
                       })
+                      console.log(res.data)
                       //that.onShow()
                     }
                   })
@@ -167,7 +168,7 @@ Page({
             wx.request({
               url: getApp().globalData.serverUrl + '/api/habit/archive',
               method: 'POST',
-              header: {'content-type': 'application/json'},
+              header: { 'content-type': 'application/json' },
               data: {
                 user_habit: habitid,
               },
