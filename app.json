@@ -4,6 +4,7 @@
     "pages/habit/habit",
     "pages/friends/friends",
     "pages/mine/mine",
+    "pages/tasks/tasks",
     "pages/addHabit/addHabit",
     "pages/totalpersist/totalpersist",
     "pages/mypage/mypage",

@@ -14,14 +14,14 @@
 
   <view class="mainpage">
 
-    <view class="icontext" bindtap="navigatetomypage">
+    <view class="icontext" bindtap="navigatetomypage" style='background: linear-gradient(230deg, #3f9fff8a, #9faadf8a, #d5b6bf8a, #ffc39d8a);'>
 
       <icon class="icons iconfont {{mineicon}}"></icon>
 
       <text class="textmine">我的主页</text>
     </view>
 
-    <view class="icontext" bindtap="navigatetototalpersist">
+    <view class="icontext" bindtap="navigatetototalpersist" style='background: linear-gradient(320deg, #3f9fff8a, #9faadf8a, #d5b6bf8a, #ffc39d8a);'>
 
       <icon class="icons iconfont {{persisticon}}"></icon>
 

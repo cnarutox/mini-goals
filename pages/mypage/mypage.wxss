@@ -1,7 +1,12 @@
 /* pages/mypage/mypage.wxss */
+page {
+  overflow: hidden;
+}
+
 .outercontainer{
-  background: lightgrey;
+  background: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
   height: 100vh;
+  padding-top: 5rpx;
 }
 
 ::-webkit-scrollbar{
@@ -29,6 +34,8 @@ color: transparent;
 
 .archivestatistic{
   font-size: 35rpx;
+  padding: 10rpx 100rpx;
+  box-shadow: 0 0 20 20rpx #e9defa;
 }
 
 .scroll-view-item{
