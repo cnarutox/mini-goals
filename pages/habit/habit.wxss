@@ -1,31 +1,30 @@
 /* pages/habit/habit.wxss */
-.flex_row{
-  
+
+.flex_row {
 }
 
-.flex_column{
+.flex_column {
   display: flex;
   flex-direction: column;
 }
 
-.illu{
-  
+.illu {
 }
 
-.addBtn{
+.addBtn {
   margin: 20rpx;
   border-radius: 50%;
   width: 160rpx;
   height: 160rpx;
   font-size: 40rpx;
-  background: radial-gradient(circle,#F3E3AE,#F3E3AE,#C29DF1);
+  background: radial-gradient(circle, #f3e3ae, #f3e3ae, #c29df1);
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-.addText{
+.addText {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -36,24 +35,21 @@
   font-size: 35rpx;
 }
 
-.iconfornull{
+.iconfornull {
   align-items: center;
   border: 10px solid white;
 }
 
-
-.warning{
+.warning {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 50px 5px 15px 5px;
 }
 
-.outerBtn{
+.outerBtn {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
-
-

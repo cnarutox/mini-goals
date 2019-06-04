@@ -54,11 +54,13 @@
   text-decoration: line-through;
   color: #888;
 }
+
 /* 
 .todos .item .remove {
   cursor: pointer;
 }
 */
+
 .footer {
   display: flex;
   justify-content: space-between;
@@ -67,11 +69,13 @@
   font-size: 26rpx;
   color: #777;
 }
+
 /* 
 .footer .btn {
   cursor: pointer;
 }
 */
+
 .empty {
   display: flex;
   flex-direction: column;
@@ -88,4 +92,11 @@
 .empty .content {
   color: #666;
   text-align: center;
+}
+
+button {
+  margin-bottom: 25rpx;
+  background: linear-gradient(25deg, #03c8ff, #6fd0d7, #91d9ae, #a6e383);
+  font-weight: bold;
+  color:white;
 }
