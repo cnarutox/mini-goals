@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view class="index-container">
+  <button wx:if="{{!hasUserInfo}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
   <view class="header">
     <image class="plus" src="../../images/plus.png" />
     <input class="new-todo" value="{{ input }}" placeholder="Anything here..." bindinput="inputChangeHandle" bindconfirm="addTodoHandle" />

@@ -32,7 +32,7 @@ Page({
       })
     }
     wx.request({
-      url: getApp().globalData.serverUrl + '/api/habit/index?openid=' + app.globalData.userInfo.id + '&state=1,3',
+      url: getApp().globalData.serverUrl + '/api/habit?openid=' + app.globalData.userInfo.id + '&state=1,3',
       success: function (res) {
         console.log(res.data); // 服务器回包信息
         that.setData({
