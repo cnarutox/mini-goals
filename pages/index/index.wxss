@@ -98,5 +98,5 @@ button {
   margin-bottom: 25rpx;
   background: linear-gradient(25deg, #03c8ff, #6fd0d7, #91d9ae, #a6e383);
   font-weight: bold;
-  color:white;
+  color: white;
 }
