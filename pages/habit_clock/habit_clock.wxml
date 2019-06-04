@@ -12,7 +12,7 @@
   </view>
   <view style="display: flex;justify-content:space-between;margin:20rpx;padding:20rpx;"> 
     <view wx:for="{{weekClock}}" style='display:flex;flex-direction:column;justify-content:center;align-items:center'>
-      <text>{{item.tag}}</text>
+      <text>{{item.name}}</text>
       <icon style="margin-top:20rpx" type="success" color="{{item.isClock?'blue':'gray'}}" size="20"></icon>
     </view>
   </view>

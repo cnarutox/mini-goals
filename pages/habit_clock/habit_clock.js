@@ -13,27 +13,36 @@ Page({
     statisticsButtonLabel: '统计情况',
     habitId: 0,
     weekClock: [{
-      tag: '一',
+      name: '一',
       isClock: false
     }, {
-      tag: '二',
+      name: '二',
       isClock: false
     }, {
-      tag: '三',
+      name: '三',
       isClock: false
     }, {
-      tag: '四',
+      name: '四',
       isClock: false
     }, {
-      tag: '五',
+      name: '五',
       isClock: false
     }, {
-      tag: '六',
+      name: '六',
       isClock: false
     }, {
-      tag: '七',
+      name: '七',
       isClock: false
-    }]
+    }],
+    weekdayname: [
+      "一",
+      "二",
+      "三",
+      "四",
+      "五",
+      "六",
+      "七"
+    ]
   },
 
   /**
@@ -83,13 +92,16 @@ Page({
         // console.log('todayClicked', todayClicked)
         // console.log('todaydate', todaydate)
         for (var i = 0; i < 7; i++) {
+          var weekname = 'weekClock[' + i + '].name'
           var clocked = 'weekClock[' + i + '].isClock'
           if (weeks[i] == 1) {
             that.setData({
+              [weekname]: that.data.weekdayname[i],
               [clocked]: true
             })
           }
           else that.setData({
+            [weekname]: that.data.weekdayname[i],
             [clocked]: false
           })
         }
