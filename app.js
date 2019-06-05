@@ -1,7 +1,7 @@
 //app.js
-// const serverUrl = 'https://werehunter.com/mini-goals';
+const serverUrl = 'https://werehunter.com/mini-goals';
 // const serverUrl = 'https://aliyun.alumik.cn:5180/mini-goals';
-const serverUrl = 'http://localhost';
+// const serverUrl = 'http://localhost';
 App({
   globalData: {
     serverUrl: serverUrl,
