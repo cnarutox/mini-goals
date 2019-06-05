@@ -128,7 +128,7 @@ Page({
             wx.showToast({
               title: '成功',
             })
-            console.log(userhabitid)
+            console.log(res.data)
           }
         }
       })

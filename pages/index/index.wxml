@@ -10,7 +10,6 @@
       <view style="display: flex;justify-content:space-between;margin: 20rpx">
         <text style="font-size:40rpx;font-weight: bold">{{todo.name}}
                 </text>
-        <icon wx:if="{{todoIndex!=0}}" style="transform: rotate(180deg)" type="download" data-list-index="{{todoIndex}}" bindtap="bindUp"></icon>
       </view>
       <view data-list-index="{{todoIndex}}" class="item" wx:for="{{todo.todoList}}" data-index="{{index}}" bindtap="bindComplete">
         <icon class="checkbox" type="{{item.state==5?'success':'circle'}}" />

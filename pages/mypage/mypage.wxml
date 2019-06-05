@@ -7,7 +7,7 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
       <view class="thumbupnum">
         <icon class="likeicon iconfont {{totallikeicon}}"></icon>
-        <text>0</text>
+        <text>{{likenum}}</text>
       </view>
     </view>
   </view>

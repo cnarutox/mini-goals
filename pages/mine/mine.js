@@ -90,7 +90,7 @@ Page({
   navigatetomypage: function() {
     console.log('navigatetomypage')
     wx.navigateTo({
-      url: '../mypage/mypage'
+      url: '../mypage/mypage?likenum=' + this.data.likenum,
     })
   },
 
