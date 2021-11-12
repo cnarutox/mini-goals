@@ -1,4 +1,5 @@
 # mini-goals
+> Wechat mini application
 > 微信小程序**小目标**
 
 ![](https://github.com/cnarutox/mini-goals/blob/master/images/Mini%20Goals_%E9%A1%B5%E9%9D%A2_01.jpg)
