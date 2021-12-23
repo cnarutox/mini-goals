@@ -14,7 +14,7 @@
 ![](https://github.com/cnarutox/mini-goals/blob/master/images/Mini%20Goals_%E9%A1%B5%E9%9D%A2_08.png?raw=true)
 ![](https://github.com/cnarutox/mini-goals/blob/master/images/Mini%20Goals_%E9%A1%B5%E9%9D%A2_09.png?raw=true)
 ![](https://github.com/cnarutox/mini-goals/blob/master/images/Mini%20Goals_%E9%A1%B5%E9%9D%A2_10.png?raw=true)
-![](https://github.com/cnarutox/mini-goals/blob/master/images/Mini%20Goals_%E9%A1%B5%E9%9D%A2_11.png?raw=true)
+<!-- ![](https://github.com/cnarutox/mini-goals/blob/master/images/Mini%20Goals_%E9%A1%B5%E9%9D%A2_11.png?raw=true) -->
 ![](https://github.com/cnarutox/mini-goals/blob/master/images/Mini%20Goals_%E9%A1%B5%E9%9D%A2_12.png?raw=true)
 ![](https://github.com/cnarutox/mini-goals/blob/master/images/Mini%20Goals_%E9%A1%B5%E9%9D%A2_13.png?raw=true)
 ![](https://github.com/cnarutox/mini-goals/blob/master/images/Mini%20Goals_%E9%A1%B5%E9%9D%A2_14.png?raw=true)
