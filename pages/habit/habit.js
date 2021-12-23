@@ -58,9 +58,9 @@ Page({
         else console.log('习惯为空')
       }
     })
-    this.setData({
-      icon: base64.icon20
-    });
+    // this.setData({
+    //   icon: base64.icon20
+    // });
   },
 
   /**

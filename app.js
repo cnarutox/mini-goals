@@ -48,6 +48,7 @@ App({
               code: res.code
             },
             success(res) {
+              console.log(res.data)
               that.globalData.userInfo.id = res.data
               // console.log('用户id为' + that.globalData.userInfo.id)
               // 获取用户信息

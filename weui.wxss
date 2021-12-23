@@ -81,7 +81,6 @@ icon {
   height: 1px;
   border-top: 1rpx solid #d9d9d9;
   color: #d9d9d9;
-  left: 15px;
 }
 
 .weui-cell:first-child:before {
@@ -130,7 +129,6 @@ icon {
   transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
   position: relative;
   top: -2px;
-  position: absolute;
   top: 50%;
   margin-top: -4px;
   right: 2px;
@@ -269,7 +267,6 @@ icon {
 .weui-form-preview__hd:after {
   content: " ";
   position: absolute;
-  left: 0;
   bottom: 0;
   right: 0;
   height: 1px;
@@ -388,7 +385,6 @@ icon {
   transform: matrix(0.71, 0.71, -.71, 0.71, 0, 0);
   position: relative;
   top: -2px;
-  position: absolute;
   top: 50%;
   right: 15px;
   margin-top: -4px;
@@ -718,8 +714,6 @@ icon {
   border-left: 1rpx solid #c7c7c7;
   color: #c7c7c7;
   left: -.65em;
-  top: 0.36em;
-  bottom: 0.36em;
 }
 
 .weui-footer__link:first-child:before {
@@ -919,7 +913,6 @@ icon {
   height: 1px;
   border-bottom: 1rpx solid #e5e5e5;
   color: #e5e5e5;
-  left: 15px;
 }
 
 .weui-media-box {
@@ -936,7 +929,6 @@ icon {
   height: 1px;
   border-top: 1rpx solid #e5e5e5;
   color: #e5e5e5;
-  left: 15px;
 }
 
 .weui-media-box:first-child:before {
@@ -950,8 +942,6 @@ icon {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  word-wrap: normal;
-  word-wrap: break-word;
   word-break: break-all;
 }
 
@@ -1088,7 +1078,6 @@ icon {
   background-color: #1aad19;
   -webkit-transition: -webkit-transform 0.3s;
   transition: -webkit-transform 0.3s;
-  transition: transform 0.3s;
   transition: transform 0.3s, -webkit-transform 0.3s;
 }
 

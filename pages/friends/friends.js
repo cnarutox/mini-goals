@@ -11,14 +11,13 @@ Page({
     thumbupicon: "../images/zan.png",
     likeicon: "../images/hearts.png",
     likeClickedicon: "../images/hearts-active.png",
-    friendArray: [
-    ]
+    friendArray: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     // console.log ('onLoad' + app.globalData.userInfo.id)
 
   },
@@ -26,14 +25,14 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     var that = this
     var date = util.formatTime2(new Date())
     wx.getStorage({
@@ -45,8 +44,9 @@ Page({
         })
       }
     })
+    var id = app.globalData.userInfo.id ? app.globalData.userInfo.id : 'oo7qH5LZJLYF5mdgUFkYl4iL1_hI'
     wx.request({
-      url: getApp().globalData.serverUrl + '/api/friend/moments?openid=' + app.globalData.userInfo.id,
+      url: getApp().globalData.serverUrl + '/api/friend/moments?openid=' + id,
       success(res) {
         if (res) {
           console.log(res.data)
@@ -65,35 +65,35 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
 

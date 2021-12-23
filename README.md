@@ -23,3 +23,5 @@
 ![](https://github.com/cnarutox/mini-goals/blob/master/images/Mini%20Goals_%E9%A1%B5%E9%9D%A2_19.jpg)
 ![](https://github.com/cnarutox/mini-goals/blob/master/images/Mini%20Goals_%E9%A1%B5%E9%9D%A2_20.jpg)
 ![](https://github.com/cnarutox/mini-goals/blob/master/images/Mini%20Goals_%E9%A1%B5%E9%9D%A2_21.jpg)
+
+<!-- https://git.weixin.qq.com/wx_wxa1e403724e99c1fa/mini-goals.git -->
