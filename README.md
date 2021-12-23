@@ -2,7 +2,7 @@
 > Wechat mini application
 > 微信小程序**小目标**
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/dquuOMIpGnI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[Demo Video](https://youtu.be/dquuOMIpGnI)
 
 ![](https://github.com/cnarutox/mini-goals/blob/master/images/Mini%20Goals_%E9%A1%B5%E9%9D%A2_01.png?raw=true)
 ![](https://github.com/cnarutox/mini-goals/blob/master/images/Mini%20Goals_%E9%A1%B5%E9%9D%A2_02.png?raw=true)
