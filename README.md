@@ -4,7 +4,7 @@
 
 [Demo Video](https://youtu.be/dquuOMIpGnI)
 
-//![](https://github.com/cnarutox/mini-goals/blob/master/images/Mini%20Goals_%E9%A1%B5%E9%9D%A2_01.png?raw=true)
+<!-- ![](https://github.com/cnarutox/mini-goals/blob/master/images/Mini%20Goals_%E9%A1%B5%E9%9D%A2_01.png?raw=true) -->
 ![](https://github.com/cnarutox/mini-goals/blob/master/images/Mini%20Goals_%E9%A1%B5%E9%9D%A2_02.png?raw=true)
 ![](https://github.com/cnarutox/mini-goals/blob/master/images/Mini%20Goals_%E9%A1%B5%E9%9D%A2_03.png?raw=true)
 ![](https://github.com/cnarutox/mini-goals/blob/master/images/Mini%20Goals_%E9%A1%B5%E9%9D%A2_04.png?raw=true)
